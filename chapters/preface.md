@@ -1,3 +1,3 @@
 # Preface
 
-This is an example of "frontmatter", which comes before the main text of the book.
+This course is written and run by General Products Ltd, the makers of Bibliocloud.com. 
