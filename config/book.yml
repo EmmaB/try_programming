@@ -1,11 +1,11 @@
 ---
 slug: try_programming
 filename: try_programming
-title: Title of the Book
-subtitle: Change me
-description: Change me.
-author: Author Name
-copyright: 2014
+title: Try Programming for Publishers
+subtitle: A book to accompany the course commissioned by the Oxford Publishing Group
+description: Frustrated by watching other people become more technically literate than you? Ever wanted to try your hand at real programming? This course is designed to show you that modern programming doesn’t have to be a frightening leap into the dark. It teaches you how to develop and deploy a real web application with Ruby on Rails, the open-source web framework that powers top websites such as Twitter, Hulu, and Yellow Pages. Taught by the team who developed the Futurebook award-winning Bibliocloud.com, this hands-on course will give you the opportunity to create your own web application for storing and displaying book metadata. You'll be guided step-by-step, learning important concepts and techniques through demonstration and practice. We will assume that you have no prior experience of programming, although you should be familiar with what HTML is and unfazed by using a computer. By the end of the course you will know how to structure and write your own Ruby on Rails app, and how to publish it to the web.
+author: From the makers of Bibliocloud
+copyright: 2015
 uuid: 1993a013-a784-4e54-aa92-a4d31ecd1000
 pdf_preview_page_range: 1..30
 epub_mobi_preview_chapter_range: 0..1
