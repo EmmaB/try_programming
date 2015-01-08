@@ -1,5 +1,6 @@
 # Getting started
 \label{cha:a_chapter}
 
-This book accompanies the Try Programming for Publishers course which has been commissioned by the Oxford Publishing Group and which is next running on 20th January 2015 in Oxford, UK. However, you can read it on its own: it contains every single instruction you need to write and publish a Ruby on Rails application. So let's get started. 
+This book will accompany the Try Programming for Publishers course which has been commissioned by the Oxford Publishing Group and which is running on 20th January 2015 in Oxford, UK. After the course has run, you'll be able to access the course materials here. 
 
+To be notified when the course materials are available, sign up to our newsletter.  Email info@bibliocloud.com with the subject "Newsletter" and you'll be added. 

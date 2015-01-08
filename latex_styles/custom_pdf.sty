@@ -7,3 +7,19 @@
 % \usepackage{newunicodechar}
 % \newunicodechar{★}{\ensuremath{\star}}
 % \newunicodechar{ž}{\v{z}}
+
+% http://www.tug.dk/FontCatalogue/sansseriffonts.html
+
+\usepackage[default,osfigures,scale=0.85]{opensans} %% Alternatively
+%% use the option 'defaultsans' instead of 'default' to replace the
+%% sans serif font only.
+\usepackage[T1]{fontenc}
+
+\setlength{\oddsidemargin}{.15in}
+\setlength{\evensidemargin}{.15in}
+\definecolor{darkgreen}{RGB}{242, 70, 4}
+% Bizarrely, we need to define the ALL CAPS version of DARKGREEN to account
+% for some edge cases, whose nature remains mysterious.
+\definecolor{DARKGREEN}{RGB}{242, 70, 4}
+
+\renewcommand{\kode}[1]{\textcolor{darkgreen}{\textbf{\textbf{\kodesize #1}}}}
