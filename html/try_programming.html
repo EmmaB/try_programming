@@ -38,14 +38,603 @@
     
     <div id="book">
       <div id="frontmatter" data-number="0"><div id="title_page"><h1 class="title">Try Programming for Publishers</h1><h1 class="subtitle">A book to accompany the course commissioned by the Oxford Publishing Group</h1><h2 class="author">From the makers of Bibliocloud</h2></div>
-<h1 class="contents">Contents</h1><div id="table_of_contents"><ul><li class="chapter-star"><a href="#preface" class="heading hyperref">Preface</a></li><li class="chapter"><a href="#cha-a_chapter" class="heading hyperref"><span class="number">Chapter 1 </span>Getting started</a></li></ul></div>
+<h1 class="contents">Contents</h1><div id="table_of_contents"><ul><li class="chapter-star"><a href="#preface" class="heading hyperref">Preface</a></li><li class="chapter"><a href="#cha-a_chapter" class="heading hyperref"><span class="number">Chapter 1 </span>Getting started</a></li><li><ul><li class="section"><a href="#cid2" class="heading hyperref"><span class="number">1.1 </span>A recent history of code development.</a></li><li class="section"><a href="#cid3" class="heading hyperref"><span class="number">1.2 </span>Set up a Nitrous.io account</a></li><li class="section"><a href="#cid4" class="heading hyperref"><span class="number">1.3 </span>Create a development box</a></li><li class="section"><a href="#cid5" class="heading hyperref"><span class="number">1.4 </span>Logging back in</a></li><li class="section"><a href="#cid6" class="heading hyperref"><span class="number">1.5 </span>A look around Nitrous</a></li><li class="section"><a href="#cid7" class="heading hyperref"><span class="number">1.6 </span>Create a Ruby on Rails application</a></li></ul></li><li class="chapter"><a href="#cid8" class="heading hyperref"><span class="number">Chapter 2 </span>Structuring our app</a></li><li><ul><li class="section"><a href="#cid9" class="heading hyperref"><span class="number">2.1 </span>About the web application</a></li><li class="section"><a href="#cid10" class="heading hyperref"><span class="number">2.2 </span>About the design</a></li><li class="section"><a href="#cid11" class="heading hyperref"><span class="number">2.3 </span>Create our first model</a></li><li class="section"><a href="#cid12" class="heading hyperref"><span class="number">2.4 </span>Make this our home page</a></li></ul></li><li class="chapter"><a href="#cid13" class="heading hyperref"><span class="number">Chapter 3 </span>Making it look good</a></li><li><ul><li class="section"><a href="#cid14" class="heading hyperref"><span class="number">3.1 </span>Adding some styling</a></li></ul></li><li class="chapter"><a href="#cid15" class="heading hyperref"><span class="number">Chapter 4 </span>Adding more features</a></li><li><ul><li class="section"><a href="#cid16" class="heading hyperref"><span class="number">4.1 </span>Adding uploads</a></li></ul></li><li class="chapter"><a href="#cid17" class="heading hyperref"><span class="number">Chapter 5 </span>Making it useful</a></li><li><ul><li class="section"><a href="#cid18" class="heading hyperref"><span class="number">5.1 </span>The show page</a></li><li class="section"><a href="#cid19" class="heading hyperref"><span class="number">5.2 </span>Creating an AI</a></li><li class="section"><a href="#cid20" class="heading hyperref"><span class="number">5.3 </span>Adding products to our works</a></li><li class="section"><a href="#cid21" class="heading hyperref"><span class="number">5.4 </span>Other forms of the same data: APIs</a></li></ul></li><li class="chapter"><a href="#cid22" class="heading hyperref"><span class="number">Chapter 6 </span>Exercises</a></li></ul></div>
 <div class="chapter-star" id="preface"><h1><a href="#preface" class="heading hyperref">Preface</a></h1>
-<p>This course is written and run by General Products Ltd, the makers of Bibliocloud.com.</p>
+<p>This course is written and run by General Products Ltd, the makers of Bibliocloud.com.<span class="intersentencespace"></span> It leans liberally on the <a href="http://guides.rubyonrails.org/index.html">Rails Guides</a> which would be the best place to start after this course.</p>
+<p>Other good resources:</p>
+<p><a href="http://railstutorial.org">The Rails Tutorial by Michael Hartl</a></p>
+<p><a href="http://www.theodinproject.com">The Odin Project</a></p>
+<p><a href="http://guides.railsgirls.com/app/">Railsgirls</a></p>
+<p><a href="http://railsforzombies.org/">Rails for Zombies</a></p>
+<p><a href="http://tryruby.org/">Try ruby</a></p>
 </div></div>
 
 <div id="cha-a_chapter" data-tralics-id="cid1" class="chapter" data-number="1"><h1><a href="#cha-a_chapter" class="heading hyperref"><span class="number">Chapter 1 </span>Getting started</a></h1>
-<p>This book will accompany the Try Programming for Publishers course which has been commissioned by the Oxford Publishing Group and which is running on 20th January 2015 in Oxford, UK. After the course has run, you’ll be able to access the course materials here.</p>
-<p>To be notified when the course materials are available, sign up to our newsletter.<span class="intersentencespace"></span> Email info@bibliocloud.com with the subject “Newsletter” and you’ll be added.</p>
+</div>
+<div id="cid2" data-tralics-id="cid2" class="section" data-number="1.1"><h2><a href="#cid2" class="heading hyperref"><span class="number">1.1 </span>A recent history of code development.</a></h2>
+<p>There are lots of different programming languages, and more are being created all the time.<span class="intersentencespace"></span> They are often very specialised.<span class="intersentencespace"></span> COBOL was designed to make it easy to solve business problems.<span class="intersentencespace"></span> FORTRAN was, and still is, used to write high-performance scientific programs.</p>
+<p><a href="http://en.wikipedia.org/wiki/List_of_programming_languages">Here</a> is a list of notable languages.</p>
+<p>In this course we’ll be using a language called Ruby, which has been around for about 20 years.<span class="intersentencespace"></span> Ruby became very popular as a language for developing web-based applications about ten years ago, after the release of an “application development framework” written in Ruby, called “Ruby on Rails”.<span class="intersentencespace"></span> The aim of Ruby on Rails was to make it very easy to develop web based applications by hiding nearly all of the complexity from the developer.</p>
+<p>Over the past ten years, many more people have contributed further to the ease of developing Ruby on Rails applications by contributing more open source code to help with specific common tasks.<span class="intersentencespace"></span> These contributions, known as “gems”, help with tasks such as providing password-based access to systems, validating ISBNs, or allowing users of the system to upload files such as images or documents through the application.</p>
+<p>So the trend over the past decade has been to make it easier and easier to solve common tasks by just using code that other people have contributed, making it more simple to write sophisticated applications.</p>
+<p>When the application has been written, it used to be the case that you then had to buy or rent a “server” that is connected to the internet, and then install and maintain all of the required software and security configuration.<span class="intersentencespace"></span> However another major change has been a recent profusion in companies, such as Amazon and Google, offering rental of their own computers for running code and managing applications.<span class="intersentencespace"></span> Other companies, such as Netflix, run their businesses entirely on rented servers.<span class="intersentencespace"></span> Furthermore, yet other companies provide management layers on top of these services that hide their complexity from you, making it even easier to run your own application, and because they have a huge customer base of very similar systems, they can do so extremely cheaply.</p>
+<p>Until very recently this still left you with the problem of setting up your own computer to develop your application, and this has often been a rather trying business.<span class="intersentencespace"></span> In the past year or two, other companies have developed “hosted” systems that allow you to develop your code on their servers, so you don’t even need to have a sophisticated and complex development environment on your own desktop or laptop computers.<span class="intersentencespace"></span> Today we will be using a service called “Nitrous” to develop our code.</p>
+</div>
+<div id="cid3" data-tralics-id="cid3" class="section" data-number="1.2"><h2><a href="#cid3" class="heading hyperref"><span class="number">1.2 </span>Set up a Nitrous.io account</a></h2>
+<ul>
+<li>Go to https://www.nitrous.io/
+</li>
+<li>Enter a username.
+</li>
+<li>Now enter your email address.
+</li>
+<li>Enter a password.
+</li>
+<li>Hit “Sign up for free”.<span class="intersentencespace"></span> If any of your details aren’t up to scratch, have another go.<span class="intersentencespace"></span>
+</li>
+<li>You’ll have to log in to your email to confirm you want to sign up.<span class="intersentencespace"></span> Do that and click on the link to confirm you want an account.
+</li>
+<li>Then you can sign in.<span class="intersentencespace"></span> Enter your email or username, and password.<span class="intersentencespace"></span>
+</li></ul>
+</div>
+<div id="cid4" data-tralics-id="cid4" class="section" data-number="1.3"><h2><a href="#cid4" class="heading hyperref"><span class="number">1.3 </span>Create a development box</a></h2>
+<ul>
+<li>Click on the big green button that says <code>Open dashboard</code>.<span class="intersentencespace"></span>
+</li>
+<li>You’ll see a panel that says <code>Create your first box</code>.<span class="intersentencespace"></span> Ruby on Rails will be highlighted.<span class="intersentencespace"></span> Leave everything as it is, and click the orange <code>Create Box</code> button.
+</li>
+<li>On the next screen, wait until the line at the bottom goes green and it says [your box name] is running.<span class="intersentencespace"></span> Click <code>Next</code>.<span class="intersentencespace"></span> On the next page, scroll down and click <code>Okay, Take me to my box</code>.<span class="intersentencespace"></span>
+</li></ul>
+</div>
+<div id="cid5" data-tralics-id="cid5" class="section" data-number="1.4"><h2><a href="#cid5" class="heading hyperref"><span class="number">1.4 </span>Logging back in</a></h2>
+<p>If your login expires, you can log back in with your user name and password.</p>
+<p>Click on <code>Start</code> and then <code>IDE</code> (which stands for Interactive Development Environment).</p>
+</div>
+<div id="cid6" data-tralics-id="cid6" class="section" data-number="1.5"><h2><a href="#cid6" class="heading hyperref"><span class="number">1.5 </span>A look around Nitrous</a></h2>
+<p>At the top of the page, the screen is divided into two.<span class="intersentencespace"></span> On the left is a file system navigator – just like you’d see in Finder on the Mac or Windows Explorer on a PC.</p>
+<p>On the right is the contents of whichever file is open on Nitrous.</p>
+<p>At the bottom of the page you have a console.<span class="intersentencespace"></span> It’s the same as what you’d find if you’ve ever opened the Terminal on your Mac, or the Command Prompt on Windows.<span class="intersentencespace"></span> You can enter commands here which the computer will obey.<span class="intersentencespace"></span> Using the command line is often a lot quicker and more reliable than using the graphical user interface of your machine.</p>
+</div>
+<div id="cid7" data-tralics-id="cid7" class="section" data-number="1.6"><h2><a href="#cid7" class="heading hyperref"><span class="number">1.6 </span>Create a Ruby on Rails application</a></h2>
+<p>Oh my!<span class="intersentencespace"></span> We’re ready to create your first Ruby on Rails application.<span class="intersentencespace"></span> But what does that mean?</p>
+<div class="aside" id="aside-what_is_an_application" data-tralics-id="uid11" data-number="1.1"><div class="heading"><span class="number">Box 1.1.</span> 
+
+<span class="description">What is a Rails application?</span></div>
+<p class="noindent">When you go to the Scribd website, or the Yellow Pages website, or Airbnb, Groupon or Bloomberg, you’re looking at Ruby on Rails applications.</p>
+<p>When you run the code of a Rails application, it generates HTML pages.<span class="intersentencespace"></span> Unlike a static HTML website, though, a Rails app can display different data, drawn from a database, depending on what the website user clicks on and types.</p>
+<p>So: a Rails application generates HTML pages on the fly.<span class="intersentencespace"></span> And what are a bunch of HTML pages usually called?<span class="intersentencespace"></span> A website.</p>
+
+</div><p>Let’s set up our new Rails app in the correct folder on Nitrous.<span class="intersentencespace"></span> This next command is the same as going to Finder and clicking on a folder.<span class="intersentencespace"></span> But you’re a programmer now, so you can use the command line.<span class="intersentencespace"></span> ‘cd’ stands for ‘change directory’.<span class="intersentencespace"></span> In the console, click near the $ dollar sign, which is known as the ‘command prompt’, and type:</p>
+<p class="noindent"></p><div class="code"><div class="highlight"><pre>    cd workspace
+</pre></div></div>
+<p>The console command prompt changes to show that you’ve changed into the directory folder called ‘workspace’.</p>
+<p>You know when you install an app or a new software program that you’ve download onto your phone or computer?<span class="intersentencespace"></span> You need to do the same for the database program that we’ll be using.<span class="intersentencespace"></span> We’ll be using PostgreSQL for our database.<span class="intersentencespace"></span> To do that, run this command:</p>
+<div class="code"><div class="highlight"><pre>    parts install postgresql
+</pre></div></div>
+<p>Words will appear in your console, whilst the installation is going on.<span class="intersentencespace"></span> Once PostgreSQL is installed, you’ll be able to see the $-sign console prompt again.<span class="intersentencespace"></span> Now, you can start the PostgreSQL program.<span class="intersentencespace"></span> Run the following command:</p>
+<div class="code"><div class="highlight"><pre>    parts start postgresql
+</pre></div></div>
+<p>We’ll call our Rails app “Book Organiser”.<span class="intersentencespace"></span> What we’re aiming for is to build a website that will appear somewhere like <code>www.bookorganiser.com</code>.<span class="intersentencespace"></span> To create your new Rails app, run the following command:</p>
+<div class="code"><div class="highlight"><pre>    rails new book_organiser -d postgresql
+</pre></div></div>
+<p>That’s our database program installed and running, and our Rails app created, and we’ve only typed three commands!<span class="intersentencespace"></span> Next, we need to provide the correct username and password, to connect your new Rails app to a PostgreSQL database.
+Switch to the directory containing your new app:
+</p><div class="code"><div class="highlight"><pre>    cd book_organiser    
+</pre></div></div>
+<p>Now, find the file at <code>workspace/book_organiser/config/database.yml</code>.<span class="intersentencespace"></span> Click on it, and its contents will appear in the right hand pane.<span class="intersentencespace"></span> Delete everything in this file.<span class="intersentencespace"></span> Now, copy all the following text and paste it into the file, to replace everything that was in there.
+</p><div class="code"><div class="highlight"><pre>    development:
+      adapter: postgresql
+      encoding: unicode
+      database: book_organiser_dev
+      pool: 5
+      host: localhost
+      username: action
+      password:
+
+    test:
+      adapter: postgresql
+      encoding: unicode
+      database: book_organiser_test
+      pool: 5
+      host: localhost
+      username: action
+      password:
+
+    production:
+      adapter: postgresql
+      encoding: unicode
+      database: book_organiser_prod
+      pool: 5
+      host: localhost
+      username: action
+      password:
+</pre></div></div>
+<p>Once you’ve saved the file, go back in the console, and run the following command:</p>
+<div class="code"><div class="highlight"><pre>  rake db:create:all db:migrate
+</pre></div></div>
+<p>OK! We’ve installed PostgreSQL, created a new Rails app, created a database and connected our app to our database.<span class="intersentencespace"></span> We’re ready to start up your new Rails app.<span class="intersentencespace"></span> Run the following command:</p>
+<div class="code"><div class="highlight"><pre>    <span class="n">rails</span> <span class="n">server</span>
+</pre></div></div>
+<p>Later, you can stop the server with Control-c to return to the command prompt.</p>
+<p>Then on Nitrous’s navigation menu at the top of the page, click on <code>Preview &gt; Port 3000</code>.<span class="intersentencespace"></span> You’ll see a website declaring “Welcome aboard.<span class="intersentencespace"></span> You’re riding Ruby on Rails!”</p>
+<p>You’ve done it!<span class="intersentencespace"></span> Your new Rails application is running.</p>
+</div>
+<div id="cid8" data-tralics-id="cid8" class="chapter" data-number="2"><h1><a href="#cid8" class="heading hyperref"><span class="number">Chapter 2 </span>Structuring our app</a></h1>
+</div>
+<div id="cid9" data-tralics-id="cid9" class="section" data-number="2.1"><h2><a href="#cid9" class="heading hyperref"><span class="number">2.1 </span>About the web application</a></h2>
+<p>Today we are going to build a little web application, but first we have to think about exactly what that means - what do we need to do in order to make that happen?</p>
+<p>There are a few basic elements.</p>
+<p>Firstly, we need to have a page in an internet browser that will allow users to type information into forms, just as if they are writing an email in GMail or Yahoo!<span class="intersentencespace"></span> Mail.<span class="intersentencespace"></span> The pages need to be sent to the browser as HTML. Users need to be able to click on a button that will make the web browser send the data they have typed off to the application, which is on a remote server somewhere in the world waiting to be told what to do.</p>
+<p>Then the application needs to work out what to do with the information.<span class="intersentencespace"></span> Maybe you are adding new data, maybe you are deleting data that you no longer need, and maybe you are changing data.</p>
+<p>The data also needs to be saved somewhere, by something that will not only remember it, but will also allow it to be found again.</p>
+<p>Lastly, we need to be able to see web pages that show the information that we have previously stored.</p>
+<p>There are quite a few different things that have to be done in there, and the Ruby on Rails framework provides different components that specialise in doing different tasks.</p>
+<ul>
+<li>“Views”, which create the HTML pages that are sent to the browser.<span class="intersentencespace"></span>
+</li>
+<li>“Controllers”, which work out what to do with information sent from the browser, and which views then need to be used to send pages back again.<span class="intersentencespace"></span>
+</li>
+<li>A database, for storing and retrieving information.<span class="intersentencespace"></span>
+</li>
+<li>“Models”, which tell the Ruby on Rails system how to store and modify data in the database.<span class="intersentencespace"></span>
+</li></ul>
+</div>
+<div id="cid10" data-tralics-id="cid10" class="section" data-number="2.2"><h2><a href="#cid10" class="heading hyperref"><span class="number">2.2 </span>About the design</a></h2>
+<p>We are going to build a little system for managing publisher metadata.<span class="intersentencespace"></span> So what do we need to store information about?</p>
+<p>The world is full of “stuff”.<span class="intersentencespace"></span> Books, cats, football matches, emails, office buildings, submarines, string quartets, rock concerts.<span class="intersentencespace"></span> Some of them are actual physical things, some of them are abstract, but all of them can be thought of as some kind of object.</p>
+<p>Each of the above examples of stuff has a bunch of information associated with it.</p>
+<ul>
+<li>What time will the performance begin?<span class="intersentencespace"></span> “8:30”
+</li>
+<li>How deep can the submarine go?<span class="intersentencespace"></span> “1,000 ft”
+</li>
+<li>What’s the name of your cat?<span class="intersentencespace"></span> “Rosemary”
+</li>
+<li>Who did you send the email to?<span class="intersentencespace"></span> “The prime minister”
+</li>
+<li>What’s the ISBN of that book?<span class="intersentencespace"></span> “978-0205309023”
+</li></ul>
+<p>These are all “attributes” of the object.</p>
+<p>Each of the above “stuffs” has things that you can do to them.</p>
+<ul>
+<li>The performance can be cancelled.<span class="intersentencespace"></span>
+</li>
+<li>The submarine can be painted
+</li>
+<li>The cat’s name can be changed to “Ambrose”
+</li>
+<li>The email can be sent
+</li>
+<li>The book can be bought.<span class="intersentencespace"></span>
+</li></ul>
+<p>If we’re going to build a publishing management system, what sort of objects do we need?</p>
+<p>Publishers make books, so we’ll need to describe them.<span class="intersentencespace"></span> We’ll try to use words that are as precise as possible, so if any other developers come to work on our code, it’ll be easy for them to figure out what our app does.</p>
+<p>The first model we’ll create will be called “Work”, and it will have a title, a description, a subject and a cover image.</p>
+<p>The second model will be called “Product”.<span class="intersentencespace"></span> We could call it “book”, but that wouldn’t be very helpful if we want to store information about apps, or maps, or marketing materials, or other non-book products, in our system.<span class="intersentencespace"></span> The word “book” can also mean “individual copy” which would be misleading.<span class="intersentencespace"></span> Our products will have a format, a price, an ISBN, a publication date and a page count.</p>
+<p>Let’s say that we have two products.<span class="intersentencespace"></span> The first is a paperback, published in June 2015.<span class="intersentencespace"></span> The second is a hardback, published in March 2015.</p>
+<p>Both these products will belong to a work, whose title is “War and Peace Revisited”.<span class="intersentencespace"></span> The work’s subject is “fiction”.<span class="intersentencespace"></span> The title and the subject from the work will be inherited by the products.<span class="intersentencespace"></span> We don’t need to repeat them.</p>
+<div class="aside" id="aside-normalisation" data-tralics-id="uid26" data-number="2.1"><div class="heading"><span class="number">Box 2.1.</span> 
+
+<span class="description">Principle: Normalisation</span></div>
+<p class="noindent">We don’t store the same data more than once in a database.</p>
+
+</div></div>
+<div id="cid11" data-tralics-id="cid11" class="section" data-number="2.3"><h2><a href="#cid11" class="heading hyperref"><span class="number">2.3 </span>Create our first model</a></h2>
+<p>We’ll keep the server running so we can see our changes as they happen.<span class="intersentencespace"></span> So let’s open a new console window.<span class="intersentencespace"></span> At the bottom of the Nitrous page, click the + sign next to Console.<span class="intersentencespace"></span> Type the following to switch to your app’s folder:</p>
+<div class="code"><div class="highlight"><pre>  cd workspace/book_organiser
+</pre></div></div>
+<p>Now we can run commands which our Rails app will understand.<span class="intersentencespace"></span> Type the following:</p>
+<div class="code"><div class="highlight"><pre>  rails generate scaffold work name:string description:text cover:string subject:string
+</pre></div></div>
+<p>This has created a new file with some code in called a migration.<span class="intersentencespace"></span> When we run this migration code, it’ll tell the database to set up a new table, with a column called “name”, a column called “description”, a column called “cover” and a final column called “subject”.</p>
+<p>The database will expect most of the columns to contain data that is a ‘string’: short pieces of text up to 256 characters.<span class="intersentencespace"></span> The description column, however, will contain pieces of text with no length limit.<span class="intersentencespace"></span> Telling the database what sort of data it should be expecting makes for good quality data.<span class="intersentencespace"></span> For example, if the database was expecting a date, but a user tried to put in a string – say, “Monday”, or “Next week” – the database wouldn’t let the user save the data and would insist on an actual date.</p>
+<p>Type the following to run the migration code:</p>
+<div class="code"><div class="highlight"><pre>  rake db:migrate
+</pre></div></div>
+<p>Rake is a tool you can use with Ruby projects to run tasks in the console.<span class="intersentencespace"></span> In this case, we’re using it to run all the database migrations that haven’t yet been run.</p>
+<p>Now you can have a look at your work so far.<span class="intersentencespace"></span> Go to the browser and type <code>/works</code> after the address in the URL.</p>
+</div>
+<div id="cid12" data-tralics-id="cid12" class="section" data-number="2.4"><h2><a href="#cid12" class="heading hyperref"><span class="number">2.4 </span>Make this our home page</a></h2>
+<p>At the moment, “Welcome aboard” is occupying our important home page spot.<span class="intersentencespace"></span> Let’s change things so that our works page shows up when we go to our website’s root.</p>
+<div class="aside" id="aside-mvc" data-tralics-id="uid27" data-number="2.2"><div class="heading"><span class="number">Box 2.2.</span> 
+
+<span class="description">Model View Controller</span></div>
+<p class="noindent">Rails likes to keep everything in the right place.<span class="intersentencespace"></span> It helps developers enormously to know that if you open up someone’s Rails app you’re going to know where to go to find the html.erb view files, where to go to find the database migrations, where the business logic is, where the stylesheets and javascript files will be, and so on.<span class="intersentencespace"></span> The structural conventions that Rails uses saves developers time – and therefore money – every day.</p>
+<p>The structure that Rails apps use follow the MVC pattern <a href="http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">(Wikipedia page)</a>.</p>
+<p><code>Routing</code> decides which controller receives which requests.<span class="intersentencespace"></span> A <code>controller’s</code> purpose is to receive specific requests for the application.<span class="intersentencespace"></span> A controller contains methods called actions, and each action’s purpose is to collect information to provide it to a <code>view</code>.</p>
+<p>If you use the scaffold, like we did, then Rails controllers come with the following actions.<span class="intersentencespace"></span> Open up <code>app/controllers/works/works_controller.rb</code> as well to follow along.</p>
+<ul>
+<li>index
+</li>
+<li>show
+</li>
+<li>new
+</li>
+<li>edit
+</li>
+<li>create
+</li>
+<li>update
+</li>
+<li>destroy
+</li></ul>
+<p>For the first four of these actions, there is a corresponding view file.<span class="intersentencespace"></span> Have a look in <code>app/views/works</code> and see.<span class="intersentencespace"></span> The final three are triggered when a user sends an instruction from the view – for instance, to delete a record.<span class="intersentencespace"></span> In the case of a ‘delete’ instruction, the <code>destroy</code> controller action deletes the record then sends a message back to the relevant view, saying the record was deleted OK. There’s no separate view for such an action.</p>
+<p>A <code>view’s</code> purpose is to display the information from a controller in a human readable format.<span class="intersentencespace"></span> An important distinction to make is that it is the <code>controller</code>, not the <code>view,</code> where information is collected.<span class="intersentencespace"></span> The <code>view</code> should only display that information.</p>
+<p>(adapted from the <a href="http://guides.rubyonrails.org/">Rails Guides</a>).</p>
+<p>We used the Rails scaffold to create all the model, view, controller and routing files at the same time as the database table.<span class="intersentencespace"></span> You can create them one by one, as well.</p>
+
+</div><p>Open the file <code>app/config/routes.rb</code> in Nitrous.</p>
+<p>This is your application’s routing file which holds entries in a special DSL (domain-specific language) that tells Rails how to connect incoming requests to controllers and actions.<span class="intersentencespace"></span> This file contains many sample routes on commented lines.<span class="intersentencespace"></span> Add the following in, on the second line of the file:</p>
+<div class="code"><div class="highlight"><pre>  root 'works#index'
+</pre></div></div>
+<p><code>root ’works#index’</code> tells Rails to map requests to the root of the application to the works controller’s index action.<span class="intersentencespace"></span> <code>resources :works</code>
+tells Rails to map requests to http://localhost:3000/works/index to the works controller’s index action.<span class="intersentencespace"></span> This was created earlier when you ran the generator (<code>rails generate scaffold work</code>).</p>
+<p>Navigate to your home page in your browser.<span class="intersentencespace"></span> You’ll see the works index page there, indicating that this new route is indeed going to the work controller’s index action and is rendering the view correctly.</p>
+<p>Read more about routing in the <a href="http://guides.rubyonrails.org/getting_started.html">Rails Guides</a>.</p>
+</div>
+<div id="cid13" data-tralics-id="cid13" class="chapter" data-number="3"><h1><a href="#cid13" class="heading hyperref"><span class="number">Chapter 3 </span>Making it look good</a></h1>
+</div>
+<div id="cid14" data-tralics-id="cid14" class="section" data-number="3.1"><h2><a href="#cid14" class="heading hyperref"><span class="number">3.1 </span>Adding some styling</a></h2>
+<p>Your new <code>works</code> page is a bit ugly, to be honest, so let’s add some styling.<span class="intersentencespace"></span> There is a free, widely-used design resource called Twitter Bootstrap.<span class="intersentencespace"></span> We’ll use that to add some styling to our app by amending our application’s template.</p>
+<p>Open <code>app/views/layouts/application.html.erb</code> in your text editor.</p>
+<div class="aside" id="aside-erb" data-tralics-id="uid35" data-number="3.1"><div class="heading"><span class="number">Box 3.1.</span> 
+
+<span class="description">Why is that file named like that?</span></div>
+<p class="noindent">ERB stands for Embedded Ruby.<span class="intersentencespace"></span> You can take a normal HTML file – which would be called application.html, in this case – and if you rename it to application.html.erb, you can embed snippets of Ruby code into it.<span class="intersentencespace"></span> The code snippets get run when the page is loaded in the browser.</p>
+<p>This comes in handy the more data you have.<span class="intersentencespace"></span> Say you have fifty books in your system.<span class="intersentencespace"></span> Instead of creating 50 html files, you can create one html.erb file and use Ruby to get the right data for each book, on the fly, when the browser asks for it.<span class="intersentencespace"></span> It’s like using a template in Word, or any program: ERB saves time and duplication.</p>
+
+</div><p>The <code>app/views/layouts/application.html.erb</code> file lays out the basic template for every page in our application.<span class="intersentencespace"></span> If you have seen any HTML before, most of this page will look familiar.<span class="intersentencespace"></span> HTML, or HyperText Markup Language, is the standard markup language used to create Web pages.<span class="intersentencespace"></span> HTML is written in the form of HTML elements consisting of tags enclosed in angle brackets (like &lt;html&gt; ).<span class="intersentencespace"></span> Read more in the <a href="http://en.wikipedia.org/wiki/HTML">Wikipedia article</a> on HTML. There are lots of other online resources about HTML, but we can see the gist of how it works by looking at <code>application.html.erb</code>.</p>
+<p>If you look at that file, then go to your browser and click on <code>View &gt; Developer &gt; View source</code> (in Chrome.<span class="intersentencespace"></span> It’s a similar path for other browsers), you’ll see that the code is practically the same.<span class="intersentencespace"></span> Both versions start with</p>
+<div class="code"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;title&gt;</span>BookOrganiser<span class="nt">&lt;/title&gt;</span>
+</pre></div></div>
+<p>But see that <code>&lt;%= stylesheet_link_tag %&gt;</code> in the next line?<span class="intersentencespace"></span> That is a bit of Ruby code.<span class="intersentencespace"></span> We know it’s Ruby because of the <code>&lt;%=</code> at the beginning and the <code>%&gt;</code> at the end.<span class="intersentencespace"></span> Anything between those two markers is Ruby, and will get evaluated.<span class="intersentencespace"></span> The <code>&lt;%= stylesheet_link_tag %&gt;</code> is the bit of Ruby code that will get evaluated.<span class="intersentencespace"></span> So the browser won’t just show the phrase ‘stylesheet_link_tag’, or think that it’s plain old HTML: some Ruby code will run instead.</p>
+<p>This <code>stylesheet_link_tag</code> phrase is the name of a method – a little program that Rails understands.<span class="intersentencespace"></span> In this case, the code that runs makes sure that our Rails app references the right Cascading Stylesheets, or CSS. (The CSS makes the page look the way it does in the browser.)<span class="intersentencespace"></span> So when you View Source in your browser you’ll see HTML code that isn’t in the <code>application.html.erb</code> file.<span class="intersentencespace"></span> That code has been inserted dynamically.</p>
+<p>Let’s get on with enhancing how our app looks.<span class="intersentencespace"></span> Above the line</p>
+<div class="code"><div class="highlight"><pre>  &lt;%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" =&gt; true %&gt;
+</pre></div></div>
+<p>add</p>
+<div class="code"><div class="highlight"><pre>  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">'http://fonts.googleapis.com/css?family=Oxygen:400,700,300'</span> <span class="na">rel=</span><span class="s">'stylesheet'</span> <span class="na">type=</span><span class="s">'text/css'</span><span class="nt">&gt;</span>
+  
+</pre></div></div>
+<p>Next, look for</p>
+<div class="code"><div class="highlight"><pre><span class="x">  </span><span class="cp">&lt;%=</span> <span class="k">yield</span> <span class="cp">%&gt;</span><span class="x"></span>
+</pre></div></div>
+<p>and replace it with</p>
+<div class="code"><div class="highlight"><pre><span class="x">&lt;div class="container"&gt;</span>
+<span class="x">  </span><span class="cp">&lt;%=</span> <span class="k">yield</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">&lt;/div&gt;</span>
+</pre></div></div>
+<div class="aside" id="aside-dry" data-tralics-id="uid36" data-number="3.2"><div class="heading"><span class="number">Box 3.2.</span> 
+
+<span class="description">Principle: Don’t Repeat Yourself (DRY)</span></div>
+<p class="noindent"><code>yield</code> identifies a section where content from the view should be inserted.<span class="intersentencespace"></span> This means we don’t have to put all the header code and the nav bar code on every page.<span class="intersentencespace"></span> The things that will appear on every page can be coded once, and we can just insert the unique code for the different pages.<span class="intersentencespace"></span> This means our code is DRY.</p>
+<p>DRY is a principle of software development which states that “Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.”<span class="intersentencespace"></span> By not writing the same information over and over again, our code is more maintainable, more extensible, and less buggy.</p>
+
+</div><p>Let’s also add a navigation bar to the layout.<span class="intersentencespace"></span> In the same file, under <code>&lt;body&gt;</code>, add</p>
+<div class="code"><div class="highlight"><pre><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"navbar navbar-default navbar-fixed-top navbar-inverse"</span> <span class="na">role=</span><span class="s">"navigation"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"navbar-header"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"navbar-toggle"</span> <span class="na">data-toggle=</span><span class="s">"collapse"</span> <span class="na">data-target=</span><span class="s">".navbar-collapse"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Toggle navigation<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-bar"</span><span class="nt">&gt;&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-bar"</span><span class="nt">&gt;&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-bar"</span><span class="nt">&gt;&lt;/span&gt;</span>
+      <span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"navbar-brand"</span> <span class="na">href=</span><span class="s">"/"</span><span class="nt">&gt;</span>The Book Organiser app<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"collapse navbar-collapse"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"nav navbar-nav"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"/works"</span><span class="nt">&gt;</span>Works<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+      <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/nav&gt;</span>
+</pre></div></div>
+<p>Now let’s also change the styling of the Works table.<span class="intersentencespace"></span> Open <code>app/assets/stylesheets/application.css</code> and at the bottom add</p>
+<div class="code"><div class="highlight"><pre><span class="nt">body</span> <span class="p">{</span> <span class="k">padding-top</span><span class="o">:</span> <span class="m">100px</span><span class="p">;</span>   <span class="k">font-family</span><span class="o">:</span> <span class="n">Oxygen</span><span class="o">,</span> <span class="n">sans</span> <span class="k">serif</span><span class="p">}</span>
+<span class="nt">footer</span> <span class="p">{</span> <span class="k">margin-top</span><span class="o">:</span> <span class="m">100px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">table</span><span class="o">,</span> <span class="nt">td</span><span class="o">,</span> <span class="nt">th</span> <span class="p">{</span> <span class="k">vertical-align</span><span class="o">:</span> <span class="k">middle</span><span class="p">;</span> <span class="k">border</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">th</span> <span class="p">{</span> <span class="k">border-bottom</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#DDD</span><span class="p">;</span> <span class="p">}</span>
+</pre></div></div>
+<p>Next, <code>open app/views/works/index.html.erb</code> and replace line 3:</p>
+<div class="code"><div class="highlight"><pre>&lt;table&gt;
+</pre></div></div>
+<p>with
+</p><div class="code"><div class="highlight"><pre>&lt;table class ='table'&gt;
+</pre></div></div>
+<p>This adds a ‘class’ attribute called <code>table</code> to the HTML tag also called table.<span class="intersentencespace"></span> The <code>table</code> class is recognised by Twitter Bootstrap, and it makes the table take on Bootstrap’s styling.<span class="intersentencespace"></span> It will give it nice padding and spacing, and some pleasing lines.<span class="intersentencespace"></span> (The people who wrote Bootstrap must have thought that giving the same name to the class as the tag was a good idea.)</p>
+<p>Now make sure you saved your files and refresh the browser to see what has changed.</p>
+<p>Let’s add a bit of data.<span class="intersentencespace"></span> Click on <code>New Work</code> and use your shiny new website’s form to add a new work to your system.<span class="intersentencespace"></span> Use Amazon to grab a cover image and a description.<span class="intersentencespace"></span> Type in the subject, but leave the cover field blank for now.<span class="intersentencespace"></span> Click on ‘Create Work’ when you’re done.</p>
+<p>Great!<span class="intersentencespace"></span> You’ve not only created a web application, but you’ve added some real data to it.<span class="intersentencespace"></span> Let’s see what else we can make it do.</p>
+</div>
+<div id="cid15" data-tralics-id="cid15" class="chapter" data-number="4"><h1><a href="#cid15" class="heading hyperref"><span class="number">Chapter 4 </span>Adding more features</a></h1>
+</div>
+<div id="cid16" data-tralics-id="cid16" class="section" data-number="4.1"><h2><a href="#cid16" class="heading hyperref"><span class="number">4.1 </span>Adding uploads</a></h2>
+<p>You can judge a book by it’s cover – and we’ll need to be able to manage the covers of our books.<span class="intersentencespace"></span> We’re going to use a bundle of pre-written code called a “gem” to let us upload files to our Rails app.</p>
+<p>Open the file called <code>Gemfile</code> in the project directory and at the bottom add</p>
+<div class="code"><div class="highlight"><pre>   gem 'carrierwave'
+</pre></div></div>
+<p>and save the file.</p>
+<div class="aside" id="aside-open_source" data-tralics-id="uid37" data-number="4.1"><div class="heading"><span class="number">Box 4.1.</span> 
+
+<span class="description">Why is the carrierwave code free?</span></div>
+<p class="noindent">Rails is an open source library of code, known as a “gem”.<span class="intersentencespace"></span> There are many different gems, created by developers around the world, made freely available as part of the open source software movement.<span class="intersentencespace"></span> There’s a website called <a href="https://rubygems.org/">rubygems.org</a> which acts as a reference for all the gems published.<span class="intersentencespace"></span> You can usually see the gem’s source code on code repository service <a href="http://github.com">github.com</a>.</p>
+<p>The Ruby community encourages its members to open-source and contribute to as much high-quality gems as they can, so that everyone can benefit from code that has had many different developers working on it.</p>
+
+</div><p>In the console run:</p>
+<div class="code"><div class="highlight"><pre>bundle
+</pre></div></div>
+<p>Now we can generate the code for handling uploads.<span class="intersentencespace"></span> In the terminal run:</p>
+<div class="code"><div class="highlight"><pre>rails generate uploader Cover
+</pre></div></div>
+<p>At this point you need to restart the Rails server process in the console.<span class="intersentencespace"></span> Hit CTRL-C in the terminal to quit the server.<span class="intersentencespace"></span> Once it has stopped, you can press the up arrow to get to the last command entered, then hit enter to start the server again.<span class="intersentencespace"></span> This is so the app can load the new code.</p>
+<p>Open <code>app/models/work.rb</code> and under the line</p>
+<div class="code"><div class="highlight"><pre>class Work &lt; ActiveRecord::Base
+</pre></div></div>
+<p>add</p>
+<div class="code"><div class="highlight"><pre>mount_uploader :cover, CoverUploader
+</pre></div></div>
+<p>Open <code>app/views/works/_form.html.erb</code> and change</p>
+<div class="code"><div class="highlight"><pre>&lt;%= f.text_field :cover %&gt;
+</pre></div></div>
+<p>to</p>
+<div class="code"><div class="highlight"><pre>&lt;%= f.file_field :cover %&gt;
+</pre></div></div>
+<p>Sometimes, you might get an TypeError: can’t cast ActionDispatch::Http::UploadedFile to string.</p>
+<p>If this happens, in <code>file app/views/works/_form.html.erb</code> change the line</p>
+<div class="code"><div class="highlight"><pre>&lt;%= form_for(@work) do |f| %&gt;
+</pre></div></div>
+<p>to</p>
+<div class="code"><div class="highlight"><pre>&lt;%= form_for @work, :html =&gt; {:multipart =&gt; true} do |f| %&gt;
+</pre></div></div>
+<p>In your browser, add a new work with a cover.<span class="intersentencespace"></span> When you upload a cover it doesn’t look nice because it only shows a path to the file, so let’s fix that.</p>
+<p>Open <code>app/views/works/show.html.erb</code> and change</p>
+<div class="code"><div class="highlight"><pre>&lt;%= @work.cover %&gt;
+</pre></div></div>
+<p>to</p>
+<div class="code"><div class="highlight"><pre>&lt;%= image_tag(@work.cover_url, :width =&gt; 300) if @work.cover.present? %&gt;
+</pre></div></div>
+<p>Now refresh your browser to see what has changed.</p>
+</div>
+<div id="cid17" data-tralics-id="cid17" class="chapter" data-number="5"><h1><a href="#cid17" class="heading hyperref"><span class="number">Chapter 5 </span>Making it useful</a></h1>
+<p>Click on the Show link from the works page for one of your books.<span class="intersentencespace"></span> We’ve got some data in but we haven’t got it looking very compelling yet.<span class="intersentencespace"></span> Let’s amend this show page so that it makes our data look good.</p>
+<p>But where did this show page come from?</p>
+<div class="aside" id="aside-dry" data-tralics-id="uid38" data-number="5.1"><div class="heading"><span class="number">Box 5.1.</span> 
+
+<span class="description">Principle: Convention Over Configuration</span></div>
+<p class="noindent">Rails has opinions about the best way to do many things in a web application, and defaults to this set of conventions, rather than require that you specify every last thing.<span class="intersentencespace"></span> So when we used the Rails scaffold to create our works table, Rails also set up a bunch of files that most web developers would create, most of the time.</p>
+<p>Go to the <code>app/views/works</code> folder.<span class="intersentencespace"></span> In there you’ll see</p>
+<ul>
+<li>an Index ERB page
+</li>
+<li>a Show ERB page
+</li>
+<li>an Edit ERB page
+</li>
+<li>a New ERB page
+</li>
+<li>an ERB form.<span class="intersentencespace"></span>
+</li></ul>
+<p>Did you wonder why you were able to create a work without writing any code to define the form?<span class="intersentencespace"></span> Rails took an educated guess about what might be useful, and built it for you.<span class="intersentencespace"></span> Most of the time we like to see a summary listing of our data: that’s taken care of by the Index page.<span class="intersentencespace"></span> We tend to want to create new data – that’s the New page.<span class="intersentencespace"></span> When the data changes, that’s the Edit page.<span class="intersentencespace"></span> If we just want to read the data, we go to the Show page.<span class="intersentencespace"></span> Rails has also set things up so we can delete data too, which is another common action – we’ll see that in a bit.</p>
+<p>We refer to these common actions as CRUD: create, read, update and delete.</p>
+
+</div><p>Did you see that the ‘form’ file starts with an underscore?<span class="intersentencespace"></span> Files that start with an underscore are called ‘partials’.<span class="intersentencespace"></span> They contain snippets of code that you can easily reference from other files.<span class="intersentencespace"></span> It’s that DRY principle at work again – don’t repeat yourself.<span class="intersentencespace"></span> The same form is used on the New page and the Edit page so we can reuse the code from one partial, to avoid having to have two versions of the same code to maintain.</p>
+<p>Open <code>app/views/works/new.html.erb</code> to see what I mean.<span class="intersentencespace"></span> The file contains just three lines of code:</p>
+<div class="code"><div class="highlight"><pre><span class="x">   &lt;h1&gt;New work&lt;/h1&gt;</span>
+<span class="x">   </span><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="s1">'form'</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">   </span><span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s1">'Back'</span><span class="p">,</span> <span class="n">works_path</span> <span class="cp">%&gt;</span><span class="x"></span>
+</pre></div></div>
+<p>Type <code>/works/new</code> into your browser address bar to see the page that this code produces.</p>
+<p>Where did the navigation bar come from?<span class="intersentencespace"></span> It’s not in our three lines of code.<span class="intersentencespace"></span> Well, do you remember looking at <code>application.html.erb</code>?<span class="intersentencespace"></span> The ‘new’ page uses the code produced by that template.<span class="intersentencespace"></span> Yep: the nav bar comes from the <code>application.html.erb</code> template.<span class="intersentencespace"></span> And where it said <code>yield</code> in that file, Rails is inserting the contents of the <code>new.html.erb</code> file.<span class="intersentencespace"></span> And even better – where it says <code>render</code> on line 2, here, Rails knows to use the code from the partial called ‘form’.<span class="intersentencespace"></span> <code>render</code>, similar to <code>yield</code>, means ‘go and get some code from another file and pop it in here’.</p>
+<p>Re-using code like this keeps everything neat and tidy and less cluttered.</p>
+</div>
+<div id="cid18" data-tralics-id="cid18" class="section" data-number="5.1"><h2><a href="#cid18" class="heading hyperref"><span class="number">5.1 </span>The show page</a></h2>
+<p>Let’s look at the Show page.<span class="intersentencespace"></span> Click on <code>app/views/works/show.html.erb</code>.<span class="intersentencespace"></span> The first bit of Ruby that catches my eye is this line:</p>
+<div class="code"><div class="highlight"><pre>  <span class="o">&lt;%=</span> <span class="vi">@work</span><span class="o">.</span><span class="n">name</span> <span class="o">%&gt;</span>
+</pre></div></div>
+<p>We know it’s Ruby: we recognise the <code>&lt;%= %&gt;</code> opening and closing ERB tags.<span class="intersentencespace"></span> What’s the <code>@work.name</code>, though?</p>
+<p>Look in the browser to see if we can figure it out.<span class="intersentencespace"></span> Go to your /works index page and click on the Show link.<span class="intersentencespace"></span> At the top it says “Name:” and then the name of your work.<span class="intersentencespace"></span> So this embedded Ruby must be getting the name of the work, somehow.</p>
+<p>Working backwards, we can probably figure out that putting <code>.name</code> after <code>@work</code> returns some data.<span class="intersentencespace"></span> In this case, <code>.name</code> is a method.<span class="intersentencespace"></span> It’s one of the columns we set up in the database, and Rails knows that when we use one of the column names, we mean ‘get the data from that so-called column’.<span class="intersentencespace"></span> So if you look a bit further down the page, and see <code>@work.description</code>, you can be pretty confident that Rails knows to get whatever’s in the column called ‘description’.</p>
+<p>But for which work?<span class="intersentencespace"></span> There might be 50 in the database.<span class="intersentencespace"></span> So Rails uses the unique ID that’s included in the URL to look up the right one.<span class="intersentencespace"></span> Look up in the browser URL address bar.<span class="intersentencespace"></span> It says something like <code>http://nitrousname.euw1-2.nitrousbox.com/works/1</code>.<span class="intersentencespace"></span> Focus on the /works/1 bit for the moment.<span class="intersentencespace"></span> We can use another Rails convention: when the URL says [table name]/[number], in this case works/1, Rails knows to look in the works table for the record with ID 1.<span class="intersentencespace"></span> If the URL said /works/231, Rails would look up the record in the works table with ID 231.</p>
+<p>It’s not the view that figures all this out, though.<span class="intersentencespace"></span> The view gets given the @work instance variable from somewhere else: the controller.<span class="intersentencespace"></span> Here’s the code that the controller uses to get the data from the database:</p>
+<div class="code"><div class="highlight"><pre>  <span class="vi">@work</span> <span class="o">=</span> <span class="no">Work</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
+</pre></div></div>
+<p>This is a Ruby query.<span class="intersentencespace"></span> It says:</p>
+<p><code>@work =</code>
+create an instance variable called @work, and make it represent a particular works record.<span class="intersentencespace"></span> To find out which work record it is…</p>
+<p><code>Work</code>
+…go to the works table…</p>
+<p><code>.find</code>
+…and find…</p>
+<p><code>(params[:id])</code>
+…the work whose ID is the one just sent from the webpage.</p>
+<p>So if the params are /works/314, then we know the value of <code>params[:id]</code> is 314.</p>
+<p>We can see the contents of params if we look on the console.<span class="intersentencespace"></span> Open the console window that has the server running in it.<span class="intersentencespace"></span> Scroll to the bottom, and then in your browser click on ‘Show’ again.<span class="intersentencespace"></span> In the console it will say something like:</p>
+<div class="code"><div class="highlight"><pre>  Started GET "/works/1" for 146.200.145.192 at 2015-01-17 18:51:23 +0000
+  Processing by WorksController#show as HTML
+  Parameters: {"id"=&gt;"1"}
+  Work Load (0.3ms)  SELECT  "works".* FROM "works"  WHERE "works"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered works/show.html.erb within layouts/application (1.8ms)
+  Completed 200 OK in 53ms (Views: 51.1ms | ActiveRecord: 0.3ms)
+</pre></div></div>
+<p>This is all very useful information:</p>
+<div class="code"><div class="highlight"><pre>  Started GET "/works/1" for 146.200.145.192 at 2015-01-17 18:51:23 +0000
+</pre></div></div>
+<p>Tells us that the browser sent a GET request for a work of ID 1.<span class="intersentencespace"></span> </p><div class="code"><div class="highlight"><pre>  Processing by WorksController#show as HTML
+</pre></div></div>
+<p>tells us that this request got routed to the correct controller.<span class="intersentencespace"></span></p>
+<p class="noindent"></p><div class="code"><div class="highlight"><pre>  
+  Parameters: {"id"=&gt;"1"}
+</pre></div></div>
+<p>tells us that the params passed along with this request are <code>{"id"=&gt;"1"}</code>
+</p><div class="code"><div class="highlight"><pre>  Work Load (0.3ms)  SELECT  "works".* FROM "works"  WHERE "works"."id" = $1 LIMIT 1  [["id", 1]]
+</pre></div></div>
+<p>is the actual SQL query that runs to get the right data from the database.
+</p><div class="code"><div class="highlight"><pre>  Rendered works/show.html.erb within layouts/application (1.8ms)
+</pre></div></div>
+<p>tells us that after the request was completed, the controller routed us back to the show page.
+</p><div class="code"><div class="highlight"><pre>  Completed 200 OK in 53ms (Views: 51.1ms | ActiveRecord: 0.3ms)
+</pre></div></div>
+<p>tells us that all of this took less than half a second.</p>
+<p>The params (which is short for ‘parameters’) are passed from the view to the controller as a “hash”.<span class="intersentencespace"></span> Ruby hashes are one of the things that programmers love the most about the language because they’re useful and flexible.<span class="intersentencespace"></span> They contain data in key-value pairs, in any order, like this:</p>
+<pre class="verbatim">person = {:name =&gt; "Emma", :age =&gt; "40", :hobby =&gt; "piano"}</pre>
+<p>You can find out much more about hashes on the internet.<span class="intersentencespace"></span> For now, you’ve seen that you can get the value of data in a hash if you say the name of the hash and then put the key of the data you want, in square brackets.</p>
+<p>So in this example, doing <code>person[:name]</code> would return “Emma”.<span class="intersentencespace"></span> <code>person[:hobby]</code> would return – yep, you guessed it – “piano”.<span class="intersentencespace"></span> How would you get my age?<span class="intersentencespace"></span> <code>person[:age]</code>.<span class="intersentencespace"></span> (Let’s look at Ruby arithmetic, later on, to knock some years off.)</p>
+<p>In our real example, doing <code>params[:id]</code> would return: 1.</p>
+</div>
+<div id="cid19" data-tralics-id="cid19" class="section" data-number="5.2"><h2><a href="#cid19" class="heading hyperref"><span class="number">5.2 </span>Creating an AI</a></h2>
+<p>Now we know how to get data from the database, and channel it through the right routes to get to the webpage view, let’s try to make some of that data look pretty.</p>
+<p>In <code>app/views/works/show.html.erb</code>, paste in this code, replacing everything that’s in there already:</p>
+<div class="code"><div class="highlight"><pre><span class="x">&lt;p id="notice"&gt;</span><span class="cp">&lt;%=</span> <span class="n">notice</span> <span class="cp">%&gt;</span><span class="x">&lt;/p&gt;</span>
+
+<span class="x">&lt;div class="row"&gt;</span>
+<span class="x">  &lt;div class="col-sm-4"&gt;</span>
+<span class="x">    </span><span class="cp">&lt;%=</span> <span class="n">image_tag</span><span class="p">(</span><span class="vi">@work</span><span class="o">.</span><span class="n">cover_url</span><span class="p">,</span> <span class="ss">:width</span> <span class="o">=&gt;</span> <span class="mi">300</span><span class="p">)</span> <span class="k">if</span> <span class="vi">@work</span><span class="o">.</span><span class="n">cover</span><span class="o">.</span><span class="n">present?</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">  &lt;/div&gt;</span>
+<span class="x">  </span>
+<span class="x">  &lt;div class="col-sm-8"&gt;</span>
+<span class="x">    &lt;h1&gt;</span>
+<span class="x">      </span><span class="cp">&lt;%=</span> <span class="vi">@work</span><span class="o">.</span><span class="n">name</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">    &lt;/h1&gt;</span>
+<span class="x">      &lt;strong&gt;  </span>
+<span class="x">      </span><span class="cp">&lt;%=</span> <span class="vi">@work</span><span class="o">.</span><span class="n">subject</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">      &amp;bull;  </span>
+<span class="x">    &lt;/strong&gt;</span>
+<span class="x">    </span><span class="cp">&lt;%=</span> <span class="n">simple_format</span> <span class="vi">@work</span><span class="o">.</span><span class="n">description</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">  &lt;/div&gt;</span>
+<span class="x">&lt;/div&gt;</span>
+
+
+
+<span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s1">'Edit'</span><span class="p">,</span> <span class="n">edit_work_path</span><span class="p">(</span><span class="vi">@work</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="x"> |</span>
+<span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s1">'Back'</span><span class="p">,</span> <span class="n">works_path</span> <span class="cp">%&gt;</span><span class="x"></span>
+</pre></div></div>
+<p>That new code uses <code>@work.cover_url</code>, <code>@work.name</code>, <code>@work.subject</code>, and <code>@work.description</code>.<span class="intersentencespace"></span> It’s also arranged the page into two columns, using the Twitter Bootstrap styling we included.<span class="intersentencespace"></span> Bootstrap uses a grid layout of 12 columns, so if we set up one div of 4 columns and one of 8 columns, we know it’ll fit nicely on the page.</p>
+<p>The page is looking pretty nice so far.<span class="intersentencespace"></span> However, we’ve only got the work level data.<span class="intersentencespace"></span> We’re really going to need to see the actual products’ information if anyone’s going to be able to use this to place orders.<span class="intersentencespace"></span> Let’s add a products table.</p>
+</div>
+<div id="cid20" data-tralics-id="cid20" class="section" data-number="5.3"><h2><a href="#cid20" class="heading hyperref"><span class="number">5.3 </span>Adding products to our works</a></h2>
+<p>Open a new console window and run the following:</p>
+<div class="code"><div class="highlight"><pre>  rails generate scaffold Product isbn:string pub_date:date format:string price:decimal pages:integer work_id:integer
+</pre></div></div>
+<p>then
+</p><div class="code"><div class="highlight"><pre>  rake db:migrate
+</pre></div></div>
+<p>Now we have to relate the products to their parent work, and vice versa.<span class="intersentencespace"></span> A work has many products, and a product belongs to a work.<span class="intersentencespace"></span> First we’ll go to the work model and add in the association.<span class="intersentencespace"></span> Go to <code>app/models/work.rb</code>:</p>
+<div class="code"><div class="highlight"><pre>class Work &lt; ActiveRecord::Base
+  mount_uploader :cover, CoverUploader
+end
+</pre></div></div>
+<p>Add the following in before the <code>end</code>.</p>
+<div class="code"><div class="highlight"><pre>  has_many :products
+</pre></div></div>
+<p>And we add the reciprocal line in to the Product model:</p>
+<p>Go to <code>app/models/product.rb</code>.</p>
+<div class="code"><div class="highlight"><pre>class Product &lt; ActiveRecord::Base
+end
+</pre></div></div>
+<p>Add the following in before the <code>end</code>.</p>
+<div class="code"><div class="highlight"><pre>  belongs_to :work
+</pre></div></div>
+<p>Now let’s add our new products listing to the navigation menu: find the following:</p>
+<div class="code"><div class="highlight"><pre>    &lt;div class="collapse navbar-collapse"&gt;
+      &lt;ul class="nav navbar-nav"&gt;
+        &lt;li&gt;&lt;a href="/works"&gt;Works&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+</pre></div></div>
+<p>and add in this line:</p>
+<div class="code"><div class="highlight"><pre>  &lt;li&gt;&lt;a href="/products"&gt;Products&lt;/a&gt;&lt;/li&gt;
+</pre></div></div>
+<p>so it reads:
+</p><div class="code"><div class="highlight"><pre>    &lt;div class="collapse navbar-collapse"&gt;
+      &lt;ul class="nav navbar-nav"&gt;
+        &lt;li&gt;&lt;a href="/works"&gt;Works&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="/products"&gt;Products&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+</pre></div></div>
+<p>Add <code>class = ’table’</code> to the products table.<span class="intersentencespace"></span> Go to <code>app/views/products/index.html.erb</code> and change line 3 to</p>
+<div class="code"><div class="highlight"><pre>&lt;table class = 'table'&gt;
+</pre></div></div>
+<p>Click New product.<span class="intersentencespace"></span> You can see the correct fields, but we can make it easier to fill them it accurately.</p>
+<p>Replace</p>
+<div class="code"><div class="highlight"><pre>    &lt;%= f.number_field :work_id %&gt;
+</pre></div></div>
+<p>With</p>
+<div class="code"><div class="highlight"><pre>    &lt;%= f.collection_select :work_id, Work.all, :id, :name %&gt;
+</pre></div></div>
+<p><code>collection_select</code> is a Rails helper method.<span class="intersentencespace"></span> This method takes four arguments.<span class="intersentencespace"></span> It’s going to let us pass the value of work_id into the params when we hit ‘save’.<span class="intersentencespace"></span> It’ll get the ID from the dropdown list, which will be populated by Work.all (all the works).<span class="intersentencespace"></span> The next argument says that it’s the id that’ll be passed.<span class="intersentencespace"></span> And finally, the last argument tells Rails that it should display the name of the work to the user of the website.</p>
+<p>Go to the browser and see that there’s a drop down list now.<span class="intersentencespace"></span> Create a couple of products using the form.</p>
+<p>After the description field, paste this in:</p>
+<div class="code"><div class="highlight"><pre><span class="x">  </span><span class="cp">&lt;%</span> <span class="vi">@work</span><span class="o">.</span><span class="n">products</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">product</span><span class="o">|</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">    &lt;p&gt;</span>
+<span class="x">      </span><span class="cp">&lt;%=</span> <span class="n">product</span><span class="o">.</span><span class="n">format</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">      &amp;bull;  </span>
+<span class="x">      </span><span class="cp">&lt;%=</span> <span class="n">product</span><span class="o">.</span><span class="n">isbn</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">      &amp;bull;  </span>
+<span class="x">      </span><span class="cp">&lt;%=</span> <span class="n">product</span><span class="o">.</span><span class="n">pages</span> <span class="cp">%&gt;</span><span class="x"> pages</span>
+<span class="x">      &amp;bull;  </span>
+<span class="x">      £</span><span class="cp">&lt;%=</span> <span class="n">product</span><span class="o">.</span><span class="n">price</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">      &amp;bull;  </span>
+<span class="x">      Published </span><span class="cp">&lt;%=</span> <span class="n">product</span><span class="o">.</span><span class="n">pub_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">'%d %B %y'</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">    &lt;/p&gt;</span>
+<span class="x">  </span><span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span><span class="x"></span>
+</pre></div></div>
+</div>
+<div id="cid21" data-tralics-id="cid21" class="section" data-number="5.4"><h2><a href="#cid21" class="heading hyperref"><span class="number">5.4 </span>Other forms of the same data: APIs</a></h2>
+<p>Replace the index action in the works controller with this:</p>
+<div class="code"><div class="highlight"><pre>  <span class="k">def</span> <span class="nf">index</span>
+    <span class="vi">@works</span> <span class="o">=</span> <span class="no">Work</span><span class="o">.</span><span class="n">all</span>
+    <span class="n">respond_to</span> <span class="k">do</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span>
+      <span class="nb">format</span><span class="o">.</span><span class="n">html</span>
+      <span class="nb">format</span><span class="o">.</span><span class="n">xml</span> <span class="p">{</span> <span class="n">render</span> <span class="ss">:xml</span> <span class="o">=&gt;</span> <span class="vi">@works</span><span class="o">.</span><span class="n">to_xml</span> <span class="p">}</span>
+      <span class="nb">format</span><span class="o">.</span><span class="n">json</span> <span class="p">{</span> <span class="n">render</span> <span class="ss">:json</span> <span class="o">=&gt;</span> <span class="vi">@works</span><span class="o">.</span><span class="n">to_json</span> <span class="p">}</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+</pre></div></div>
+<p>Now go to the works listing page, and in the address bar of the browser, add <code>.xml</code> after the number.<span class="intersentencespace"></span> You’ll see something like this:</p>
+<div class="code"><div class="highlight"><pre><span class="nt">&lt;works</span> <span class="na">type=</span><span class="s">"array"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;work&gt;</span>
+    <span class="nt">&lt;id</span> <span class="na">type=</span><span class="s">"integer"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/id&gt;</span>
+    <span class="nt">&lt;name&gt;</span>War and Peace<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;description&gt;</span>
+      War and Peace (Pre-reform Russian: Война и миръ, Voyna i mir) is a novel by the Russian author Leo Tolstoy, first published in 1869. The work is epic in scale and is regarded as one of the most important works of world literature.[1][2][3] It is considered as Tolstoy's finest literary achievement, along with his other major prose work, Anna Karenina (1873–1877). War and Peace delineates in graphic detail events surrounding the French invasion of Russia, and the impact of the Napoleonic era on Tsarist society, as seen through the eyes of five Russian aristocratic families. Portions of an earlier version of the novel, then known as The Year 1805,[4] were serialized in the magazine The Russian Messenger between 1865 and 1867. The novel was first published in its entirety in 1869.[5] Newsweek in 2009 ranked it first in its list of the Top 100 Books.[6] In 2003, the novel was listed at number 20 on the BBC's survey The Big Read.[7] Tolstoy himself, somewhat enigmatically, said of War and Peace that it was "not a novel, even less is it a poem, and still less a historical chronicle". Large sections of the work, especially in the later chapters, are philosophical discussion rather than narrative.[8] He went on to elaborate that the best Russian literature does not conform to standard norms and hence hesitated to call War and Peace a novel. (Instead, Tolstoy regarded Anna Karenina as his first true novel.)
+    <span class="nt">&lt;/description&gt;</span>
+    <span class="nt">&lt;cover&gt;</span>
+      <span class="nt">&lt;url&gt;</span>/uploads/work/cover/1/9781909679436.jpg<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;/cover&gt;</span>
+    <span class="nt">&lt;subject&gt;</span>Fiction<span class="nt">&lt;/subject&gt;</span>
+    <span class="nt">&lt;created-at</span> <span class="na">type=</span><span class="s">"dateTime"</span><span class="nt">&gt;</span>2015-01-17T14:14:45Z<span class="nt">&lt;/created-at&gt;</span>
+    <span class="nt">&lt;updated-at</span> <span class="na">type=</span><span class="s">"dateTime"</span><span class="nt">&gt;</span>2015-01-17T14:46:07Z<span class="nt">&lt;/updated-at&gt;</span>
+  <span class="nt">&lt;/work&gt;</span>
+<span class="nt">&lt;/works&gt;</span>
+</pre></div></div>
+<p>Do the same but now appending <code>.json</code>.<span class="intersentencespace"></span> You’ll see something like this:</p>
+<div class="code"><div class="highlight"><pre>[{"id":1,"name":"War and Peace","description":"War and Peace (Pre-reform Russian: Война и миръ, Voyna i mir) is a novel by the Russian author Leo Tolstoy, first published in 1869. The work is epic in scale and is regarded as one of the most important works of world literature.[1][2][3] It is considered as Tolstoy's finest literary achievement, along with his other major prose work, Anna Karenina (1873–1877).\r\n\r\nWar and Peace delineates in graphic detail events surrounding the French invasion of Russia, and the impact of the Napoleonic era on Tsarist society, as seen through the eyes of five Russian aristocratic families. Portions of an earlier version of the novel, then known as The Year 1805,[4] were serialized in the magazine The Russian Messenger between 1865 and 1867. The novel was first published in its entirety in 1869.[5] Newsweek in 2009 ranked it first in its list of the Top 100 Books.[6] In 2003, the novel was listed at number 20 on the BBC's survey The Big Read.[7]\r\n\r\nTolstoy himself, somewhat enigmatically, said of War and Peace that it was \"not a novel, even less is it a poem, and still less a historical chronicle\". Large sections of the work, especially in the later chapters, are philosophical discussion rather than narrative.[8] He went on to elaborate that the best Russian literature does not conform to standard norms and hence hesitated to call War and Peace a novel. (Instead, Tolstoy regarded Anna Karenina as his first true novel.)","cover":{"url":"/uploads/work/cover/1/9781909679436.jpg"},"subject":"Fiction","created_at":"2015-01-17T14:14:45.138Z","updated_at":"2015-01-17T14:46:07.203Z"},{"id":2,"name":"","description":"","cover":{"url":null},"subject":"","created_at":"2015-01-17T16:58:50.020Z","updated_at":"2015-01-17T16:58:50.020Z"}]
+</pre></div></div>
+<p>This is a JSON API. If this was live, other websites would be able to ping it and use its data.<span class="intersentencespace"></span> APIs are hugely powerful because they release data in a lightweight format for apps to search, ingest and discover.<span class="intersentencespace"></span> <a href="http://publishingperspectives.com/2011/04/publishing-importance-of-api/">Here’s</a> a good article on them, and <a href="http://toc.oreilly.com/2013/02/a-publishers-job-is-to-provide-a-good-api-for-books.html">another</a>.</p>
+<p>Go to <code>https://www.hurl.it/</code> and paste the full URL of your works.json page in, e.g.</p>
+<div class="code"><div class="highlight"><pre>http://supersonic-ghost-95-183846.euw1-2.nitrousbox.com/works.json
+</pre></div></div>
+<p>The page will show that your API has parsed successfully.</p>
+</div>
+<div id="cid22" data-tralics-id="cid22" class="chapter" data-number="6"><h1><a href="#cid22" class="heading hyperref"><span class="number">Chapter 6 </span>Exercises</a></h1>
+<p>Here are some ideas for more ways you could improve your app.</p>
+<ul>
+<li>Can you make a thumbnail image appear on the Works listing page, instead of the URL?
+</li>
+<li>Can you change the links on the Works page so that they say “AI”, “Edit”, and “Remove”, instead of the boilerplate “Show”, “Edit” and “Destroy”?<span class="intersentencespace"></span>
+</li>
+<li>Can you create an Author model and associate it to the work?
+</li>
+<li>Can you generate a JSON API response for a single work?<span class="intersentencespace"></span>
+</li></ul>
 </div>
     </div>
   </body>

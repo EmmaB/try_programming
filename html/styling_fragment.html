@@ -1,0 +1,80 @@
+<div id="cid13" data-tralics-id="cid13" class="chapter" data-number="3" data-chapter="styling"><h1><a href="styling_fragment.html#cid13" class="heading hyperref"><span class="number">Chapter 3 </span>Making it look good</a></h1>
+</div><div id="cid14" data-tralics-id="cid14" class="section" data-number="3.1"><h2><a href="styling_fragment.html#cid14" class="heading hyperref"><span class="number">3.1 </span>Adding some styling</a></h2>
+<p>Your new <code>works</code> page is a bit ugly, to be honest, so let’s add some styling.<span class="intersentencespace"></span> There is a free, widely-used design resource called Twitter Bootstrap.<span class="intersentencespace"></span> We’ll use that to add some styling to our app by amending our application’s template.</p>
+<p>Open <code>app/views/layouts/application.html.erb</code> in your text editor.</p>
+<div class="aside" id="aside-erb" data-tralics-id="uid35" data-number="3.1"><div class="heading"><span class="number">Box 3.1.</span> 
+
+<span class="description">Why is that file named like that?</span></div>
+<p class="noindent">ERB stands for Embedded Ruby.<span class="intersentencespace"></span> You can take a normal HTML file – which would be called application.html, in this case – and if you rename it to application.html.erb, you can embed snippets of Ruby code into it.<span class="intersentencespace"></span> The code snippets get run when the page is loaded in the browser.</p>
+<p>This comes in handy the more data you have.<span class="intersentencespace"></span> Say you have fifty books in your system.<span class="intersentencespace"></span> Instead of creating 50 html files, you can create one html.erb file and use Ruby to get the right data for each book, on the fly, when the browser asks for it.<span class="intersentencespace"></span> It’s like using a template in Word, or any program: ERB saves time and duplication.</p>
+
+</div><p>The <code>app/views/layouts/application.html.erb</code> file lays out the basic template for every page in our application.<span class="intersentencespace"></span> If you have seen any HTML before, most of this page will look familiar.<span class="intersentencespace"></span> HTML, or HyperText Markup Language, is the standard markup language used to create Web pages.<span class="intersentencespace"></span> HTML is written in the form of HTML elements consisting of tags enclosed in angle brackets (like &lt;html&gt; ).<span class="intersentencespace"></span> Read more in the <a href="http://en.wikipedia.org/wiki/HTML">Wikipedia article</a> on HTML. There are lots of other online resources about HTML, but we can see the gist of how it works by looking at <code>application.html.erb</code>.</p>
+<p>If you look at that file, then go to your browser and click on <code>View &gt; Developer &gt; View source</code> (in Chrome.<span class="intersentencespace"></span> It’s a similar path for other browsers), you’ll see that the code is practically the same.<span class="intersentencespace"></span> Both versions start with</p>
+<div class="code"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;title&gt;</span>BookOrganiser<span class="nt">&lt;/title&gt;</span>
+</pre></div></div>
+<p>But see that <code>&lt;%= stylesheet_link_tag %&gt;</code> in the next line?<span class="intersentencespace"></span> That is a bit of Ruby code.<span class="intersentencespace"></span> We know it’s Ruby because of the <code>&lt;%=</code> at the beginning and the <code>%&gt;</code> at the end.<span class="intersentencespace"></span> Anything between those two markers is Ruby, and will get evaluated.<span class="intersentencespace"></span> The <code>&lt;%= stylesheet_link_tag %&gt;</code> is the bit of Ruby code that will get evaluated.<span class="intersentencespace"></span> So the browser won’t just show the phrase ‘stylesheet_link_tag’, or think that it’s plain old HTML: some Ruby code will run instead.</p>
+<p>This <code>stylesheet_link_tag</code> phrase is the name of a method – a little program that Rails understands.<span class="intersentencespace"></span> In this case, the code that runs makes sure that our Rails app references the right Cascading Stylesheets, or CSS. (The CSS makes the page look the way it does in the browser.)<span class="intersentencespace"></span> So when you View Source in your browser you’ll see HTML code that isn’t in the <code>application.html.erb</code> file.<span class="intersentencespace"></span> That code has been inserted dynamically.</p>
+<p>Let’s get on with enhancing how our app looks.<span class="intersentencespace"></span> Above the line</p>
+<div class="code"><div class="highlight"><pre>  &lt;%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" =&gt; true %&gt;
+</pre></div></div>
+<p>add</p>
+<div class="code"><div class="highlight"><pre>  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">'http://fonts.googleapis.com/css?family=Oxygen:400,700,300'</span> <span class="na">rel=</span><span class="s">'stylesheet'</span> <span class="na">type=</span><span class="s">'text/css'</span><span class="nt">&gt;</span>
+  
+</pre></div></div>
+<p>Next, look for</p>
+<div class="code"><div class="highlight"><pre><span class="x">  </span><span class="cp">&lt;%=</span> <span class="k">yield</span> <span class="cp">%&gt;</span><span class="x"></span>
+</pre></div></div>
+<p>and replace it with</p>
+<div class="code"><div class="highlight"><pre><span class="x">&lt;div class="container"&gt;</span>
+<span class="x">  </span><span class="cp">&lt;%=</span> <span class="k">yield</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">&lt;/div&gt;</span>
+</pre></div></div>
+<div class="aside" id="aside-dry" data-tralics-id="uid36" data-number="3.2"><div class="heading"><span class="number">Box 3.2.</span> 
+
+<span class="description">Principle: Don’t Repeat Yourself (DRY)</span></div>
+<p class="noindent"><code>yield</code> identifies a section where content from the view should be inserted.<span class="intersentencespace"></span> This means we don’t have to put all the header code and the nav bar code on every page.<span class="intersentencespace"></span> The things that will appear on every page can be coded once, and we can just insert the unique code for the different pages.<span class="intersentencespace"></span> This means our code is DRY.</p>
+<p>DRY is a principle of software development which states that “Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.”<span class="intersentencespace"></span> By not writing the same information over and over again, our code is more maintainable, more extensible, and less buggy.</p>
+
+</div><p>Let’s also add a navigation bar to the layout.<span class="intersentencespace"></span> In the same file, under <code>&lt;body&gt;</code>, add</p>
+<div class="code"><div class="highlight"><pre><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"navbar navbar-default navbar-fixed-top navbar-inverse"</span> <span class="na">role=</span><span class="s">"navigation"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"navbar-header"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"navbar-toggle"</span> <span class="na">data-toggle=</span><span class="s">"collapse"</span> <span class="na">data-target=</span><span class="s">".navbar-collapse"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Toggle navigation<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-bar"</span><span class="nt">&gt;&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-bar"</span><span class="nt">&gt;&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-bar"</span><span class="nt">&gt;&lt;/span&gt;</span>
+      <span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"navbar-brand"</span> <span class="na">href=</span><span class="s">"/"</span><span class="nt">&gt;</span>The Book Organiser app<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"collapse navbar-collapse"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"nav navbar-nav"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"/works"</span><span class="nt">&gt;</span>Works<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+      <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/nav&gt;</span>
+</pre></div></div>
+<p>Now let’s also change the styling of the Works table.<span class="intersentencespace"></span> Open <code>app/assets/stylesheets/application.css</code> and at the bottom add</p>
+<div class="code"><div class="highlight"><pre><span class="nt">body</span> <span class="p">{</span> <span class="k">padding-top</span><span class="o">:</span> <span class="m">100px</span><span class="p">;</span>   <span class="k">font-family</span><span class="o">:</span> <span class="n">Oxygen</span><span class="o">,</span> <span class="n">sans</span> <span class="k">serif</span><span class="p">}</span>
+<span class="nt">footer</span> <span class="p">{</span> <span class="k">margin-top</span><span class="o">:</span> <span class="m">100px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">table</span><span class="o">,</span> <span class="nt">td</span><span class="o">,</span> <span class="nt">th</span> <span class="p">{</span> <span class="k">vertical-align</span><span class="o">:</span> <span class="k">middle</span><span class="p">;</span> <span class="k">border</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">th</span> <span class="p">{</span> <span class="k">border-bottom</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#DDD</span><span class="p">;</span> <span class="p">}</span>
+</pre></div></div>
+<p>Next, <code>open app/views/works/index.html.erb</code> and replace line 3:</p>
+<div class="code"><div class="highlight"><pre>&lt;table&gt;
+</pre></div></div>
+<p>with
+</p><div class="code"><div class="highlight"><pre>&lt;table class ='table'&gt;
+</pre></div></div>
+<p>This adds a ‘class’ attribute called <code>table</code> to the HTML tag also called table.<span class="intersentencespace"></span> The <code>table</code> class is recognised by Twitter Bootstrap, and it makes the table take on Bootstrap’s styling.<span class="intersentencespace"></span> It will give it nice padding and spacing, and some pleasing lines.<span class="intersentencespace"></span> (The people who wrote Bootstrap must have thought that giving the same name to the class as the tag was a good idea.)</p>
+<p>Now make sure you saved your files and refresh the browser to see what has changed.</p>
+<p>Let’s add a bit of data.<span class="intersentencespace"></span> Click on <code>New Work</code> and use your shiny new website’s form to add a new work to your system.<span class="intersentencespace"></span> Use Amazon to grab a cover image and a description.<span class="intersentencespace"></span> Type in the subject, but leave the cover field blank for now.<span class="intersentencespace"></span> Click on ‘Create Work’ when you’re done.</p>
+<p>Great!<span class="intersentencespace"></span> You’ve not only created a web application, but you’ve added some real data to it.<span class="intersentencespace"></span> Let’s see what else we can make it do.</p>
+</div>

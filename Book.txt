@@ -5,3 +5,8 @@ tableofcontents
 preface.md
 mainmatter:
 getting_started.md
+data_modelling.md
+styling.md
+uploads.md
+presentation.md
+exercises.md

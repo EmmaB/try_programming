@@ -1,0 +1,48 @@
+<div id="cid15" data-tralics-id="cid15" class="chapter" data-number="4" data-chapter="uploads"><h1><a href="uploads_fragment.html#cid15" class="heading hyperref"><span class="number">Chapter 4 </span>Adding more features</a></h1>
+</div><div id="cid16" data-tralics-id="cid16" class="section" data-number="4.1"><h2><a href="uploads_fragment.html#cid16" class="heading hyperref"><span class="number">4.1 </span>Adding uploads</a></h2>
+<p>You can judge a book by it’s cover – and we’ll need to be able to manage the covers of our books.<span class="intersentencespace"></span> We’re going to use a bundle of pre-written code called a “gem” to let us upload files to our Rails app.</p>
+<p>Open the file called <code>Gemfile</code> in the project directory and at the bottom add</p>
+<div class="code"><div class="highlight"><pre>   gem 'carrierwave'
+</pre></div></div>
+<p>and save the file.</p>
+<div class="aside" id="aside-open_source" data-tralics-id="uid37" data-number="4.1"><div class="heading"><span class="number">Box 4.1.</span> 
+
+<span class="description">Why is the carrierwave code free?</span></div>
+<p class="noindent">Rails is an open source library of code, known as a “gem”.<span class="intersentencespace"></span> There are many different gems, created by developers around the world, made freely available as part of the open source software movement.<span class="intersentencespace"></span> There’s a website called <a href="https://rubygems.org/">rubygems.org</a> which acts as a reference for all the gems published.<span class="intersentencespace"></span> You can usually see the gem’s source code on code repository service <a href="http://github.com">github.com</a>.</p>
+<p>The Ruby community encourages its members to open-source and contribute to as much high-quality gems as they can, so that everyone can benefit from code that has had many different developers working on it.</p>
+
+</div><p>In the console run:</p>
+<div class="code"><div class="highlight"><pre>bundle
+</pre></div></div>
+<p>Now we can generate the code for handling uploads.<span class="intersentencespace"></span> In the terminal run:</p>
+<div class="code"><div class="highlight"><pre>rails generate uploader Cover
+</pre></div></div>
+<p>At this point you need to restart the Rails server process in the console.<span class="intersentencespace"></span> Hit CTRL-C in the terminal to quit the server.<span class="intersentencespace"></span> Once it has stopped, you can press the up arrow to get to the last command entered, then hit enter to start the server again.<span class="intersentencespace"></span> This is so the app can load the new code.</p>
+<p>Open <code>app/models/work.rb</code> and under the line</p>
+<div class="code"><div class="highlight"><pre>class Work &lt; ActiveRecord::Base
+</pre></div></div>
+<p>add</p>
+<div class="code"><div class="highlight"><pre>mount_uploader :cover, CoverUploader
+</pre></div></div>
+<p>Open <code>app/views/works/_form.html.erb</code> and change</p>
+<div class="code"><div class="highlight"><pre>&lt;%= f.text_field :cover %&gt;
+</pre></div></div>
+<p>to</p>
+<div class="code"><div class="highlight"><pre>&lt;%= f.file_field :cover %&gt;
+</pre></div></div>
+<p>Sometimes, you might get an TypeError: can’t cast ActionDispatch::Http::UploadedFile to string.</p>
+<p>If this happens, in <code>file app/views/works/_form.html.erb</code> change the line</p>
+<div class="code"><div class="highlight"><pre>&lt;%= form_for(@work) do |f| %&gt;
+</pre></div></div>
+<p>to</p>
+<div class="code"><div class="highlight"><pre>&lt;%= form_for @work, :html =&gt; {:multipart =&gt; true} do |f| %&gt;
+</pre></div></div>
+<p>In your browser, add a new work with a cover.<span class="intersentencespace"></span> When you upload a cover it doesn’t look nice because it only shows a path to the file, so let’s fix that.</p>
+<p>Open <code>app/views/works/show.html.erb</code> and change</p>
+<div class="code"><div class="highlight"><pre>&lt;%= @work.cover %&gt;
+</pre></div></div>
+<p>to</p>
+<div class="code"><div class="highlight"><pre>&lt;%= image_tag(@work.cover_url, :width =&gt; 300) if @work.cover.present? %&gt;
+</pre></div></div>
+<p>Now refresh your browser to see what has changed.</p>
+</div>

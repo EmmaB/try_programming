@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link href="stylesheets/pygments.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/softcover.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/custom.css" media="screen" rel="stylesheet" type="text/css" />
+    
+    <title>try_programming</title>
+    
+      <script type="text/x-mathjax-config">
+              MathJax.Hub.Config({
+        "HTML-CSS": {
+          availableFonts: ["TeX"],
+        },
+        TeX: {
+          extensions: ["AMSmath.js", "AMSsymbols.js"],
+          equationNumbers: {
+            autoNumber: "AMS",
+            formatNumber: function (n) { return "2" + '.' + n }
+          },
+          Macros: {
+            PolyTeX:    "Poly{\\TeX}",
+            PolyTeXnic: "Poly{\\TeX}nic",
+            softcover: "\\texttt{softcover}"
+          }
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        imageFont: null
+      });
+
+      </script>
+      <script type="text/javascript" src="MathJax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
+    
+  </head>
+  <body>
+    
+    <div id="book">
+      <div id="cid8" data-tralics-id="cid8" class="chapter" data-number="2" data-chapter="data_modelling"><h1><a href="data_modelling_fragment.html#cid8" class="heading hyperref"><span class="number">Chapter 2 </span>Structuring our app</a></h1>
+</div>
+<div id="cid9" data-tralics-id="cid9" class="section" data-number="2.1"><h2><a href="data_modelling_fragment.html#cid9" class="heading hyperref"><span class="number">2.1 </span>About the web application</a></h2>
+<p>Today we are going to build a little web application, but first we have to think about exactly what that means - what do we need to do in order to make that happen?</p>
+<p>There are a few basic elements.</p>
+<p>Firstly, we need to have a page in an internet browser that will allow users to type information into forms, just as if they are writing an email in GMail or Yahoo!<span class="intersentencespace"></span> Mail.<span class="intersentencespace"></span> The pages need to be sent to the browser as HTML. Users need to be able to click on a button that will make the web browser send the data they have typed off to the application, which is on a remote server somewhere in the world waiting to be told what to do.</p>
+<p>Then the application needs to work out what to do with the information.<span class="intersentencespace"></span> Maybe you are adding new data, maybe you are deleting data that you no longer need, and maybe you are changing data.</p>
+<p>The data also needs to be saved somewhere, by something that will not only remember it, but will also allow it to be found again.</p>
+<p>Lastly, we need to be able to see web pages that show the information that we have previously stored.</p>
+<p>There are quite a few different things that have to be done in there, and the Ruby on Rails framework provides different components that specialise in doing different tasks.</p>
+<ul>
+<li>“Views”, which create the HTML pages that are sent to the browser.<span class="intersentencespace"></span>
+</li>
+<li>“Controllers”, which work out what to do with information sent from the browser, and which views then need to be used to send pages back again.<span class="intersentencespace"></span>
+</li>
+<li>A database, for storing and retrieving information.<span class="intersentencespace"></span>
+</li>
+<li>“Models”, which tell the Ruby on Rails system how to store and modify data in the database.<span class="intersentencespace"></span>
+</li></ul>
+</div>
+<div id="cid10" data-tralics-id="cid10" class="section" data-number="2.2"><h2><a href="data_modelling_fragment.html#cid10" class="heading hyperref"><span class="number">2.2 </span>About the design</a></h2>
+<p>We are going to build a little system for managing publisher metadata.<span class="intersentencespace"></span> So what do we need to store information about?</p>
+<p>The world is full of “stuff”.<span class="intersentencespace"></span> Books, cats, football matches, emails, office buildings, submarines, string quartets, rock concerts.<span class="intersentencespace"></span> Some of them are actual physical things, some of them are abstract, but all of them can be thought of as some kind of object.</p>
+<p>Each of the above examples of stuff has a bunch of information associated with it.</p>
+<ul>
+<li>What time will the performance begin?<span class="intersentencespace"></span> “8:30”
+</li>
+<li>How deep can the submarine go?<span class="intersentencespace"></span> “1,000 ft”
+</li>
+<li>What’s the name of your cat?<span class="intersentencespace"></span> “Rosemary”
+</li>
+<li>Who did you send the email to?<span class="intersentencespace"></span> “The prime minister”
+</li>
+<li>What’s the ISBN of that book?<span class="intersentencespace"></span> “978-0205309023”
+</li></ul>
+<p>These are all “attributes” of the object.</p>
+<p>Each of the above “stuffs” has things that you can do to them.</p>
+<ul>
+<li>The performance can be cancelled.<span class="intersentencespace"></span>
+</li>
+<li>The submarine can be painted
+</li>
+<li>The cat’s name can be changed to “Ambrose”
+</li>
+<li>The email can be sent
+</li>
+<li>The book can be bought.<span class="intersentencespace"></span>
+</li></ul>
+<p>If we’re going to build a publishing management system, what sort of objects do we need?</p>
+<p>Publishers make books, so we’ll need to describe them.<span class="intersentencespace"></span> We’ll try to use words that are as precise as possible, so if any other developers come to work on our code, it’ll be easy for them to figure out what our app does.</p>
+<p>The first model we’ll create will be called “Work”, and it will have a title, a description, a subject and a cover image.</p>
+<p>The second model will be called “Product”.<span class="intersentencespace"></span> We could call it “book”, but that wouldn’t be very helpful if we want to store information about apps, or maps, or marketing materials, or other non-book products, in our system.<span class="intersentencespace"></span> The word “book” can also mean “individual copy” which would be misleading.<span class="intersentencespace"></span> Our products will have a format, a price, an ISBN, a publication date and a page count.</p>
+<p>Let’s say that we have two products.<span class="intersentencespace"></span> The first is a paperback, published in June 2015.<span class="intersentencespace"></span> The second is a hardback, published in March 2015.</p>
+<p>Both these products will belong to a work, whose title is “War and Peace Revisited”.<span class="intersentencespace"></span> The work’s subject is “fiction”.<span class="intersentencespace"></span> The title and the subject from the work will be inherited by the products.<span class="intersentencespace"></span> We don’t need to repeat them.</p>
+<div class="aside" id="aside-normalisation" data-tralics-id="uid26" data-number="2.1"><div class="heading"><span class="number">Box 2.1.</span> 
+
+<span class="description">Principle: Normalisation</span></div>
+<p class="noindent">We don’t store the same data more than once in a database.</p>
+
+</div></div>
+<div id="cid11" data-tralics-id="cid11" class="section" data-number="2.3"><h2><a href="data_modelling_fragment.html#cid11" class="heading hyperref"><span class="number">2.3 </span>Create our first model</a></h2>
+<p>We’ll keep the server running so we can see our changes as they happen.<span class="intersentencespace"></span> So let’s open a new console window.<span class="intersentencespace"></span> At the bottom of the Nitrous page, click the + sign next to Console.<span class="intersentencespace"></span> Type the following to switch to your app’s folder:</p>
+<div class="code"><div class="highlight"><pre>  cd workspace/book_organiser
+</pre></div></div>
+<p>Now we can run commands which our Rails app will understand.<span class="intersentencespace"></span> Type the following:</p>
+<div class="code"><div class="highlight"><pre>  rails generate scaffold work name:string description:text cover:string subject:string
+</pre></div></div>
+<p>This has created a new file with some code in called a migration.<span class="intersentencespace"></span> When we run this migration code, it’ll tell the database to set up a new table, with a column called “name”, a column called “description”, a column called “cover” and a final column called “subject”.</p>
+<p>The database will expect most of the columns to contain data that is a ‘string’: short pieces of text up to 256 characters.<span class="intersentencespace"></span> The description column, however, will contain pieces of text with no length limit.<span class="intersentencespace"></span> Telling the database what sort of data it should be expecting makes for good quality data.<span class="intersentencespace"></span> For example, if the database was expecting a date, but a user tried to put in a string – say, “Monday”, or “Next week” – the database wouldn’t let the user save the data and would insist on an actual date.</p>
+<p>Type the following to run the migration code:</p>
+<div class="code"><div class="highlight"><pre>  rake db:migrate
+</pre></div></div>
+<p>Rake is a tool you can use with Ruby projects to run tasks in the console.<span class="intersentencespace"></span> In this case, we’re using it to run all the database migrations that haven’t yet been run.</p>
+<p>Now you can have a look at your work so far.<span class="intersentencespace"></span> Go to the browser and type <code>/works</code> after the address in the URL.</p>
+</div>
+<div id="cid12" data-tralics-id="cid12" class="section" data-number="2.4"><h2><a href="data_modelling_fragment.html#cid12" class="heading hyperref"><span class="number">2.4 </span>Make this our home page</a></h2>
+<p>At the moment, “Welcome aboard” is occupying our important home page spot.<span class="intersentencespace"></span> Let’s change things so that our works page shows up when we go to our website’s root.</p>
+<div class="aside" id="aside-mvc" data-tralics-id="uid27" data-number="2.2"><div class="heading"><span class="number">Box 2.2.</span> 
+
+<span class="description">Model View Controller</span></div>
+<p class="noindent">Rails likes to keep everything in the right place.<span class="intersentencespace"></span> It helps developers enormously to know that if you open up someone’s Rails app you’re going to know where to go to find the html.erb view files, where to go to find the database migrations, where the business logic is, where the stylesheets and javascript files will be, and so on.<span class="intersentencespace"></span> The structural conventions that Rails uses saves developers time – and therefore money – every day.</p>
+<p>The structure that Rails apps use follow the MVC pattern <a href="http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">(Wikipedia page)</a>.</p>
+<p><code>Routing</code> decides which controller receives which requests.<span class="intersentencespace"></span> A <code>controller’s</code> purpose is to receive specific requests for the application.<span class="intersentencespace"></span> A controller contains methods called actions, and each action’s purpose is to collect information to provide it to a <code>view</code>.</p>
+<p>If you use the scaffold, like we did, then Rails controllers come with the following actions.<span class="intersentencespace"></span> Open up <code>app/controllers/works/works_controller.rb</code> as well to follow along.</p>
+<ul>
+<li>index
+</li>
+<li>show
+</li>
+<li>new
+</li>
+<li>edit
+</li>
+<li>create
+</li>
+<li>update
+</li>
+<li>destroy
+</li></ul>
+<p>For the first four of these actions, there is a corresponding view file.<span class="intersentencespace"></span> Have a look in <code>app/views/works</code> and see.<span class="intersentencespace"></span> The final three are triggered when a user sends an instruction from the view – for instance, to delete a record.<span class="intersentencespace"></span> In the case of a ‘delete’ instruction, the <code>destroy</code> controller action deletes the record then sends a message back to the relevant view, saying the record was deleted OK. There’s no separate view for such an action.</p>
+<p>A <code>view’s</code> purpose is to display the information from a controller in a human readable format.<span class="intersentencespace"></span> An important distinction to make is that it is the <code>controller</code>, not the <code>view,</code> where information is collected.<span class="intersentencespace"></span> The <code>view</code> should only display that information.</p>
+<p>(adapted from the <a href="http://guides.rubyonrails.org/">Rails Guides</a>).</p>
+<p>We used the Rails scaffold to create all the model, view, controller and routing files at the same time as the database table.<span class="intersentencespace"></span> You can create them one by one, as well.</p>
+
+</div><p>Open the file <code>app/config/routes.rb</code> in Nitrous.</p>
+<p>This is your application’s routing file which holds entries in a special DSL (domain-specific language) that tells Rails how to connect incoming requests to controllers and actions.<span class="intersentencespace"></span> This file contains many sample routes on commented lines.<span class="intersentencespace"></span> Add the following in, on the second line of the file:</p>
+<div class="code"><div class="highlight"><pre>  root 'works#index'
+</pre></div></div>
+<p><code>root ’works#index’</code> tells Rails to map requests to the root of the application to the works controller’s index action.<span class="intersentencespace"></span> <code>resources :works</code>
+tells Rails to map requests to http://localhost:3000/works/index to the works controller’s index action.<span class="intersentencespace"></span> This was created earlier when you ran the generator (<code>rails generate scaffold work</code>).</p>
+<p>Navigate to your home page in your browser.<span class="intersentencespace"></span> You’ll see the works index page there, indicating that this new route is indeed going to the work controller’s index action and is rendering the view correctly.</p>
+<p>Read more about routing in the <a href="http://guides.rubyonrails.org/getting_started.html">Rails Guides</a>.</p>
+</div>
+    </div>
+  </body>
+</html>
