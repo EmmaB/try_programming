@@ -37,16 +37,22 @@
   <body>
     
     <div id="book">
-      <div id="cid22" data-tralics-id="cid22" class="chapter" data-number="6" data-chapter="exercises"><h1><a href="exercises_fragment.html#cid22" class="heading hyperref"><span class="number">Chapter 6 </span>Exercises</a></h1>
-<p>Here are some ideas for more ways you could improve your app.</p>
+      <div id="cid23" data-tralics-id="cid23" class="chapter" data-number="6" data-chapter="exercises"><h1><a href="exercises_fragment.html#cid23" class="heading hyperref"><span class="number">Chapter 6 </span>Further Exercises</a></h1>
+<p>Here are some ideas for more ways you could improve your app.<span class="intersentencespace"></span> Can you:</p>
 <ul>
-<li>Can you make a thumbnail image appear on the Works listing page, instead of the URL?
+<li>make a thumbnail image appear on the Works listing page, instead of the URL?
 </li>
-<li>Can you change the links on the Works page so that they say “AI”, “Edit”, and “Remove”, instead of the boilerplate “Show”, “Edit” and “Destroy”?<span class="intersentencespace"></span>
+<li>change the links on the Works page so that they say “AI”, “Edit”, and “Remove”, instead of the boilerplate “Show”, “Edit” and “Destroy”?<span class="intersentencespace"></span>
 </li>
-<li>Can you create an Author model and associate it to the work?
+<li>add a link on the works listing page to switch to the XML view?<span class="intersentencespace"></span> Here’s the Rails syntax for a link: <code>&lt;%= link_to "XML", works_path(:format =&gt; :xml) %&gt;</code>
 </li>
-<li>Can you generate a JSON API response for a single work?<span class="intersentencespace"></span>
+<li>add a link to the work from the product page?<span class="intersentencespace"></span> Here’s the Rails syntax for the link: <code>&lt;%= link_to "Work", work_path(@product.work) %&gt;</code>
+</li>
+<li>Look at the <a href="http://getbootstrap.com">Bootstrap documents</a>.<span class="intersentencespace"></span> Are there any ways you could alter the styling of the HTML pages, using classes that Bootstrap responds to?
+</li>
+<li>create an Author model and associate it with the work?
+</li>
+<li>generate a JSON API response for a single work?<span class="intersentencespace"></span>
 </li></ul>
 </div>
     </div>

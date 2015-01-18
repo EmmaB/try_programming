@@ -10,3 +10,4 @@ styling.md
 uploads.md
 presentation.md
 exercises.md
+script.md

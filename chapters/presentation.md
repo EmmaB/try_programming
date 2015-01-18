@@ -193,7 +193,7 @@ end
 Add the following in before the `end`.  
 
 ```
-  has_many :products
+  has_many :products, :inverse_of => :work, :dependent => :destroy
 ```
 
 And we add the reciprocal line in to the Product model:
@@ -208,8 +208,10 @@ end
 Add the following in before the `end`.  
 
 ```
-  belongs_to :work
+  belongs_to :work, :inverse_of => :products
 ```
+  
+
 
 Now let's add our new products listing to the navigation menu: find the following: 
 
@@ -261,7 +263,25 @@ With
 
 Go to the browser and see that there's a drop down list now. Create a couple of products using the form. 
 
-After the description field, paste this in: 
+You'll see that we can put any old thing into the ISBN field. Let's use the gem we added earlier to check whether the ISBN is properly formed. 
+
+In `app/views/products/edit.html.erb` add this code in just under the ISBN field div: 
+
+```erb
+<% if ISBN.valid?(@product.isbn) %>
+  <p class = 'bg-success'>Great -- the ISBN is valid!</p>
+<% elsif @product.isbn.blank? %>
+  <p class = 'bg-info'>Don't forget to add an ISBN!</p>
+<% else %>
+  <p class = 'bg-danger'> Oh no -- the ISBN is not valid!</p>
+<% end %>
+```
+
+The `ISBN` method comes as part of the `isbn` gem that we included earlier. It's quite readable, which is one of the principles of Ruby. Method names should be easy to read and understand. You can practically say out loud in English what's going on:
+
+"If the ISBN is valid -- the product's ISBN -- then say great, and put some green on the screen to signify that all's well. Otherwise, if the product's ISBN is blank, put up an information message to remind the user to add an ISBN. If the ISBN is neither valid nor missing, then it must be invalid, so report the problem to the user." In fact the Ruby is much easier to read than that sentence in English. 
+
+Now, let's make the products appear on the work show page. Go to `application/views/works/show.html.erb`. After the description field, paste this in: 
 
 ```erb
   <% @work.products.each do |product| %>
@@ -279,6 +299,8 @@ After the description field, paste this in:
   <% end %>
 
 ```
+
+That block of code is going to run for each of the child products of the parent work. We don't have to have a piece of code for each product -- the code gets reused. 
 
 ## Other forms of the same data: APIs
 
