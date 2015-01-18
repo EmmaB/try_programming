@@ -14,8 +14,108 @@
 
         <body>
           <div id="cha-a_chapter" class="chapter"><h1><a href="getting_started_fragment.html#cha-a_chapter" class="heading hyperref"><span class="number">Chapter 1 </span>Getting started</a></h1>
-<p>This book will accompany the Try Programming for Publishers course which has been commissioned by the Oxford Publishing Group and which is running on 20th January 2015 in Oxford, UK. After the course has run, you’ll be able to access the course materials here.</p>
-<p>To be notified when the course materials are available, sign up to our newsletter.<span class="intersentencespace"></span> Email info@bibliocloud.com with the subject “Newsletter” and you’ll be added.</p>
+</div><div id="cid2" class="section"><h2><a href="getting_started_fragment.html#cid2" class="heading hyperref"><span class="number">1.1 </span>A recent history of code development.</a></h2>
+<p>There are lots of different programming languages, and more are being created all the time.<span class="intersentencespace"></span> They are often very specialised.<span class="intersentencespace"></span> COBOL was designed to make it easy to solve business problems.<span class="intersentencespace"></span> FORTRAN was, and still is, used to write high-performance scientific programs.</p>
+<p><a href="http://en.wikipedia.org/wiki/List_of_programming_languages">Here</a> is a list of notable languages.</p>
+<p>In this course we’ll be using a language called Ruby, which has been around for about 20 years.<span class="intersentencespace"></span> Ruby became very popular as a language for developing web-based applications about ten years ago, after the release of an “application development framework” written in Ruby, called “Ruby on Rails”.<span class="intersentencespace"></span> The aim of Ruby on Rails was to make it very easy to develop web based applications by hiding nearly all of the complexity from the developer.</p>
+<p>Over the past ten years, many more people have contributed further to the ease of developing Ruby on Rails applications by contributing more open source code to help with specific common tasks.<span class="intersentencespace"></span> These contributions, known as “gems”, help with tasks such as providing password-based access to systems, validating ISBNs, or allowing users of the system to upload files such as images or documents through the application.</p>
+<p>So the trend over the past decade has been to make it easier and easier to solve common tasks by just using code that other people have contributed, making it more simple to write sophisticated applications.</p>
+<p>When the application has been written, it used to be the case that you then had to buy or rent a “server” that is connected to the internet, and then install and maintain all of the required software and security configuration.<span class="intersentencespace"></span> However another major change has been a recent profusion in companies, such as Amazon and Google, offering rental of their own computers for running code and managing applications.<span class="intersentencespace"></span> Other companies, such as Netflix, run their businesses entirely on rented servers.<span class="intersentencespace"></span> Furthermore, yet other companies provide management layers on top of these services that hide their complexity from you, making it even easier to run your own application, and because they have a huge customer base of very similar systems, they can do so extremely cheaply.</p>
+<p>Until very recently this still left you with the problem of setting up your own computer to develop your application, and this has often been a rather trying business.<span class="intersentencespace"></span> In the past year or two, other companies have developed “hosted” systems that allow you to develop your code on their servers, so you don’t even need to have a sophisticated and complex development environment on your own desktop or laptop computers.<span class="intersentencespace"></span> Today we will be using a service called “Nitrous” to develop our code.</p>
+</div><div id="cid3" class="section"><h2><a href="getting_started_fragment.html#cid3" class="heading hyperref"><span class="number">1.2 </span>Set up a Nitrous.io account</a></h2>
+<ul>
+<li>Go to https://www.nitrous.io/
+</li>
+<li>Enter a username.
+</li>
+<li>Now enter your email address.
+</li>
+<li>Enter a password.
+</li>
+<li>Hit “Sign up for free”.<span class="intersentencespace"></span> If any of your details aren’t up to scratch, have another go.<span class="intersentencespace"></span>
+</li>
+<li>You’ll have to log in to your email to confirm you want to sign up.<span class="intersentencespace"></span> Do that and click on the link to confirm you want an account.
+</li>
+<li>Then you can sign in.<span class="intersentencespace"></span> Enter your email or username, and password.<span class="intersentencespace"></span>
+</li></ul>
+</div><div id="cid4" class="section"><h2><a href="getting_started_fragment.html#cid4" class="heading hyperref"><span class="number">1.3 </span>Create a development box</a></h2>
+<ul>
+<li>Click on the big green button that says <code>Open dashboard</code>.<span class="intersentencespace"></span>
+</li>
+<li>You’ll see a panel that says <code>Create your first box</code>.<span class="intersentencespace"></span> Ruby on Rails will be highlighted.<span class="intersentencespace"></span> Leave everything as it is, and click the orange <code>Create Box</code> button.
+</li>
+<li>On the next screen, wait until the line at the bottom goes green and it says [your box name] is running.<span class="intersentencespace"></span> Click <code>Next</code>.<span class="intersentencespace"></span> On the next page, scroll down and click <code>Okay, Take me to my box</code>.<span class="intersentencespace"></span>
+</li></ul>
+</div><div id="cid5" class="section"><h2><a href="getting_started_fragment.html#cid5" class="heading hyperref"><span class="number">1.4 </span>Logging back in</a></h2>
+<p>If your login expires, you can log back in with your user name and password.</p>
+<p>Click on <code>Start</code> and then <code>IDE</code> (which stands for Interactive Development Environment).</p>
+</div><div id="cid6" class="section"><h2><a href="getting_started_fragment.html#cid6" class="heading hyperref"><span class="number">1.5 </span>A look around Nitrous</a></h2>
+<p>At the top of the page, the screen is divided into two.<span class="intersentencespace"></span> On the left is a file system navigator – just like you’d see in Finder on the Mac or Windows Explorer on a PC.</p>
+<p>On the right is the contents of whichever file is open on Nitrous.</p>
+<p>At the bottom of the page you have a console.<span class="intersentencespace"></span> It’s the same as what you’d find if you’ve ever opened the Terminal on your Mac, or the Command Prompt on Windows.<span class="intersentencespace"></span> You can enter commands here which the computer will obey.<span class="intersentencespace"></span> Using the command line is often a lot quicker and more reliable than using the graphical user interface of your machine.</p>
+</div><div id="cid7" class="section"><h2><a href="getting_started_fragment.html#cid7" class="heading hyperref"><span class="number">1.6 </span>Create a Ruby on Rails application</a></h2>
+<p>Oh my!<span class="intersentencespace"></span> We’re ready to create your first Ruby on Rails application.<span class="intersentencespace"></span> But what does that mean?</p>
+<div class="aside" id="aside-what_is_an_application"><div class="heading"><span class="number">Box 1.1.</span> 
+
+<span class="description">What is a Rails application?</span></div>
+<p class="noindent">When you go to the Scribd website, or the Yellow Pages website, or Airbnb, Groupon or Bloomberg, you’re looking at Ruby on Rails applications.</p>
+<p>When you run the code of a Rails application, it generates HTML pages.<span class="intersentencespace"></span> Unlike a static HTML website, though, a Rails app can display different data, drawn from a database, depending on what the website user clicks on and types.</p>
+<p>So: a Rails application generates HTML pages on the fly.<span class="intersentencespace"></span> And what are a bunch of HTML pages usually called?<span class="intersentencespace"></span> A website.</p>
+
+</div><p>Let’s set up our new Rails app in the correct folder on Nitrous.<span class="intersentencespace"></span> This next command is the same as going to Finder and clicking on a folder.<span class="intersentencespace"></span> But you’re a programmer now, so you can use the command line.<span class="intersentencespace"></span> ‘cd’ stands for ‘change directory’.<span class="intersentencespace"></span> In the console, click near the $ dollar sign, which is known as the ‘command prompt’, and type:</p>
+<p class="noindent"></p><div class="code"><div class="highlight"><pre>    cd workspace
+</pre></div></div>
+<p>The console command prompt changes to show that you’ve changed into the directory folder called ‘workspace’.</p>
+<p>You know when you install an app or a new software program that you’ve download onto your phone or computer?<span class="intersentencespace"></span> You need to do the same for the database program that we’ll be using.<span class="intersentencespace"></span> We’ll be using PostgreSQL for our database.<span class="intersentencespace"></span> To do that, run this command:</p>
+<div class="code"><div class="highlight"><pre>    parts install postgresql
+</pre></div></div>
+<p>Words will appear in your console, whilst the installation is going on.<span class="intersentencespace"></span> Once PostgreSQL is installed, you’ll be able to see the $-sign console prompt again.<span class="intersentencespace"></span> Now, you can start the PostgreSQL program.<span class="intersentencespace"></span> Run the following command:</p>
+<div class="code"><div class="highlight"><pre>    parts start postgresql
+</pre></div></div>
+<p>We’ll call our Rails app “Book Organiser”.<span class="intersentencespace"></span> What we’re aiming for is to build a website that will appear somewhere like <code>www.bookorganiser.com</code>.<span class="intersentencespace"></span> To create your new Rails app, run the following command:</p>
+<div class="code"><div class="highlight"><pre>    rails new book_organiser -d postgresql
+</pre></div></div>
+<p>That’s our database program installed and running, and our Rails app created, and we’ve only typed three commands!<span class="intersentencespace"></span> Next, we need to provide the correct username and password, to connect your new Rails app to a PostgreSQL database.
+Switch to the directory containing your new app:
+</p><div class="code"><div class="highlight"><pre>    cd book_organiser    
+</pre></div></div>
+<p>Now, find the file at <code>workspace/book_organiser/config/database.yml</code>.<span class="intersentencespace"></span> Click on it, and its contents will appear in the right hand pane.<span class="intersentencespace"></span> Delete everything in this file.<span class="intersentencespace"></span> Now, copy all the following text and paste it into the file, to replace everything that was in there.
+</p><div class="code"><div class="highlight"><pre>    development:
+      adapter: postgresql
+      encoding: unicode
+      database: book_organiser_dev
+      pool: 5
+      host: localhost
+      username: action
+      password:
+
+    test:
+      adapter: postgresql
+      encoding: unicode
+      database: book_organiser_test
+      pool: 5
+      host: localhost
+      username: action
+      password:
+
+    production:
+      adapter: postgresql
+      encoding: unicode
+      database: book_organiser_prod
+      pool: 5
+      host: localhost
+      username: action
+      password:
+</pre></div></div>
+<p>Once you’ve saved the file, go back in the console, and run the following command:</p>
+<div class="code"><div class="highlight"><pre>  rake db:create:all db:migrate
+</pre></div></div>
+<p>OK! We’ve installed PostgreSQL, created a new Rails app, created a database and connected our app to our database.<span class="intersentencespace"></span> We’re ready to start up your new Rails app.<span class="intersentencespace"></span> Run the following command:</p>
+<div class="code"><div class="highlight"><pre>    <span class="n">rails</span> <span class="n">server</span>
+</pre></div></div>
+<p>Later, you can stop the server with Control-c to return to the command prompt.</p>
+<p>Then on Nitrous’s navigation menu at the top of the page, click on <code>Preview &gt; Port 3000</code>.<span class="intersentencespace"></span> You’ll see a website declaring “Welcome aboard.<span class="intersentencespace"></span> You’re riding Ruby on Rails!”</p>
+<p>You’ve done it!<span class="intersentencespace"></span> Your new Rails application is running.</p>
 </div>
         </body>
         </html>

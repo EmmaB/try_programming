@@ -18,5 +18,29 @@
     <navLabel><text>Chapter 1</text></navLabel>
     <content src="getting_started_fragment.html"/>
 </navPoint>
+<navPoint id="data_modelling" playOrder="3">
+    <navLabel><text>Chapter 2</text></navLabel>
+    <content src="data_modelling_fragment.html"/>
+</navPoint>
+<navPoint id="styling" playOrder="4">
+    <navLabel><text>Chapter 3</text></navLabel>
+    <content src="styling_fragment.html"/>
+</navPoint>
+<navPoint id="uploads" playOrder="5">
+    <navLabel><text>Chapter 4</text></navLabel>
+    <content src="uploads_fragment.html"/>
+</navPoint>
+<navPoint id="presentation" playOrder="6">
+    <navLabel><text>Chapter 5</text></navLabel>
+    <content src="presentation_fragment.html"/>
+</navPoint>
+<navPoint id="exercises" playOrder="7">
+    <navLabel><text>Chapter 6</text></navLabel>
+    <content src="exercises_fragment.html"/>
+</navPoint>
+<navPoint id="script" playOrder="8">
+    <navLabel><text>Chapter 7</text></navLabel>
+    <content src="script_fragment.html"/>
+</navPoint>
     </navMap>
 </ncx>

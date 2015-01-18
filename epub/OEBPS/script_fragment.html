@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+        <!DOCTYPE html>
+
+        <html xmlns="http://www.w3.org/1999/xhtml">
+        <head>
+          <title>Chapter 7</title>
+          <link rel="stylesheet" href="styles/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="styles/softcover.css" type="text/css" />
+          <link rel="stylesheet" href="styles/epub.css" type="text/css" />
+          <link rel="stylesheet" href="styles/custom.css" type="text/css"/>
+          <link rel="stylesheet" href="styles/custom_epub.css" type="text/css"/>
+          <link rel="stylesheet" type="application/vnd.adobe-page-template+xml" href="styles/page-template.xpgt" />
+        </head>
+
+        <body>
+          <div id="cid24" class="chapter"><h1><a href="script_fragment.html#cid24" class="heading hyperref"><span class="number">Chapter 7 </span>Code, instructions and coach notes</a></h1>
+<p>This chapter contains only the instructions and the code that we’ll be using on the course, and some brief coaching notes.<span class="intersentencespace"></span> The content is the same as in the previous chapters, summarised here for convenience during the course.</p>
+</div><div id="cid25" class="section"><h2><a href="script_fragment.html#cid25" class="heading hyperref"><span class="number">7.1 </span>Chapter 1: Getting started</a></h2>
+<div class="aside" id="aside-chapter1"><div class="heading"><span class="number">Box 7.1.</span> 
+
+<span class="description">Coach notes</span></div>
+<p class="noindent">Talk about the recent history of programming languages, and how nowadays there are tools to get started in programming without too much fuss.</p>
+
+</div>
+<div id="uid52" class="subsection"><h3><a href="script_fragment.html#uid52" class="heading hyperref"><span class="number">7.1.1 </span>Set up a Nitrous.io account</a></h3>
+<ul>
+<li>Go to https://www.nitrous.io/
+</li>
+<li>Enter a username.
+</li>
+<li>Now enter your email address.
+</li>
+<li>Enter a password.
+</li>
+<li>Hit “Sign up for free”.<span class="intersentencespace"></span> If any of your details aren’t up to scratch, have another go.<span class="intersentencespace"></span>
+</li>
+<li>You’ll have to log in to your email to confirm you want to sign up.<span class="intersentencespace"></span> Do that and click on the link to confirm you want an account.
+</li>
+<li>Then you can sign in.<span class="intersentencespace"></span> Enter your email or username, and password.<span class="intersentencespace"></span>
+</li></ul>
+</div>
+<div id="uid60" class="subsection"><h3><a href="script_fragment.html#uid60" class="heading hyperref"><span class="number">7.1.2 </span>Create a development box</a></h3>
+<ul>
+<li>Click on the big green button that says <code>Open dashboard</code>.<span class="intersentencespace"></span>
+</li>
+<li>You’ll see a panel that says <code>Create your first box</code>.<span class="intersentencespace"></span> Ruby on Rails will be highlighted.<span class="intersentencespace"></span> Leave everything as it is, and click the orange <code>Create Box</code> button.
+</li>
+<li>On the next screen, wait until the line at the bottom goes green and it says [your box name] is running.<span class="intersentencespace"></span> Click <code>Next</code>.<span class="intersentencespace"></span> On the next page, scroll down and click <code>Okay, Take me to my box</code>.<span class="intersentencespace"></span>
+</li></ul>
+</div>
+<div id="uid64" class="subsection"><h3><a href="script_fragment.html#uid64" class="heading hyperref"><span class="number">7.1.3 </span>Set up PostgreSQL</a></h3>
+<div class="code"><div class="highlight"><pre>    cd workspace
+</pre></div></div>
+<div class="code"><div class="highlight"><pre>    parts install postgresql
+</pre></div></div>
+<div class="code"><div class="highlight"><pre>    parts start postgresql
+</pre></div></div>
+</div>
+<div id="uid65" class="subsection"><h3><a href="script_fragment.html#uid65" class="heading hyperref"><span class="number">7.1.4 </span>Create our app</a></h3>
+<div class="aside" id="aside-chapter1a"><div class="heading"><span class="number">Box 7.2.</span> 
+
+<span class="description">Coach notes</span></div>
+<p class="noindent">Talk about what a Rails app is: a way to produce HTML files on the fly.</p>
+
+</div><div class="code"><div class="highlight"><pre>    rails new book_organiser -d postgresql
+</pre></div></div>
+<div class="code"><div class="highlight"><pre>    cd book_organiser    
+</pre></div></div>
+</div>
+<div id="uid67" class="subsection"><h3><a href="script_fragment.html#uid67" class="heading hyperref"><span class="number">7.1.5 </span>Link the app to the database</a></h3>
+<p>Replace the file at <code>workspace/book_organiser/config/database.yml</code> with:</p>
+<div class="code"><div class="highlight"><pre>    development:
+      adapter: postgresql
+      encoding: unicode
+      database: book_organiser_dev
+      pool: 5
+      host: localhost
+      username: action
+      password:
+
+    test:
+      adapter: postgresql
+      encoding: unicode
+      database: book_organiser_test
+      pool: 5
+      host: localhost
+      username: action
+      password:
+
+    production:
+      adapter: postgresql
+      encoding: unicode
+      database: book_organiser_prod
+      pool: 5
+      host: localhost
+      username: action
+      password:
+</pre></div></div>
+<div class="code"><div class="highlight"><pre>  rake db:create:all db:migrate
+</pre></div></div>
+</div>
+<div id="uid68" class="subsection"><h3><a href="script_fragment.html#uid68" class="heading hyperref"><span class="number">7.1.6 </span>Look at our new app running in the browser</a></h3>
+<div class="code"><div class="highlight"><pre>    <span class="n">rails</span> <span class="n">server</span>
+</pre></div></div>
+</div></div><div id="cid26" class="section"><h2><a href="script_fragment.html#cid26" class="heading hyperref"><span class="number">7.2 </span>Chapter 2: Structuring our app</a></h2>
+<div class="aside" id="aside-chapter2"><div class="heading"><span class="number">Box 7.3.</span> 
+
+<span class="description">Coach notes</span></div>
+<p class="noindent">Talk about MVC and object oriented programming.</p>
+
+</div><div class="code"><div class="highlight"><pre>  cd workspace/book_organiser
+</pre></div></div>
+<div class="aside" id="aside-chapter2a"><div class="heading"><span class="number">Box 7.4.</span> 
+
+<span class="description">Coach notes</span></div>
+<p class="noindent">Talk about Rails scaffolding, and data types.</p>
+
+</div><div class="code"><div class="highlight"><pre>  rails generate scaffold work name:string description:text cover:string subject:string
+</pre></div></div>
+<div class="code"><div class="highlight"><pre>  rake db:migrate
+</pre></div></div>
+<div class="aside" id="aside-chapter2b"><div class="heading"><span class="number">Box 7.5.</span> 
+
+<span class="description">Coach notes</span></div>
+<p class="noindent">Talk some more about MVC, and particularly routing.</p>
+
+</div><p>Open the file <code>app/config/routes.rb</code> in Nitrous.<span class="intersentencespace"></span> Add the following in, on the second line of the file:</p>
+<div class="code"><div class="highlight"><pre>  root 'works#index'
+</pre></div></div>
+</div><div id="cid27" class="section"><h2><a href="script_fragment.html#cid27" class="heading hyperref"><span class="number">7.3 </span>Chapter 3: Making it look good</a></h2>
+<div class="aside" id="aside-chapter3"><div class="heading"><span class="number">Box 7.6.</span> 
+
+<span class="description">Coach notes</span></div>
+<p class="noindent">Talk about ERB.</p>
+
+</div>
+<div id="uid73" class="subsection"><h3><a href="script_fragment.html#uid73" class="heading hyperref"><span class="number">7.3.1 </span>Enhance how our app looks with Bootstrap</a></h3>
+<p>Let’s get on with enhancing how our app looks.<span class="intersentencespace"></span> Above the line</p>
+<div class="code"><div class="highlight"><pre>  &lt;%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" =&gt; true %&gt;
+</pre></div></div>
+<p>add</p>
+<div class="code"><div class="highlight"><pre>  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">'http://fonts.googleapis.com/css?family=Oxygen:400,700,300'</span> <span class="na">rel=</span><span class="s">'stylesheet'</span> <span class="na">type=</span><span class="s">'text/css'</span><span class="nt">&gt;</span>
+  
+</pre></div></div>
+</div>
+<div id="uid74" class="subsection"><h3><a href="script_fragment.html#uid74" class="heading hyperref"><span class="number">7.3.2 </span>Keep things DRY</a></h3>
+<div class="aside" id="aside-chapter3a"><div class="heading"><span class="number">Box 7.7.</span> 
+
+<span class="description">Coach notes</span></div>
+<p class="noindent">Talk about the DRY principle.</p>
+
+</div><p>Next, look for</p>
+<div class="code"><div class="highlight"><pre><span class="x">  </span><span class="cp">&lt;%=</span> <span class="k">yield</span> <span class="cp">%&gt;</span><span class="x"></span>
+</pre></div></div>
+<p>and replace it with</p>
+<div class="code"><div class="highlight"><pre><span class="x">&lt;div class="container"&gt;</span>
+<span class="x">  </span><span class="cp">&lt;%=</span> <span class="k">yield</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">&lt;/div&gt;</span>
+</pre></div></div>
+<p>Let’s also add a navigation bar to the layout.<span class="intersentencespace"></span> In the same file, under <code>&lt;body&gt;</code>, add</p>
+<div class="code"><div class="highlight"><pre><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"navbar navbar-default navbar-fixed-top navbar-inverse"</span> <span class="na">role=</span><span class="s">"navigation"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"navbar-header"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"navbar-toggle"</span> <span class="na">data-toggle=</span><span class="s">"collapse"</span> <span class="na">data-target=</span><span class="s">".navbar-collapse"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Toggle navigation<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-bar"</span><span class="nt">&gt;&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-bar"</span><span class="nt">&gt;&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-bar"</span><span class="nt">&gt;&lt;/span&gt;</span>
+      <span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"navbar-brand"</span> <span class="na">href=</span><span class="s">"/"</span><span class="nt">&gt;</span>The Book Organiser app<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"collapse navbar-collapse"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"nav navbar-nav"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"/works"</span><span class="nt">&gt;</span>Works<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+      <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/nav&gt;</span>
+</pre></div></div>
+<p>Now let’s also change the styling of the Works table.<span class="intersentencespace"></span> Open <code>app/assets/stylesheets/application.css</code> and at the bottom add</p>
+<div class="code"><div class="highlight"><pre><span class="nt">body</span> <span class="p">{</span> <span class="k">padding-top</span><span class="o">:</span> <span class="m">100px</span><span class="p">;</span>   <span class="k">font-family</span><span class="o">:</span> <span class="n">Oxygen</span><span class="o">,</span> <span class="n">sans</span> <span class="k">serif</span><span class="p">}</span>
+<span class="nt">footer</span> <span class="p">{</span> <span class="k">margin-top</span><span class="o">:</span> <span class="m">100px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">table</span><span class="o">,</span> <span class="nt">td</span><span class="o">,</span> <span class="nt">th</span> <span class="p">{</span> <span class="k">vertical-align</span><span class="o">:</span> <span class="k">middle</span><span class="p">;</span> <span class="k">border</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">th</span> <span class="p">{</span> <span class="k">border-bottom</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#DDD</span><span class="p">;</span> <span class="p">}</span>
+</pre></div></div>
+<p>Next, <code>open app/views/works/index.html.erb</code> and replace line 3:</p>
+<div class="code"><div class="highlight"><pre>&lt;table&gt;
+</pre></div></div>
+<p>with
+</p><div class="code"><div class="highlight"><pre>&lt;table class ='table'&gt;
+</pre></div></div>
+<p>### Add a work</p>
+<p>Let’s add a bit of data.<span class="intersentencespace"></span> Click on <code>New Work</code> and use your shiny new website’s form to add a new work to your system.<span class="intersentencespace"></span> Use Amazon to grab a cover image and a description.<span class="intersentencespace"></span> Type in the subject, but leave the cover field blank for now.<span class="intersentencespace"></span> Click on ‘Create Work’ when you’re done.</p>
+</div></div><div id="cid28" class="section"><h2><a href="script_fragment.html#cid28" class="heading hyperref"><span class="number">7.4 </span>Chapter 4: Adding more features</a></h2>
+<div id="uid76" class="subsection"><h3><a href="script_fragment.html#uid76" class="heading hyperref"><span class="number">7.4.1 </span>Adding gems</a></h3>
+<div class="aside" id="aside-chapter4a"><div class="heading"><span class="number">Box 7.8.</span> 
+
+<span class="description">Coach notes</span></div>
+<p class="noindent">Talk about the open source movement and gems.</p>
+
+</div><p>Open the file called <code>Gemfile</code> in the project directory and at the bottom add</p>
+<div class="code"><div class="highlight"><pre>   gem 'carrierwave'
+   gem 'isbn'
+   gem 'haml'
+   
+</pre></div></div>
+<p>and save the file.</p>
+<p>In the console run:</p>
+<div class="code"><div class="highlight"><pre>bundle
+</pre></div></div>
+</div>
+<div id="uid78" class="subsection"><h3><a href="script_fragment.html#uid78" class="heading hyperref"><span class="number">7.4.2 </span>Adding uploads</a></h3>
+<p>Now we can generate the code for handling uploads.<span class="intersentencespace"></span> In the terminal run:</p>
+<div class="code"><div class="highlight"><pre>rails generate uploader Cover
+</pre></div></div>
+<p>At this point you need to restart the Rails server process in the console.<span class="intersentencespace"></span> Hit CTRL-C in the terminal to quit the server.<span class="intersentencespace"></span> Once it has stopped, you can press the up arrow to get to the last command entered, then hit enter to start the server again.<span class="intersentencespace"></span> This is so the app can load the new code.</p>
+<p>Open <code>app/models/work.rb</code> and under the line</p>
+<div class="code"><div class="highlight"><pre>class Work &lt; ActiveRecord::Base
+</pre></div></div>
+<p>add</p>
+<div class="code"><div class="highlight"><pre>mount_uploader :cover, CoverUploader
+</pre></div></div>
+<p>Open <code>app/views/works/_form.html.erb</code> and change</p>
+<div class="code"><div class="highlight"><pre>&lt;%= f.text_field :cover %&gt;
+</pre></div></div>
+<p>to</p>
+<div class="code"><div class="highlight"><pre>&lt;%= f.file_field :cover %&gt;
+</pre></div></div>
+<p>In your browser, add a new work with a cover.<span class="intersentencespace"></span> When you upload a cover it doesn’t look nice because it only shows a path to the file, so let’s fix that.</p>
+<p>Open <code>app/views/works/show.html.erb</code> and change</p>
+<div class="code"><div class="highlight"><pre>&lt;%= @work.cover %&gt;
+</pre></div></div>
+<p>to</p>
+<div class="code"><div class="highlight"><pre>&lt;%= image_tag(@work.cover_url, :width =&gt; 300) if @work.cover.present? %&gt;
+</pre></div></div>
+<p>Now refresh your browser to see what has changed.</p>
+</div>
+<div id="uid79" class="subsection"><h3><a href="script_fragment.html#uid79" class="heading hyperref"><span class="number">7.4.3 </span>Improving the code</a></h3>
+<div class="aside" id="aside-chapter4c"><div class="heading"><span class="number">Box 7.9.</span> 
+
+<span class="description">Coach notes</span></div>
+<p class="noindent">Talk about Haml.</p>
+
+</div><p>Go to http://htmltohaml.com and paste the whole contents of <code>app/views/works/_form.html.erb</code> in.</p>
+<p>Copy the Haml version on the right, then go to <code>app/views/works/_form.html.erb</code> and paste it all in.<span class="intersentencespace"></span> Then rename the file to be <code>_form.html.haml</code>.</p>
+<p>Restart the server by going to the console where the server is running and hitting CTRL-C, then up-arrow to get the last command, which was <code>rails server</code>, then hitting enter.<span class="intersentencespace"></span> You’ll see that nothing has changed on the browser page, but our code is easier to read and more elegant.</p>
+</div></div><div id="cid29" class="section"><h2><a href="script_fragment.html#cid29" class="heading hyperref"><span class="number">7.5 </span>Chapter 5: Making it useful</a></h2>
+<div id="uid81" class="subsection"><h3><a href="script_fragment.html#uid81" class="heading hyperref"><span class="number">7.5.1 </span>Convention over configuration</a></h3>
+<div class="aside" id="aside-chapter5"><div class="heading"><span class="number">Box 7.10.</span> 
+
+<span class="description">Coach notes</span></div>
+<p class="noindent">Talk about convention over configuration.</p>
+
+</div><p>In <code>app/views/works/show.html.erb</code>, paste in this code, replacing everything that’s in there already:</p>
+<div class="code"><div class="highlight"><pre><span class="x">&lt;p id="notice"&gt;</span><span class="cp">&lt;%=</span> <span class="n">notice</span> <span class="cp">%&gt;</span><span class="x">&lt;/p&gt;</span>
+
+<span class="x">&lt;div class="row"&gt;</span>
+<span class="x">  &lt;div class="col-sm-4"&gt;</span>
+<span class="x">    </span><span class="cp">&lt;%=</span> <span class="n">image_tag</span><span class="p">(</span><span class="vi">@work</span><span class="o">.</span><span class="n">cover_url</span><span class="p">,</span> <span class="ss">:width</span> <span class="o">=&gt;</span> <span class="mi">300</span><span class="p">)</span> <span class="k">if</span> <span class="vi">@work</span><span class="o">.</span><span class="n">cover</span><span class="o">.</span><span class="n">present?</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">  &lt;/div&gt;</span>
+<span class="x">  </span>
+<span class="x">  &lt;div class="col-sm-8"&gt;</span>
+<span class="x">    &lt;h1&gt;</span>
+<span class="x">      </span><span class="cp">&lt;%=</span> <span class="vi">@work</span><span class="o">.</span><span class="n">name</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">    &lt;/h1&gt;</span>
+<span class="x">      &lt;strong&gt;  </span>
+<span class="x">      </span><span class="cp">&lt;%=</span> <span class="vi">@work</span><span class="o">.</span><span class="n">subject</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">      &amp;bull;  </span>
+<span class="x">    &lt;/strong&gt;</span>
+<span class="x">    </span><span class="cp">&lt;%=</span> <span class="n">simple_format</span> <span class="vi">@work</span><span class="o">.</span><span class="n">description</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">  &lt;/div&gt;</span>
+<span class="x">&lt;/div&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s1">'Edit'</span><span class="p">,</span> <span class="n">edit_work_path</span><span class="p">(</span><span class="vi">@work</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="x"> |</span>
+<span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s1">'Back'</span><span class="p">,</span> <span class="n">works_path</span> <span class="cp">%&gt;</span><span class="x"></span>
+</pre></div></div>
+</div>
+<div id="uid83" class="subsection"><h3><a href="script_fragment.html#uid83" class="heading hyperref"><span class="number">7.5.2 </span>Queries</a></h3>
+<div class="aside" id="aside-chapter5a"><div class="heading"><span class="number">Box 7.11.</span> 
+
+<span class="description">Coach notes</span></div>
+<p class="noindent">Talk about how methods and ActiveRecord queries work</p>
+
+</div></div>
+<div id="uid85" class="subsection"><h3><a href="script_fragment.html#uid85" class="heading hyperref"><span class="number">7.5.3 </span>Associations</a></h3>
+<p>Let’s add in products.<span class="intersentencespace"></span> Open a new console window and run the following:</p>
+<div class="code"><div class="highlight"><pre>  rails generate scaffold Product isbn:string pub_date:date format:string price:decimal pages:integer work_id:integer
+</pre></div></div>
+<p>then
+</p><div class="code"><div class="highlight"><pre>  rake db:migrate
+</pre></div></div>
+<div class="aside" id="aside-chapter5b"><div class="heading"><span class="number">Box 7.12.</span> 
+
+<span class="description">Coach notes</span></div>
+<p class="noindent">Talk about associations.</p>
+
+</div><p>Now we have to relate the products to their parent work, and vice versa.<span class="intersentencespace"></span> A work has many products, and a product belongs to a work.<span class="intersentencespace"></span> First we’ll go to the work model and add in the association.<span class="intersentencespace"></span> Go to <code>app/models/work.rb</code>:</p>
+<div class="code"><div class="highlight"><pre>class Work &lt; ActiveRecord::Base
+  mount_uploader :cover, CoverUploader
+end
+</pre></div></div>
+<p>Add the following in before the <code>end</code>.</p>
+<div class="code"><div class="highlight"><pre>  has_many :products, :inverse_of =&gt; :work, :dependent =&gt; :destroy
+</pre></div></div>
+<p>And we add the reciprocal line in to the Product model:</p>
+<p>Go to <code>app/models/product.rb</code>.</p>
+<div class="code"><div class="highlight"><pre>class Product &lt; ActiveRecord::Base
+end
+</pre></div></div>
+<p>Add the following in before the <code>end</code>.</p>
+<div class="code"><div class="highlight"><pre>  belongs_to :work, :inverse_of =&gt; :products
+</pre></div></div>
+<p>Now let’s add our new products listing to the navigation menu: find the following:</p>
+<div class="code"><div class="highlight"><pre>    &lt;div class="collapse navbar-collapse"&gt;
+      &lt;ul class="nav navbar-nav"&gt;
+        &lt;li&gt;&lt;a href="/works"&gt;Works&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+</pre></div></div>
+<p>and add in this line:</p>
+<div class="code"><div class="highlight"><pre>  &lt;li&gt;&lt;a href="/products"&gt;Products&lt;/a&gt;&lt;/li&gt;
+</pre></div></div>
+<p>so it reads:
+</p><div class="code"><div class="highlight"><pre>    &lt;div class="collapse navbar-collapse"&gt;
+      &lt;ul class="nav navbar-nav"&gt;
+        &lt;li&gt;&lt;a href="/works"&gt;Works&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="/products"&gt;Products&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+</pre></div></div>
+<p>Add <code>class = ’table’</code> to the products table.<span class="intersentencespace"></span> Go to <code>app/views/products/index.html.erb</code> and change line 3 to</p>
+<div class="code"><div class="highlight"><pre>&lt;table class = 'table'&gt;
+</pre></div></div>
+<p>Click New product.<span class="intersentencespace"></span> You can see the correct fields, but we can make it easier to fill them it accurately.</p>
+</div>
+<div id="uid87" class="subsection"><h3><a href="script_fragment.html#uid87" class="heading hyperref"><span class="number">7.5.4 </span>Using form helpers</a></h3>
+<div class="aside" id="aside-chapter5c"><div class="heading"><span class="number">Box 7.13.</span> 
+
+<span class="description">Coach notes</span></div>
+<p class="noindent">Talk about form helpers and the other sorts of Rails methods that save time.</p>
+
+</div><p>Replace</p>
+<div class="code"><div class="highlight"><pre>    &lt;%= f.number_field :work_id %&gt;
+</pre></div></div>
+<p>With</p>
+<div class="code"><div class="highlight"><pre>    &lt;%= f.collection_select :work_id, Work.all, :id, :name %&gt;
+</pre></div></div>
+<p>Go to the browser and see that there’s a drop down list now.<span class="intersentencespace"></span> Create a couple of products using the form.</p>
+</div>
+<div id="uid89" class="subsection"><h3><a href="script_fragment.html#uid89" class="heading hyperref"><span class="number">7.5.5 </span>Conditional statements</a></h3>
+<div class="aside" id="aside-chapter5e"><div class="heading"><span class="number">Box 7.14.</span> 
+
+<span class="description">Coach notes</span></div>
+<p class="noindent">Talk about using the ISBN gem, conditional statements, the notion of validations and how Ruby is human-readable.</p>
+
+</div><p>In <code>app/views/products/edit.html.erb</code> add this code in just under the ISBN field div:</p>
+<div class="code"><div class="highlight"><pre><span class="cp">&lt;%</span> <span class="k">if</span> <span class="no">ISBN</span><span class="o">.</span><span class="n">valid?</span><span class="p">(</span><span class="vi">@product</span><span class="o">.</span><span class="n">isbn</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">  &lt;p class = 'bg-success'&gt;Great -- the ISBN is valid!&lt;/p&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">elsif</span> <span class="vi">@product</span><span class="o">.</span><span class="n">isbn</span><span class="o">.</span><span class="n">blank?</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">  &lt;p class = 'bg-info'&gt;Don't forget to add an ISBN!&lt;/p&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">else</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">  &lt;p class = 'bg-danger'&gt; Oh no -- the ISBN is not valid!&lt;/p&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span><span class="x"></span>
+</pre></div></div>
+</div>
+<div id="uid91" class="subsection"><h3><a href="script_fragment.html#uid91" class="heading hyperref"><span class="number">7.5.6 </span>Code blocks</a></h3>
+<div class="aside" id="aside-chapter5d"><div class="heading"><span class="number">Box 7.15.</span> 
+
+<span class="description">Coach notes</span></div>
+<p class="noindent">Talk about blocks.</p>
+
+</div><p>Now, let’s make the products appear on the work show page.<span class="intersentencespace"></span> Go to <code>app/views/works/show.html.erb</code>.<span class="intersentencespace"></span> After the description field, paste this in:</p>
+<div class="code"><div class="highlight"><pre><span class="x">  </span><span class="cp">&lt;%</span> <span class="vi">@work</span><span class="o">.</span><span class="n">products</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">product</span><span class="o">|</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">    &lt;p&gt;</span>
+<span class="x">      </span><span class="cp">&lt;%=</span> <span class="n">product</span><span class="o">.</span><span class="n">format</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">      &amp;bull;  </span>
+<span class="x">      </span><span class="cp">&lt;%=</span> <span class="n">product</span><span class="o">.</span><span class="n">isbn</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">      &amp;bull;  </span>
+<span class="x">      </span><span class="cp">&lt;%=</span> <span class="n">product</span><span class="o">.</span><span class="n">pages</span> <span class="cp">%&gt;</span><span class="x"> pages</span>
+<span class="x">      &amp;bull;  </span>
+<span class="x">      £</span><span class="cp">&lt;%=</span> <span class="n">product</span><span class="o">.</span><span class="n">price</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">      &amp;bull;  </span>
+<span class="x">      Published </span><span class="cp">&lt;%=</span> <span class="n">product</span><span class="o">.</span><span class="n">pub_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">'%d %B %y'</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">    &lt;/p&gt;</span>
+<span class="x">  </span><span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span><span class="x"></span>
+</pre></div></div>
+</div>
+<div id="uid93" class="subsection"><h3><a href="script_fragment.html#uid93" class="heading hyperref"><span class="number">7.5.7 </span>APIs</a></h3>
+<div class="aside" id="aside-chapter5d"><div class="heading"><span class="number">Box 7.16.</span> 
+
+<span class="description">Coach notes</span></div>
+<p class="noindent">Talk about APIs.</p>
+
+</div><p>Replace the index action in the works controller with this:</p>
+<div class="code"><div class="highlight"><pre>  <span class="k">def</span> <span class="nf">index</span>
+    <span class="vi">@works</span> <span class="o">=</span> <span class="no">Work</span><span class="o">.</span><span class="n">all</span>
+    <span class="n">respond_to</span> <span class="k">do</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span>
+      <span class="nb">format</span><span class="o">.</span><span class="n">html</span>
+      <span class="nb">format</span><span class="o">.</span><span class="n">xml</span> <span class="p">{</span> <span class="n">render</span> <span class="ss">:xml</span> <span class="o">=&gt;</span> <span class="vi">@works</span><span class="o">.</span><span class="n">to_xml</span> <span class="p">}</span>
+      <span class="nb">format</span><span class="o">.</span><span class="n">json</span> <span class="p">{</span> <span class="n">render</span> <span class="ss">:json</span> <span class="o">=&gt;</span> <span class="vi">@works</span><span class="o">.</span><span class="n">to_json</span> <span class="p">}</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+</pre></div></div>
+</div></div>
+        </body>
+        </html>

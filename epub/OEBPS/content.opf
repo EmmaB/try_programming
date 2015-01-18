@@ -8,7 +8,7 @@
         <dc:creator>From the makers of Bibliocloud</dc:creator>
         <dc:publisher>Softcover</dc:publisher>
         <dc:identifier id="BookID">urn:uuid:1993a013-a784-4e54-aa92-a4d31ecd1000</dc:identifier>
-        <meta property="dcterms:modified">2015-01-08T15:04:44Z</meta>
+        <meta property="dcterms:modified">2015-01-18T14:07:55Z</meta>
         <meta name="cover" content="img-cover-jpg"/>
     </metadata>
     <manifest>
@@ -23,6 +23,12 @@
         <item id="cover" href="cover.html" media-type="application/xhtml+xml"/>
         <item id="frontmatter" href="frontmatter_fragment.html" media-type="application/xhtml+xml"/>
 <item id="getting_started" href="getting_started_fragment.html" media-type="application/xhtml+xml"/>
+<item id="data_modelling" href="data_modelling_fragment.html" media-type="application/xhtml+xml"/>
+<item id="styling" href="styling_fragment.html" media-type="application/xhtml+xml"/>
+<item id="uploads" href="uploads_fragment.html" media-type="application/xhtml+xml"/>
+<item id="presentation" href="presentation_fragment.html" media-type="application/xhtml+xml"/>
+<item id="exercises" href="exercises_fragment.html" media-type="application/xhtml+xml"/>
+<item id="script" href="script_fragment.html" media-type="application/xhtml+xml"/>
         <item id="img-2011_michael_hartl-png" href="images/2011_michael_hartl.png" media-type="image/png"/>
 <item id="img-cover-web-png" href="images/cover-web.png" media-type="image/png"/>
 <item id="img-cover-jpg" href="images/cover.jpg" media-type="image/jpeg"/>
@@ -33,5 +39,11 @@
       <itemref idref="cover" linear="no" />
       <itemref idref="frontmatter"/>
 <itemref idref="getting_started"/>
+<itemref idref="data_modelling"/>
+<itemref idref="styling"/>
+<itemref idref="uploads"/>
+<itemref idref="presentation"/>
+<itemref idref="exercises"/>
+<itemref idref="script"/>
     </spine>
   </package>
