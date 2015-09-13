@@ -48,30 +48,32 @@
 <p>When the application has been written, it used to be the case that you then had to buy or rent a “server” that is connected to the internet, and then install and maintain all of the required software and security configuration.<span class="intersentencespace"></span> However another major change has been a recent profusion in companies, such as Amazon and Google, offering rental of their own computers for running code and managing applications.<span class="intersentencespace"></span> Other companies, such as Netflix, run their businesses entirely on rented servers.<span class="intersentencespace"></span> Furthermore, yet other companies provide management layers on top of these services that hide their complexity from you, making it even easier to run your own application, and because they have a huge customer base of very similar systems, they can do so extremely cheaply.</p>
 <p>Until very recently this still left you with the problem of setting up your own computer to develop your application, and this has often been a rather trying business.<span class="intersentencespace"></span> In the past year or two, other companies have developed “hosted” systems that allow you to develop your code on their servers, so you don’t even need to have a sophisticated and complex development environment on your own desktop or laptop computers.<span class="intersentencespace"></span> Today we will be using a service called “Nitrous” to develop our code.</p>
 </div>
-<div id="cid3" data-tralics-id="cid3" class="section" data-number="1.2"><h2><a href="getting_started.html#cid3" class="heading hyperref"><span class="number">1.2 </span>Set up a Nitrous.io account</a></h2>
+<div id="cid3" data-tralics-id="cid3" class="section" data-number="1.2"><h2><a href="getting_started.html#cid3" class="heading hyperref"><span class="number">1.2 </span>Set up a Nitrous.io account and a new container</a></h2>
 <ul>
 <li>Go to https://www.nitrous.io/
 </li>
-<li>Enter a username.
+<li>Enter a username.<span class="intersentencespace"></span>
 </li>
-<li>Now enter your email address.
+<li>Now enter your email address.<span class="intersentencespace"></span>
 </li>
-<li>Enter a password.
+<li>Enter a password.<span class="intersentencespace"></span>
 </li>
 <li>Hit “Sign up for free”.<span class="intersentencespace"></span> If any of your details aren’t up to scratch, have another go.<span class="intersentencespace"></span>
-</li>
-<li>You’ll have to log in to your email to confirm you want to sign up.<span class="intersentencespace"></span> Do that and click on the link to confirm you want an account.
-</li>
-<li>Then you can sign in.<span class="intersentencespace"></span> Enter your email or username, and password.<span class="intersentencespace"></span>
 </li></ul>
 </div>
 <div id="cid4" data-tralics-id="cid4" class="section" data-number="1.3"><h2><a href="getting_started.html#cid4" class="heading hyperref"><span class="number">1.3 </span>Create a development box</a></h2>
 <ul>
-<li>Click on the big green button that says <code>Open dashboard</code>.<span class="intersentencespace"></span>
+<li>On the New Container page, select Ruby on Rails, and hit Next.<span class="intersentencespace"></span>
 </li>
-<li>You’ll see a panel that says <code>Create your first box</code>.<span class="intersentencespace"></span> Ruby on Rails will be highlighted.<span class="intersentencespace"></span> Leave everything as it is, and click the orange <code>Create Box</code> button.
+<li>Select Europe as your region
 </li>
-<li>On the next screen, wait until the line at the bottom goes green and it says [your box name] is running.<span class="intersentencespace"></span> Click <code>Next</code>.<span class="intersentencespace"></span> On the next page, scroll down and click <code>Okay, Take me to my box</code>.<span class="intersentencespace"></span>
+<li>Select Starter (free) as your plan and hit Create.<span class="intersentencespace"></span>
+</li>
+<li>Sadly you’ll have to provide your phone number for a free plan.<span class="intersentencespace"></span> Enter it and hit Save, then enter your verification code once your SMS has arrived.<span class="intersentencespace"></span>
+</li>
+<li>Leave the box labelled “Open the IDE when ready” checked, and wait whilst Nitrous sets up your new box.<span class="intersentencespace"></span>
+</li>
+<li>Select Get Started once that’s an option on the screen.<span class="intersentencespace"></span>
 </li></ul>
 </div>
 <div id="cid5" data-tralics-id="cid5" class="section" data-number="1.4"><h2><a href="getting_started.html#cid5" class="heading hyperref"><span class="number">1.4 </span>Logging back in</a></h2>
@@ -85,7 +87,7 @@
 </div>
 <div id="cid7" data-tralics-id="cid7" class="section" data-number="1.6"><h2><a href="getting_started.html#cid7" class="heading hyperref"><span class="number">1.6 </span>Create a Ruby on Rails application</a></h2>
 <p>Oh my!<span class="intersentencespace"></span> We’re ready to create your first Ruby on Rails application.<span class="intersentencespace"></span> But what does that mean?</p>
-<div class="aside" id="aside-what_is_an_application" data-tralics-id="uid11" data-number="1.1"><div class="heading"><span class="number">Box 1.1.</span> 
+<div class="aside" id="aside-what_is_an_application" data-tralics-id="uid12" data-number="1.1"><div class="heading"><span class="number">Box 1.1.</span> 
 
 <span class="description">What is a Rails application?</span></div>
 <p class="noindent">When you go to the Scribd website, or the Yellow Pages website, or Airbnb, Groupon or Bloomberg, you’re looking at Ruby on Rails applications.</p>
@@ -93,24 +95,17 @@
 <p>So: a Rails application generates HTML pages on the fly.<span class="intersentencespace"></span> And what are a bunch of HTML pages usually called?<span class="intersentencespace"></span> A website.</p>
 
 </div><p>Let’s set up our new Rails app in the correct folder on Nitrous.<span class="intersentencespace"></span> This next command is the same as going to Finder and clicking on a folder.<span class="intersentencespace"></span> But you’re a programmer now, so you can use the command line.<span class="intersentencespace"></span> ‘cd’ stands for ‘change directory’.<span class="intersentencespace"></span> In the console, click near the $ dollar sign, which is known as the ‘command prompt’, and type:</p>
-<p class="noindent"></p><div class="code"><div class="highlight"><pre>    cd workspace
+<p class="noindent"></p><div class="code"><div class="highlight"><pre>    cd code
 </pre></div></div>
-<p>The console command prompt changes to show that you’ve changed into the directory folder called ‘workspace’.</p>
-<p>You know when you install an app or a new software program that you’ve download onto your phone or computer?<span class="intersentencespace"></span> You need to do the same for the database program that we’ll be using.<span class="intersentencespace"></span> We’ll be using PostgreSQL for our database.<span class="intersentencespace"></span> To do that, run this command:</p>
-<div class="code"><div class="highlight"><pre>    parts install postgresql
-</pre></div></div>
-<p>Words will appear in your console, whilst the installation is going on.<span class="intersentencespace"></span> Once PostgreSQL is installed, you’ll be able to see the $-sign console prompt again.<span class="intersentencespace"></span> Now, you can start the PostgreSQL program.<span class="intersentencespace"></span> Run the following command:</p>
-<div class="code"><div class="highlight"><pre>    parts start postgresql
-</pre></div></div>
+<p>The console command prompt changes to show that you’ve changed into the directory folder called ‘code’.</p>
+<p>You know when you install an app or a new software program that you’ve download onto your phone or computer?<span class="intersentencespace"></span> You need to do the same for the database program that we’ll be using.<span class="intersentencespace"></span> We’ll be using PostgreSQL for our database.<span class="intersentencespace"></span> Nitrous has configured that for you already.</p>
 <p>We’ll call our Rails app “Book Organiser”.<span class="intersentencespace"></span> What we’re aiming for is to build a website that will appear somewhere like <code>www.bookorganiser.com</code>.<span class="intersentencespace"></span> To create your new Rails app, run the following command:</p>
 <div class="code"><div class="highlight"><pre>    rails new book_organiser -d postgresql
 </pre></div></div>
-<p>That’s our database program installed and running, and our Rails app created, and we’ve only typed three commands!<span class="intersentencespace"></span> Next, we need to provide the correct username and password, to connect your new Rails app to a PostgreSQL database.
-Switch to the directory containing your new app:
+<p>That’s our database program installed and running, and our Rails app created, and we’ve only typed three commands!<span class="intersentencespace"></span> Next, we need to provide the correct username and password, to connect your new Rails app to a PostgreSQL database.<span class="intersentencespace"></span> Switch to the directory containing your new app:
 </p><div class="code"><div class="highlight"><pre>    cd book_organiser    
 </pre></div></div>
-<p>Now, find the file at <code>workspace/book_organiser/config/database.yml</code>.<span class="intersentencespace"></span> Click on it, and its contents will appear in the right hand pane.<span class="intersentencespace"></span> Delete everything in this file.<span class="intersentencespace"></span> Now, copy all the following text and paste it into the file, to replace everything that was in there.
-</p><div class="code"><div class="highlight"><pre>    development:
+<p>Now, find the file at <code>code/book_organiser/config/database.yml</code>.<span class="intersentencespace"></span> Click on it, and its contents will appear in the right hand pane.<span class="intersentencespace"></span> Delete everything in this file.<span class="intersentencespace"></span> Now, copy all the following text and paste it into the file, to replace everything that was in there.<span class="intersentencespace"></span> </p><div class="code"><div class="highlight"><pre>    development:
       adapter: postgresql
       encoding: unicode
       database: book_organiser_dev
@@ -140,7 +135,7 @@ Switch to the directory containing your new app:
 <p>Once you’ve saved the file, go back in the console, and run the following command:</p>
 <div class="code"><div class="highlight"><pre>  rake db:create:all db:migrate
 </pre></div></div>
-<p>OK! We’ve installed PostgreSQL, created a new Rails app, created a database and connected our app to our database.<span class="intersentencespace"></span> We’re ready to start up your new Rails app.<span class="intersentencespace"></span> Run the following command:</p>
+<p>OK! We’ve created a new Rails app, created a postgresql database and connected our app to our database.<span class="intersentencespace"></span> We’re ready to start up your new Rails app.<span class="intersentencespace"></span> Run the following command:</p>
 <div class="code"><div class="highlight"><pre>    <span class="n">rails</span> <span class="n">server</span>
 </pre></div></div>
 <p>Later, you can stop the server with Control-c to return to the command prompt.</p>
