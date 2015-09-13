@@ -14,36 +14,29 @@ Talk about the recent history of programming languages, and how nowadays there a
 \end{aside}
 
 
-### Set up a Nitrous.io account
+## Set up a Nitrous.io account and a new container
 
 * Go to https://www.nitrous.io/
 * Enter a username.
 * Now enter your email address.
 * Enter a password.
 * Hit "Sign up for free". If any of your details aren't up to scratch, have another go.
-* You'll have to log in to your email to confirm you want to sign up. Do that and click on the link to confirm you want an account.
-* Then you can sign in. Enter your email or username, and password.
 
+## Create a development box
 
-### Create a development box
-
-* Click on the big green button that says `Open dashboard`.
-* You'll see a panel that says `Create your first box`. Ruby on Rails will be highlighted. Leave everything as it is, and click the orange `Create Box` button.
-* On the next screen, wait until the line at the bottom goes green and it says [your box name] is running. Click `Next`. On the next page, scroll down and click `Okay, Take me to my box`.
+* On the New Container page, select Ruby on Rails, and hit Next.
+* Select Europe as your region
+* Select Starter (free) as your plan and hit Create.
+* Sadly you'll have to provide your phone number for a free plan. Enter it and hit Save, then enter your verification code once your SMS has arrived.
+* Leave the box labelled "Open the IDE when ready" checked, and wait whilst Nitrous sets up your new box.
+* Select Get Started once that's an option on the screen.
 
 ### Set up PostgreSQL
 
 ```
-    cd workspace
+    cd code
 ```
 
-```
-    parts install postgresql
-```
-
-```
-    parts start postgresql
-```
 
 ### Create our app
 
@@ -68,7 +61,7 @@ Talk about what a Rails app is: a way to produce HTML files on the fly.
 
 ### Link the app to the database
 
-Replace the file at `workspace/book_organiser/config/database.yml` with:
+Replace the file at `code/book_organiser/config/database.yml` with:
 
 ```
     development:
@@ -122,7 +115,7 @@ Talk about MVC and object oriented programming.
 
 
 ```
-  cd workspace/book_organiser
+  cd code/book_organiser
 ```
 
 \begin{aside}

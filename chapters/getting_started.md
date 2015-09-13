@@ -2,7 +2,7 @@
 \label{cha:a_chapter}
 
 
-## A recent history of code development. 
+## A recent history of code development.
 
 There are lots of different programming languages, and more are being created all the time. They are often very specialised. COBOL was designed to make it easy to solve business problems. FORTRAN was, and still is, used to write high-performance scientific programs.
 
@@ -23,71 +23,61 @@ Until very recently this still left you with the problem of setting up your own 
 
 
 
-## Set up a Nitrous.io account
+## Set up a Nitrous.io account and a new container
 
 * Go to https://www.nitrous.io/
-* Enter a username. 
-* Now enter your email address. 
-* Enter a password. 
+* Enter a username.
+* Now enter your email address.
+* Enter a password.
 * Hit "Sign up for free". If any of your details aren't up to scratch, have another go.
-* You'll have to log in to your email to confirm you want to sign up. Do that and click on the link to confirm you want an account. 
-* Then you can sign in. Enter your email or username, and password. 
-
 
 ## Create a development box
 
-* Click on the big green button that says `Open dashboard`.
-* You'll see a panel that says `Create your first box`. Ruby on Rails will be highlighted. Leave everything as it is, and click the orange `Create Box` button. 
-* On the next screen, wait until the line at the bottom goes green and it says [your box name] is running. Click `Next`. On the next page, scroll down and click `Okay, Take me to my box`. 
+* On the New Container page, select Ruby on Rails, and hit Next.
+* Select Europe as your region
+* Select Starter (free) as your plan and hit Create.
+* Sadly you'll have to provide your phone number for a free plan. Enter it and hit Save, then enter your verification code once your SMS has arrived.
+* Leave the box labelled "Open the IDE when ready" checked, and wait whilst Nitrous sets up your new box.
+* Select Get Started once that's an option on the screen.
 
 ## Logging back in
 
-If your login expires, you can log back in with your user name and password. 
+If your login expires, you can log back in with your user name and password.
 
 Click on `Start` and then `IDE` (which stands for Interactive Development Environment).
 
 ## A look around Nitrous
 
-At the top of the page, the screen is divided into two. On the left is a file system navigator -- just like you’d see in Finder on the Mac or Windows Explorer on a PC. 
+At the top of the page, the screen is divided into two. On the left is a file system navigator -- just like you’d see in Finder on the Mac or Windows Explorer on a PC.
 
-On the right is the contents of whichever file is open on Nitrous. 
+On the right is the contents of whichever file is open on Nitrous.
 
-At the bottom of the page you have a console. It’s the same as what you’d find if you’ve ever opened the Terminal on your Mac, or the Command Prompt on Windows. You can enter commands here which the computer will obey. Using the command line is often a lot quicker and more reliable than using the graphical user interface of your machine. 
+At the bottom of the page you have a console. It’s the same as what you’d find if you’ve ever opened the Terminal on your Mac, or the Command Prompt on Windows. You can enter commands here which the computer will obey. Using the command line is often a lot quicker and more reliable than using the graphical user interface of your machine.
 
 ## Create a Ruby on Rails application  
 
-Oh my! We're ready to create your first Ruby on Rails application. But what does that mean? 
+Oh my! We're ready to create your first Ruby on Rails application. But what does that mean?
 
 \begin{aside}
 \label{aside:what_is_an_application}
 \heading{What is a Rails application?}
-\noindent 
+\noindent
 
-When you go to the Scribd website, or the Yellow Pages website, or Airbnb, Groupon or Bloomberg, you're looking at Ruby on Rails applications. 
+When you go to the Scribd website, or the Yellow Pages website, or Airbnb, Groupon or Bloomberg, you're looking at Ruby on Rails applications.
 
-When you run the code of a Rails application, it generates HTML pages. Unlike a static HTML website, though, a Rails app can display different data, drawn from a database, depending on what the website user clicks on and types. 
+When you run the code of a Rails application, it generates HTML pages. Unlike a static HTML website, though, a Rails app can display different data, drawn from a database, depending on what the website user clicks on and types.
 
-So: a Rails application generates HTML pages on the fly. And what are a bunch of HTML pages usually called? A website. 
+So: a Rails application generates HTML pages on the fly. And what are a bunch of HTML pages usually called? A website.
 
 \end{aside}
 
 Let’s set up our new Rails app in the correct folder on Nitrous. This next command is the same as going to Finder and clicking on a folder. But you’re a programmer now, so you can use the command line. ‘cd’ stands for ‘change directory’. In the console, click near the $ dollar sign, which is known as the ‘command prompt’, and type:  
 ```
-    cd workspace
+    cd code
 ```
-The console command prompt changes to show that you’ve changed into the directory folder called ‘workspace’. 
+The console command prompt changes to show that you’ve changed into the directory folder called ‘code’.
 
-You know when you install an app or a new software program that you've download onto your phone or computer?  You need to do the same for the database program that we'll be using. We'll be using PostgreSQL for our database. To do that, run this command:  
-
-```
-    parts install postgresql
-```
-
-Words will appear in your console, whilst the installation is going on. Once PostgreSQL is installed, you'll be able to see the $-sign console prompt again. Now, you can start the PostgreSQL program. Run the following command:
-
-```
-    parts start postgresql
-```
+You know when you install an app or a new software program that you've download onto your phone or computer?  You need to do the same for the database program that we'll be using. We'll be using PostgreSQL for our database. Nitrous has configured that for you already.
 
 We'll call our Rails app "Book Organiser". What we're aiming for is to build a website that will appear somewhere like `www.bookorganiser.com`. To create your new Rails app, run the following command:
 
@@ -95,13 +85,13 @@ We'll call our Rails app "Book Organiser". What we're aiming for is to build a w
     rails new book_organiser -d postgresql
 ```
 
-That's our database program installed and running, and our Rails app created, and we've only typed three commands! Next, we need to provide the correct username and password, to connect your new Rails app to a PostgreSQL database. 
+That's our database program installed and running, and our Rails app created, and we've only typed three commands! Next, we need to provide the correct username and password, to connect your new Rails app to a PostgreSQL database.
 Switch to the directory containing your new app:
 ```
     cd book_organiser    
 ```
 
-Now, find the file at `workspace/book_organiser/config/database.yml`. Click on it, and its contents will appear in the right hand pane. Delete everything in this file. Now, copy all the following text and paste it into the file, to replace everything that was in there. 
+Now, find the file at `code/book_organiser/config/database.yml`. Click on it, and its contents will appear in the right hand pane. Delete everything in this file. Now, copy all the following text and paste it into the file, to replace everything that was in there.
 ```
     development:
       adapter: postgresql
@@ -137,7 +127,7 @@ Once you've saved the file, go back in the console, and run the following comman
   rake db:create:all db:migrate
 ```
 
-OK! We've installed PostgreSQL, created a new Rails app, created a database and connected our app to our database. We’re ready to start up your new Rails app. Run the following command: 
+OK! We've created a new Rails app, created a postgresql database and connected our app to our database. We’re ready to start up your new Rails app. Run the following command:
 
 ```ruby
     rails server
@@ -148,5 +138,4 @@ Later, you can stop the server with Control-c to return to the command prompt.
 Then on Nitrous’s navigation menu at the top of the page, click on `Preview > Port 3000`. You'll see a website declaring "Welcome aboard.
 You’re riding Ruby on Rails!"
 
-You’ve done it! Your new Rails application is running. 
-
+You’ve done it! Your new Rails application is running.
