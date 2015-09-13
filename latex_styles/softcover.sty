@@ -11,13 +11,15 @@
 
 % Font encodings
 \usepackage[T1]{fontenc}
+% Be able to define colors
+\usepackage[svgnames]{xcolor}
 % Be able to include book covers
 \usepackage{pdfpages}
-% Be able to define colors
-\usepackage{xcolor}
 % Include graphics
 \usepackage{graphicx}
 \def\maxwidth#1{\ifdim\Gin@nat@width>#1 #1\else\Gin@nat@width\fi}
+% Support the \url command
+\usepackage{url}
 % Commands included by PolyTeXnic
 \usepackage{latex_styles/polytexnic_commands}
 % Links
@@ -109,7 +111,7 @@
 
 % Codelistings
 \newcounter{codelisting}
-\numberwithin{codelisting}{chapter}
+\@ifundefined{chapter}{}{\numberwithin{codelisting}{chapter}}
 \newenvironment{codelisting}{\refstepcounter{codelisting}\begin{framed_shaded}\vspace{-0.5em}}%
 {\end{framed_shaded}}
 % See latex_styles/language_customization.sty for codelisting captions.
@@ -118,7 +120,9 @@
 \usepackage{amsthm}
 \theoremstyle{definition}
 \newcommand{\boxlabel}{Box}
-\newtheorem{aside}{\boxlabel}[chapter]
+\@ifundefined{chapter}
+  {\newtheorem{aside}{\boxlabel}}
+  {\newtheorem{aside}{\boxlabel}[chapter]}
 \usepackage{latex_styles/framed}
 \definecolor{shadecolor}{gray}{0.97}
 \definecolor{boxcolor}{gray}{0.10}
@@ -129,6 +133,7 @@
 \newcommand{\kodesize}{\smaller[0.75]}
 \newcommand{\kode}[1]{\textcolor{darkgreen}{\textbf{\texttt{\kodesize #1}}}}
 \newcommand{\coloredtext}[2]{\textcolor{#1}{#2}}
+\newcommand{\coloredtexthtml}[2]{\textcolor[HTML]{#1}{#2}}
 
 % Subtitle command
 \usepackage{titling}
@@ -141,6 +146,9 @@
 
 % Enable the \pbox command for paragraph boxes in tables.
 \usepackage{pbox}
+
+% Enable float placement options.
+\usepackage{float}
 
 % Define some commonly used Unicode characters.
 \usepackage{newunicodechar}

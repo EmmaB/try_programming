@@ -1,13 +1,13 @@
 # Code, instructions and coach notes
 
-This chapter contains only the instructions and the code that we'll be using on the course, and some brief coaching notes. The content is the same as in the previous chapters, summarised here for convenience during the course. 
+This chapter contains only the instructions and the code that we'll be using on the course, and some brief coaching notes. The content is the same as in the previous chapters, summarised here for convenience during the course.
 
 ## Chapter 1: Getting started
 
 \begin{aside}
 \label{aside:chapter1}
 \heading{Coach notes}
-\noindent 
+\noindent
 
 Talk about the recent history of programming languages, and how nowadays there are tools to get started in programming without too much fuss.
 
@@ -17,19 +17,19 @@ Talk about the recent history of programming languages, and how nowadays there a
 ### Set up a Nitrous.io account
 
 * Go to https://www.nitrous.io/
-* Enter a username. 
-* Now enter your email address. 
-* Enter a password. 
+* Enter a username.
+* Now enter your email address.
+* Enter a password.
 * Hit "Sign up for free". If any of your details aren't up to scratch, have another go.
-* You'll have to log in to your email to confirm you want to sign up. Do that and click on the link to confirm you want an account. 
-* Then you can sign in. Enter your email or username, and password. 
+* You'll have to log in to your email to confirm you want to sign up. Do that and click on the link to confirm you want an account.
+* Then you can sign in. Enter your email or username, and password.
 
 
 ### Create a development box
 
 * Click on the big green button that says `Open dashboard`.
-* You'll see a panel that says `Create your first box`. Ruby on Rails will be highlighted. Leave everything as it is, and click the orange `Create Box` button. 
-* On the next screen, wait until the line at the bottom goes green and it says [your box name] is running. Click `Next`. On the next page, scroll down and click `Okay, Take me to my box`. 
+* You'll see a panel that says `Create your first box`. Ruby on Rails will be highlighted. Leave everything as it is, and click the orange `Create Box` button.
+* On the next screen, wait until the line at the bottom goes green and it says [your box name] is running. Click `Next`. On the next page, scroll down and click `Okay, Take me to my box`.
 
 ### Set up PostgreSQL
 
@@ -50,9 +50,9 @@ Talk about the recent history of programming languages, and how nowadays there a
 \begin{aside}
 \label{aside:chapter1a}
 \heading{Coach notes}
-\noindent 
+\noindent
 
-Talk about what a Rails app is: a way to produce HTML files on the fly. 
+Talk about what a Rails app is: a way to produce HTML files on the fly.
 
 \end{aside}
 
@@ -68,7 +68,7 @@ Talk about what a Rails app is: a way to produce HTML files on the fly.
 
 ### Link the app to the database
 
-Replace the file at `workspace/book_organiser/config/database.yml` with: 
+Replace the file at `workspace/book_organiser/config/database.yml` with:
 
 ```
     development:
@@ -114,9 +114,9 @@ Replace the file at `workspace/book_organiser/config/database.yml` with:
 \begin{aside}
 \label{aside:chapter2}
 \heading{Coach notes}
-\noindent 
+\noindent
 
-Talk about MVC and object oriented programming. 
+Talk about MVC and object oriented programming.
 
 \end{aside}
 
@@ -128,9 +128,9 @@ Talk about MVC and object oriented programming.
 \begin{aside}
 \label{aside:chapter2a}
 \heading{Coach notes}
-\noindent 
+\noindent
 
-Talk about Rails scaffolding, and data types. 
+Talk about Rails scaffolding, and data types.
 
 \end{aside}
 
@@ -146,9 +146,9 @@ Talk about Rails scaffolding, and data types.
 \begin{aside}
 \label{aside:chapter2b}
 \heading{Coach notes}
-\noindent 
+\noindent
 
-Talk some more about MVC, and particularly routing. 
+Talk some more about MVC, and particularly routing.
 
 \end{aside}
 
@@ -164,9 +164,9 @@ Open the file `app/config/routes.rb` in Nitrous. Add the following in, on the se
 \begin{aside}
 \label{aside:chapter3}
 \heading{Coach notes}
-\noindent 
+\noindent
 
-Talk about ERB. 
+Talk about ERB.
 
 \end{aside}
 
@@ -181,11 +181,11 @@ Let's get on with enhancing how our app looks. Above the line
 add
 
 ```html
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700,300' rel='stylesheet' type='text/css'>
-  
+
 ```
 
 ### Keep things DRY
@@ -193,14 +193,14 @@ add
 \begin{aside}
 \label{aside:chapter3a}
 \heading{Coach notes}
-\noindent 
+\noindent
 
-Talk about the DRY principle. 
+Talk about the DRY principle.
 
 \end{aside}
 
 
-Next, look for 
+Next, look for
 
 ```erb
   <%= yield %>
@@ -250,7 +250,7 @@ Next, `open app/views/works/index.html.erb` and replace line 3:
 ```
 <table>
 ```
-with 
+with
 ```
 <table class ='table'>
 ```
@@ -265,9 +265,9 @@ Let's add a bit of data. Click on `New Work` and use your shiny new website's fo
 \begin{aside}
 \label{aside:chapter4a}
 \heading{Coach notes}
-\noindent 
+\noindent
 
-Talk about the open source movement and gems. 
+Talk about the open source movement and gems.
 
 \end{aside}
 
@@ -278,10 +278,10 @@ Open the file called `Gemfile` in the project directory and at the bottom add
    gem 'carrierwave'
    gem 'isbn'
    gem 'haml'
-   
+
 ```
 
-and save the file. 
+and save the file.
 
 In the console run:
 
@@ -346,17 +346,17 @@ Now refresh your browser to see what has changed.
 \begin{aside}
 \label{aside:chapter4c}
 \heading{Coach notes}
-\noindent 
+\noindent
 
-Talk about Haml. 
+Talk about Haml.
 
 \end{aside}
 
 Go to http://htmltohaml.com and paste the whole contents of `app/views/works/_form.html.erb` in.
 
-Copy the Haml version on the right, then go to `app/views/works/_form.html.erb` and paste it all in. Then rename the file to be `_form.html.haml`. 
+Copy the Haml version on the right, then go to `app/views/works/_form.html.erb` and paste it all in. Then rename the file to be `_form.html.haml`.
 
-Restart the server by going to the console where the server is running and hitting CTRL-C, then up-arrow to get the last command, which was `rails server`, then hitting enter. You'll see that nothing has changed on the browser page, but our code is easier to read and more elegant. 
+Restart the server by going to the console where the server is running and hitting CTRL-C, then up-arrow to get the last command, which was `rails server`, then hitting enter. You'll see that nothing has changed on the browser page, but our code is easier to read and more elegant.
 
 ## Chapter 5: Making it useful
 
@@ -365,13 +365,13 @@ Restart the server by going to the console where the server is running and hitti
 \begin{aside}
 \label{aside:chapter5}
 \heading{Coach notes}
-\noindent 
+\noindent
 
-Talk about convention over configuration. 
+Talk about convention over configuration.
 
 \end{aside}
 
-In `app/views/works/show.html.erb`, paste in this code, replacing everything that's in there already: 
+In `app/views/works/show.html.erb`, paste in this code, replacing everything that's in there already:
 
 ```erb
 <p id="notice"><%= notice %></p>
@@ -380,7 +380,7 @@ In `app/views/works/show.html.erb`, paste in this code, replacing everything tha
   <div class="col-sm-4">
     <%= image_tag(@work.cover_url, :width => 300) if @work.cover.present? %>
   </div>
-  
+
   <div class="col-sm-8">
     <h1>
       <%= @work.name %>
@@ -401,16 +401,16 @@ In `app/views/works/show.html.erb`, paste in this code, replacing everything tha
 \begin{aside}
 \label{aside:chapter5a}
 \heading{Coach notes}
-\noindent 
+\noindent
 
-Talk about how methods and ActiveRecord queries work 
+Talk about how methods and ActiveRecord queries work
 
 \end{aside}
 
 ### Associations
 
 
-Let's add in products. Open a new console window and run the following: 
+Let's add in products. Open a new console window and run the following:
 
 ```
   rails generate scaffold Product isbn:string pub_date:date format:string price:decimal pages:integer work_id:integer
@@ -424,9 +424,9 @@ then
 \begin{aside}
 \label{aside:chapter5b}
 \heading{Coach notes}
-\noindent 
+\noindent
 
-Talk about associations. 
+Talk about associations.
 
 \end{aside}
 
@@ -446,7 +446,7 @@ Add the following in before the `end`.
 
 And we add the reciprocal line in to the Product model:
 
-Go to `app/models/product.rb`. 
+Go to `app/models/product.rb`.
 
 ```
 class Product < ActiveRecord::Base
@@ -459,7 +459,7 @@ Add the following in before the `end`.
   belongs_to :work, :inverse_of => :products
 ```
 
-Now let's add our new products listing to the navigation menu: find the following: 
+Now let's add our new products listing to the navigation menu: find the following:
 
 ```
     <div class="collapse navbar-collapse">
@@ -468,13 +468,13 @@ Now let's add our new products listing to the navigation menu: find the followin
       </ul>
     </div>
 ```
-and add in this line: 
+and add in this line:
 
 ```
   <li><a href="/products">Products</a></li>
 ```
 
-so it reads: 
+so it reads:
 ```
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -484,13 +484,13 @@ so it reads:
     </div>
 ```
 
-Add `class = 'table'` to the products table. Go to `app/views/products/index.html.erb` and change line 3 to 
+Add `class = 'table'` to the products table. Go to `app/views/products/index.html.erb` and change line 3 to
 
 ```
 <table class = 'table'>
 ```
 
-Click New product. You can see the correct fields, but we can make it easier to fill them it accurately. 
+Click New product. You can see the correct fields, but we can make it easier to fill them it accurately.
 
 
 ### Using form helpers
@@ -500,9 +500,9 @@ Click New product. You can see the correct fields, but we can make it easier to 
 \begin{aside}
 \label{aside:chapter5c}
 \heading{Coach notes}
-\noindent 
+\noindent
 
-Talk about form helpers and the other sorts of Rails methods that save time. 
+Talk about form helpers and the other sorts of Rails methods that save time.
 
 \end{aside}
 
@@ -517,8 +517,8 @@ With
 ```
     <%= f.collection_select :work_id, Work.all, :id, :name %>
 ```
-  
-Go to the browser and see that there's a drop down list now. Create a couple of products using the form. 
+
+Go to the browser and see that there's a drop down list now. Create a couple of products using the form.
 
 ### Conditional statements
 
@@ -526,13 +526,13 @@ Go to the browser and see that there's a drop down list now. Create a couple of 
 \begin{aside}
 \label{aside:chapter5e}
 \heading{Coach notes}
-\noindent 
+\noindent
 
 Talk about using the ISBN gem, conditional statements, the notion of validations and how Ruby is human-readable.
 
 \end{aside}
 
-In `app/views/products/edit.html.erb` add this code in just under the ISBN field div: 
+In `app/views/products/edit.html.erb` add this code in just under the ISBN field div:
 
 ```erb
 <% if ISBN.valid?(@product.isbn) %>
@@ -551,13 +551,13 @@ In `app/views/products/edit.html.erb` add this code in just under the ISBN field
 \begin{aside}
 \label{aside:chapter5d}
 \heading{Coach notes}
-\noindent 
+\noindent
 
-Talk about blocks. 
+Talk about blocks.
 
 \end{aside}
 
-Now, let's make the products appear on the work show page. Go to `app/views/works/show.html.erb`. After the description field, paste this in: 
+Now, let's make the products appear on the work show page. Go to `app/views/works/show.html.erb`. After the description field, paste this in:
 
 
 ```erb
@@ -583,14 +583,14 @@ Now, let's make the products appear on the work show page. Go to `app/views/work
 \begin{aside}
 \label{aside:chapter5d}
 \heading{Coach notes}
-\noindent 
+\noindent
 
 Talk about APIs.  
 
 \end{aside}
 
 
-Replace the index action in the works controller with this: 
+Replace the index action in the works controller with this:
 
 ```ruby
   def index
@@ -602,5 +602,3 @@ Replace the index action in the works controller with this:
     end
   end
 ```
-
-  

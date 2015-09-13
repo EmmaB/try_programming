@@ -17,12 +17,12 @@
           extensions: ["AMSmath.js", "AMSsymbols.js"],
           equationNumbers: {
             autoNumber: "AMS",
-            formatNumber: function (n) { return "2" + '.' + n }
+            formatNumber: function (n) { return "2" + '.adfadsfa  ' + n }
           },
           Macros: {
             PolyTeX:    "Poly{\\TeX}",
             PolyTeXnic: "Poly{\\TeX}nic",
-            softcover: "\\texttt{softcover}"
+            "softcover": "\\texttt{softcover}"
           }
         },
         showProcessingMessages: false,
@@ -37,9 +37,9 @@
   <body>
     
     <div id="book">
-      <div id="cid8" data-tralics-id="cid8" class="chapter" data-number="2" data-chapter="data_modelling"><h1><a href="data_modelling_fragment.html#cid8" class="heading hyperref"><span class="number">Chapter 2 </span>Structuring our app</a></h1>
+      <div id="cid8" data-tralics-id="cid8" class="chapter" data-number="2" data-chapter="data_modelling"><h1><a href="data_modelling.html#cid8" class="heading hyperref"><span class="number">Chapter 2 </span>Structuring our app</a></h1>
 </div>
-<div id="cid9" data-tralics-id="cid9" class="section" data-number="2.1"><h2><a href="data_modelling_fragment.html#cid9" class="heading hyperref"><span class="number">2.1 </span>About the web application</a></h2>
+<div id="cid9" data-tralics-id="cid9" class="section" data-number="2.1"><h2><a href="data_modelling.html#cid9" class="heading hyperref"><span class="number">2.1 </span>About the web application</a></h2>
 <p>Today we are going to build a little web application, but first we have to think about exactly what that means - what do we need to do in order to make that happen?</p>
 <p>There are a few basic elements.</p>
 <p>Firstly, we need to have a page in an internet browser that will allow users to type information into forms, just as if they are writing an email in GMail or Yahoo!<span class="intersentencespace"></span> Mail.<span class="intersentencespace"></span> The pages need to be sent to the browser as HTML. Users need to be able to click on a button that will make the web browser send the data they have typed off to the application, which is on a remote server somewhere in the world waiting to be told what to do.</p>
@@ -57,7 +57,7 @@
 <li>“Models”, which tell the Ruby on Rails system how to store and modify data in the database.<span class="intersentencespace"></span>
 </li></ul>
 </div>
-<div id="cid10" data-tralics-id="cid10" class="section" data-number="2.2"><h2><a href="data_modelling_fragment.html#cid10" class="heading hyperref"><span class="number">2.2 </span>About the design</a></h2>
+<div id="cid10" data-tralics-id="cid10" class="section" data-number="2.2"><h2><a href="data_modelling.html#cid10" class="heading hyperref"><span class="number">2.2 </span>About the design</a></h2>
 <p>We are going to build a little system for managing publisher metadata.<span class="intersentencespace"></span> So what do we need to store information about?</p>
 <p>The world is full of “stuff”.<span class="intersentencespace"></span> Books, cats, football matches, emails, office buildings, submarines, string quartets, rock concerts.<span class="intersentencespace"></span> Some of them are actual physical things, some of them are abstract, but all of them can be thought of as some kind of object.</p>
 <p>Each of the above examples of stuff has a bunch of information associated with it.</p>
@@ -97,7 +97,7 @@
 <p class="noindent">We don’t store the same data more than once in a database.</p>
 
 </div></div>
-<div id="cid11" data-tralics-id="cid11" class="section" data-number="2.3"><h2><a href="data_modelling_fragment.html#cid11" class="heading hyperref"><span class="number">2.3 </span>Create our first model</a></h2>
+<div id="cid11" data-tralics-id="cid11" class="section" data-number="2.3"><h2><a href="data_modelling.html#cid11" class="heading hyperref"><span class="number">2.3 </span>Create our first model</a></h2>
 <p>We’ll keep the server running so we can see our changes as they happen.<span class="intersentencespace"></span> So let’s open a new console window.<span class="intersentencespace"></span> At the bottom of the Nitrous page, click the + sign next to Console.<span class="intersentencespace"></span> Type the following to switch to your app’s folder:</p>
 <div class="code"><div class="highlight"><pre>  cd workspace/book_organiser
 </pre></div></div>
@@ -112,13 +112,13 @@
 <p>Rake is a tool you can use with Ruby projects to run tasks in the console.<span class="intersentencespace"></span> In this case, we’re using it to run all the database migrations that haven’t yet been run.</p>
 <p>Now you can have a look at your work so far.<span class="intersentencespace"></span> Go to the browser and type <code>/works</code> after the address in the URL.</p>
 </div>
-<div id="cid12" data-tralics-id="cid12" class="section" data-number="2.4"><h2><a href="data_modelling_fragment.html#cid12" class="heading hyperref"><span class="number">2.4 </span>Make this our home page</a></h2>
+<div id="cid12" data-tralics-id="cid12" class="section" data-number="2.4"><h2><a href="data_modelling.html#cid12" class="heading hyperref"><span class="number">2.4 </span>Make this our home page</a></h2>
 <p>At the moment, “Welcome aboard” is occupying our important home page spot.<span class="intersentencespace"></span> Let’s change things so that our works page shows up when we go to our website’s root.</p>
 <div class="aside" id="aside-mvc" data-tralics-id="uid27" data-number="2.2"><div class="heading"><span class="number">Box 2.2.</span> 
 
 <span class="description">Model View Controller</span></div>
 <p class="noindent">Rails likes to keep everything in the right place.<span class="intersentencespace"></span> It helps developers enormously to know that if you open up someone’s Rails app you’re going to know where to go to find the html.erb view files, where to go to find the database migrations, where the business logic is, where the stylesheets and javascript files will be, and so on.<span class="intersentencespace"></span> The structural conventions that Rails uses saves developers time – and therefore money – every day.</p>
-<p>The structure that Rails apps use follow the MVC pattern <a href="http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">(Wikipedia page)</a>.</p>
+<p>The structure that Rails apps use follow the MVC pattern <a href="http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller" target="_blank">(Wikipedia page)</a>.</p>
 <p><code>Routing</code> decides which controller receives which requests.<span class="intersentencespace"></span> A <code>controller’s</code> purpose is to receive specific requests for the application.<span class="intersentencespace"></span> A controller contains methods called actions, and each action’s purpose is to collect information to provide it to a <code>view</code>.</p>
 <p>If you use the scaffold, like we did, then Rails controllers come with the following actions.<span class="intersentencespace"></span> Open up <code>app/controllers/works/works_controller.rb</code> as well to follow along.</p>
 <ul>
@@ -138,7 +138,7 @@
 </li></ul>
 <p>For the first four of these actions, there is a corresponding view file.<span class="intersentencespace"></span> Have a look in <code>app/views/works</code> and see.<span class="intersentencespace"></span> The final three are triggered when a user sends an instruction from the view – for instance, to delete a record.<span class="intersentencespace"></span> In the case of a ‘delete’ instruction, the <code>destroy</code> controller action deletes the record then sends a message back to the relevant view, saying the record was deleted OK. There’s no separate view for such an action.</p>
 <p>A <code>view’s</code> purpose is to display the information from a controller in a human readable format.<span class="intersentencespace"></span> An important distinction to make is that it is the <code>controller</code>, not the <code>view,</code> where information is collected.<span class="intersentencespace"></span> The <code>view</code> should only display that information.</p>
-<p>(adapted from the <a href="http://guides.rubyonrails.org/">Rails Guides</a>).</p>
+<p>(adapted from the <a href="http://guides.rubyonrails.org/" target="_blank">Rails Guides</a>).</p>
 <p>We used the Rails scaffold to create all the model, view, controller and routing files at the same time as the database table.<span class="intersentencespace"></span> You can create them one by one, as well.</p>
 
 </div><p>Open the file <code>app/config/routes.rb</code> in Nitrous.</p>
@@ -148,7 +148,7 @@
 <p><code>root ’works#index’</code> tells Rails to map requests to the root of the application to the works controller’s index action.<span class="intersentencespace"></span> <code>resources :works</code>
 tells Rails to map requests to http://localhost:3000/works/index to the works controller’s index action.<span class="intersentencespace"></span> This was created earlier when you ran the generator (<code>rails generate scaffold work</code>).</p>
 <p>Navigate to your home page in your browser.<span class="intersentencespace"></span> You’ll see the works index page there, indicating that this new route is indeed going to the work controller’s index action and is rendering the view correctly.</p>
-<p>Read more about routing in the <a href="http://guides.rubyonrails.org/getting_started.html">Rails Guides</a>.</p>
+<p>Read more about routing in the <a href="http://guides.rubyonrails.org/getting_started.html" target="_blank">Rails Guides</a>.</p>
 </div>
     </div>
   </body>

@@ -75,7 +75,7 @@
 
 <span class="description">Model View Controller</span></div>
 <p class="noindent">Rails likes to keep everything in the right place.<span class="intersentencespace"></span> It helps developers enormously to know that if you open up someone’s Rails app you’re going to know where to go to find the html.erb view files, where to go to find the database migrations, where the business logic is, where the stylesheets and javascript files will be, and so on.<span class="intersentencespace"></span> The structural conventions that Rails uses saves developers time – and therefore money – every day.</p>
-<p>The structure that Rails apps use follow the MVC pattern <a href="http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">(Wikipedia page)</a>.</p>
+<p>The structure that Rails apps use follow the MVC pattern <a href="http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller" target="_blank">(Wikipedia page)</a>.</p>
 <p><code>Routing</code> decides which controller receives which requests.<span class="intersentencespace"></span> A <code>controller’s</code> purpose is to receive specific requests for the application.<span class="intersentencespace"></span> A controller contains methods called actions, and each action’s purpose is to collect information to provide it to a <code>view</code>.</p>
 <p>If you use the scaffold, like we did, then Rails controllers come with the following actions.<span class="intersentencespace"></span> Open up <code>app/controllers/works/works_controller.rb</code> as well to follow along.</p>
 <ul>
@@ -95,7 +95,7 @@
 </li></ul>
 <p>For the first four of these actions, there is a corresponding view file.<span class="intersentencespace"></span> Have a look in <code>app/views/works</code> and see.<span class="intersentencespace"></span> The final three are triggered when a user sends an instruction from the view – for instance, to delete a record.<span class="intersentencespace"></span> In the case of a ‘delete’ instruction, the <code>destroy</code> controller action deletes the record then sends a message back to the relevant view, saying the record was deleted OK. There’s no separate view for such an action.</p>
 <p>A <code>view’s</code> purpose is to display the information from a controller in a human readable format.<span class="intersentencespace"></span> An important distinction to make is that it is the <code>controller</code>, not the <code>view,</code> where information is collected.<span class="intersentencespace"></span> The <code>view</code> should only display that information.</p>
-<p>(adapted from the <a href="http://guides.rubyonrails.org/">Rails Guides</a>).</p>
+<p>(adapted from the <a href="http://guides.rubyonrails.org/" target="_blank">Rails Guides</a>).</p>
 <p>We used the Rails scaffold to create all the model, view, controller and routing files at the same time as the database table.<span class="intersentencespace"></span> You can create them one by one, as well.</p>
 
 </div><p>Open the file <code>app/config/routes.rb</code> in Nitrous.</p>
@@ -105,5 +105,5 @@
 <p><code>root ’works#index’</code> tells Rails to map requests to the root of the application to the works controller’s index action.<span class="intersentencespace"></span> <code>resources :works</code>
 tells Rails to map requests to http://localhost:3000/works/index to the works controller’s index action.<span class="intersentencespace"></span> This was created earlier when you ran the generator (<code>rails generate scaffold work</code>).</p>
 <p>Navigate to your home page in your browser.<span class="intersentencespace"></span> You’ll see the works index page there, indicating that this new route is indeed going to the work controller’s index action and is rendering the view correctly.</p>
-<p>Read more about routing in the <a href="http://guides.rubyonrails.org/getting_started.html">Rails Guides</a>.</p>
+<p>Read more about routing in the <a href="http://guides.rubyonrails.org/getting_started.html" target="_blank">Rails Guides</a>.</p>
 </div>

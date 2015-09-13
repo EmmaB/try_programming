@@ -26,15 +26,15 @@
 <ul>
 <li>Go to https://www.nitrous.io/
 </li>
-<li>Enter a username.
+<li>Enter a username.<span class="intersentencespace"></span>
 </li>
-<li>Now enter your email address.
+<li>Now enter your email address.<span class="intersentencespace"></span>
 </li>
-<li>Enter a password.
+<li>Enter a password.<span class="intersentencespace"></span>
 </li>
 <li>Hit “Sign up for free”.<span class="intersentencespace"></span> If any of your details aren’t up to scratch, have another go.<span class="intersentencespace"></span>
 </li>
-<li>You’ll have to log in to your email to confirm you want to sign up.<span class="intersentencespace"></span> Do that and click on the link to confirm you want an account.
+<li>You’ll have to log in to your email to confirm you want to sign up.<span class="intersentencespace"></span> Do that and click on the link to confirm you want an account.<span class="intersentencespace"></span>
 </li>
 <li>Then you can sign in.<span class="intersentencespace"></span> Enter your email or username, and password.<span class="intersentencespace"></span>
 </li></ul>
@@ -43,7 +43,7 @@
 <ul>
 <li>Click on the big green button that says <code>Open dashboard</code>.<span class="intersentencespace"></span>
 </li>
-<li>You’ll see a panel that says <code>Create your first box</code>.<span class="intersentencespace"></span> Ruby on Rails will be highlighted.<span class="intersentencespace"></span> Leave everything as it is, and click the orange <code>Create Box</code> button.
+<li>You’ll see a panel that says <code>Create your first box</code>.<span class="intersentencespace"></span> Ruby on Rails will be highlighted.<span class="intersentencespace"></span> Leave everything as it is, and click the orange <code>Create Box</code> button.<span class="intersentencespace"></span>
 </li>
 <li>On the next screen, wait until the line at the bottom goes green and it says [your box name] is running.<span class="intersentencespace"></span> Click <code>Next</code>.<span class="intersentencespace"></span> On the next page, scroll down and click <code>Okay, Take me to my box</code>.<span class="intersentencespace"></span>
 </li></ul>
@@ -139,11 +139,10 @@
 <div class="code"><div class="highlight"><pre>  &lt;%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" =&gt; true %&gt;
 </pre></div></div>
 <p>add</p>
-<div class="code"><div class="highlight"><pre>  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<div class="code"><div class="highlight"><pre>  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
   <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">'http://fonts.googleapis.com/css?family=Oxygen:400,700,300'</span> <span class="na">rel=</span><span class="s">'stylesheet'</span> <span class="na">type=</span><span class="s">'text/css'</span><span class="nt">&gt;</span>
-  
 </pre></div></div>
 </div>
 <div id="uid74" class="subsection"><h3><a href="script_fragment.html#uid74" class="heading hyperref"><span class="number">7.3.2 </span>Keep things DRY</a></h3>
@@ -205,7 +204,6 @@
 <div class="code"><div class="highlight"><pre>   gem 'carrierwave'
    gem 'isbn'
    gem 'haml'
-   
 </pre></div></div>
 <p>and save the file.</p>
 <p>In the console run:</p>
@@ -261,7 +259,7 @@
 <span class="x">  &lt;div class="col-sm-4"&gt;</span>
 <span class="x">    </span><span class="cp">&lt;%=</span> <span class="n">image_tag</span><span class="p">(</span><span class="vi">@work</span><span class="o">.</span><span class="n">cover_url</span><span class="p">,</span> <span class="ss">:width</span> <span class="o">=&gt;</span> <span class="mi">300</span><span class="p">)</span> <span class="k">if</span> <span class="vi">@work</span><span class="o">.</span><span class="n">cover</span><span class="o">.</span><span class="n">present?</span> <span class="cp">%&gt;</span><span class="x"></span>
 <span class="x">  &lt;/div&gt;</span>
-<span class="x">  </span>
+
 <span class="x">  &lt;div class="col-sm-8"&gt;</span>
 <span class="x">    &lt;h1&gt;</span>
 <span class="x">      </span><span class="cp">&lt;%=</span> <span class="vi">@work</span><span class="o">.</span><span class="n">name</span> <span class="cp">%&gt;</span><span class="x"></span>
