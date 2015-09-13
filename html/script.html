@@ -88,41 +88,18 @@
 </pre></div></div>
 <div class="code"><div class="highlight"><pre>    cd book_organiser    
 </pre></div></div>
+<div class="code"><div class="highlight"><pre>  bundle install
+</pre></div></div>
 </div>
 <div id="uid67" data-tralics-id="uid67" class="subsection" data-number="7.3.3"><h3><a href="script.html#uid67" class="heading hyperref"><span class="number">7.3.3 </span>Link the app to the database</a></h3>
-<p>Replace the file at <code>code/book_organiser/config/database.yml</code> with:</p>
-<div class="code"><div class="highlight"><pre>    development:
-      adapter: postgresql
-      encoding: unicode
-      database: book_organiser_dev
-      pool: 5
-      host: localhost
-      username: action
-      password:
-
-    test:
-      adapter: postgresql
-      encoding: unicode
-      database: book_organiser_test
-      pool: 5
-      host: localhost
-      username: action
-      password:
-
-    production:
-      adapter: postgresql
-      encoding: unicode
-      database: book_organiser_prod
-      pool: 5
-      host: localhost
-      username: action
-      password:
-</pre></div></div>
-<div class="code"><div class="highlight"><pre>  rake db:create:all db:migrate
+<div class="code"><div class="highlight"><pre>  rake db:create db:migrate
 </pre></div></div>
 </div>
 <div id="uid68" data-tralics-id="uid68" class="subsection" data-number="7.3.4"><h3><a href="script.html#uid68" class="heading hyperref"><span class="number">7.3.4 </span>Look at our new app running in the browser</a></h3>
-<div class="code"><div class="highlight"><pre>    <span class="n">rails</span> <span class="n">server</span>
+<div class="code"><div class="highlight"><pre>  <span class="n">rails</span> <span class="n">s</span> <span class="o">-</span><span class="n">b</span> <span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span>
+</pre></div></div>
+<p>or
+</p><div class="code"><div class="highlight"><pre>  ~/code/book_organiser/start-app
 </pre></div></div>
 </div></div>
 <div id="cid28" data-tralics-id="cid28" class="section" data-number="7.4"><h2><a href="script.html#cid28" class="heading hyperref"><span class="number">7.4 </span>Chapter 2: Structuring our app</a></h2>

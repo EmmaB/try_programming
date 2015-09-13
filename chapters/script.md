@@ -59,47 +59,24 @@ Talk about what a Rails app is: a way to produce HTML files on the fly.
     cd book_organiser    
 ```
 
+```
+  bundle install
+```
+
 ### Link the app to the database
 
-Replace the file at `code/book_organiser/config/database.yml` with:
-
 ```
-    development:
-      adapter: postgresql
-      encoding: unicode
-      database: book_organiser_dev
-      pool: 5
-      host: localhost
-      username: action
-      password:
-
-    test:
-      adapter: postgresql
-      encoding: unicode
-      database: book_organiser_test
-      pool: 5
-      host: localhost
-      username: action
-      password:
-
-    production:
-      adapter: postgresql
-      encoding: unicode
-      database: book_organiser_prod
-      pool: 5
-      host: localhost
-      username: action
-      password:
-```
-
-```
-  rake db:create:all db:migrate
+  rake db:create db:migrate
 ```
 
 ### Look at our new app running in the browser
 
 ```ruby
-    rails server
+  rails s -b 0.0.0.0
+```
+or
+```
+  ~/code/book_organiser/start-app
 ```
 
 ## Chapter 2: Structuring our app

@@ -85,52 +85,32 @@ We'll call our Rails app "Book Organiser". What we're aiming for is to build a w
     rails new book_organiser -d postgresql
 ```
 
-That's our database program installed and running, and our Rails app created, and we've only typed three commands! Next, we need to provide the correct username and password, to connect your new Rails app to a PostgreSQL database.
+That's our database program installed and running, and our Rails app created, and we've only typed three commands! Next, we need to connect your new Rails app to a PostgreSQL database.
 Switch to the directory containing your new app:
 ```
     cd book_organiser    
 ```
 
-Now, find the file at `code/book_organiser/config/database.yml`. Click on it, and its contents will appear in the right hand pane. Delete everything in this file. Now, copy all the following text and paste it into the file, to replace everything that was in there.
-```
-    development:
-      adapter: postgresql
-      encoding: unicode
-      database: book_organiser_dev
-      pool: 5
-      host: localhost
-      username: action
-      password:
-
-    test:
-      adapter: postgresql
-      encoding: unicode
-      database: book_organiser_test
-      pool: 5
-      host: localhost
-      username: action
-      password:
-
-    production:
-      adapter: postgresql
-      encoding: unicode
-      database: book_organiser_prod
-      pool: 5
-      host: localhost
-      username: action
-      password:
-```
-
-Once you've saved the file, go back in the console, and run the following command:
+Next, find the file at `code/book_organiser/Gemfile`. Click on it, and its contents will appear in the right hand pane. We're going to run this code. Go back in the console, and run the following command:
 
 ```
-  rake db:create:all db:migrate
+  bundle install
+```
+
+Now, find the file at `code/book_organiser/config/database.yml`. Click on it, and its contents will appear in the right hand pane. We're going to run this code. Go back in the console, and run the following command:
+
+```
+  rake db:create db:migrate
 ```
 
 OK! We've created a new Rails app, created a postgresql database and connected our app to our database. We’re ready to start up your new Rails app. Run the following command:
 
 ```ruby
-    rails server
+  rails s -b 0.0.0.0
+```
+or
+```
+  ~/code/book_organiser/start-app
 ```
 
 Later, you can stop the server with Control-c to return to the command prompt.

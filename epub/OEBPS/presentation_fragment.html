@@ -79,17 +79,14 @@ create an instance variable called @work, and make it represent a particular wor
 <p>Tells us that the browser sent a GET request for a work of ID 1.<span class="intersentencespace"></span> </p><div class="code"><div class="highlight"><pre>  Processing by WorksController#show as HTML
 </pre></div></div>
 <p>tells us that this request got routed to the correct controller.<span class="intersentencespace"></span></p>
-<p class="noindent"></p><div class="code"><div class="highlight"><pre>  
-  Parameters: {"id"=&gt;"1"}
+<p class="noindent"></p><div class="code"><div class="highlight"><pre>  Parameters: {"id"=&gt;"1"}
 </pre></div></div>
 <p>tells us that the params passed along with this request are <code>{"id"=&gt;"1"}</code>
 </p><div class="code"><div class="highlight"><pre>  Work Load (0.3ms)  SELECT  "works".* FROM "works"  WHERE "works"."id" = $1 LIMIT 1  [["id", 1]]
 </pre></div></div>
-<p>is the actual SQL query that runs to get the right data from the database.
-</p><div class="code"><div class="highlight"><pre>  Rendered works/show.html.erb within layouts/application (1.8ms)
+<p>is the actual SQL query that runs to get the right data from the database.<span class="intersentencespace"></span> </p><div class="code"><div class="highlight"><pre>  Rendered works/show.html.erb within layouts/application (1.8ms)
 </pre></div></div>
-<p>tells us that after the request was completed, the controller routed us back to the show page.
-</p><div class="code"><div class="highlight"><pre>  Completed 200 OK in 53ms (Views: 51.1ms | ActiveRecord: 0.3ms)
+<p>tells us that after the request was completed, the controller routed us back to the show page.<span class="intersentencespace"></span> </p><div class="code"><div class="highlight"><pre>  Completed 200 OK in 53ms (Views: 51.1ms | ActiveRecord: 0.3ms)
 </pre></div></div>
 <p>tells us that all of this took less than half a second.</p>
 <p>The params (which is short for ‘parameters’) are passed from the view to the controller as a “hash”.<span class="intersentencespace"></span> Ruby hashes are one of the things that programmers love the most about the language because they’re useful and flexible.<span class="intersentencespace"></span> They contain data in key-value pairs, in any order, like this:</p>
@@ -106,7 +103,7 @@ create an instance variable called @work, and make it represent a particular wor
 <span class="x">  &lt;div class="col-sm-4"&gt;</span>
 <span class="x">    </span><span class="cp">&lt;%=</span> <span class="n">image_tag</span><span class="p">(</span><span class="vi">@work</span><span class="o">.</span><span class="n">cover_url</span><span class="p">,</span> <span class="ss">:width</span> <span class="o">=&gt;</span> <span class="mi">300</span><span class="p">)</span> <span class="k">if</span> <span class="vi">@work</span><span class="o">.</span><span class="n">cover</span><span class="o">.</span><span class="n">present?</span> <span class="cp">%&gt;</span><span class="x"></span>
 <span class="x">  &lt;/div&gt;</span>
-<span class="x">  </span>
+
 <span class="x">  &lt;div class="col-sm-8"&gt;</span>
 <span class="x">    &lt;h1&gt;</span>
 <span class="x">      </span><span class="cp">&lt;%=</span> <span class="vi">@work</span><span class="o">.</span><span class="n">name</span> <span class="cp">%&gt;</span><span class="x"></span>
@@ -171,7 +168,7 @@ end
 <div class="code"><div class="highlight"><pre>&lt;table class = 'table'&gt;
 </pre></div></div>
 <p>Click New product.<span class="intersentencespace"></span> You can see the correct fields, but we can make it easier to fill them it accurately.</p>
-<p>Replace</p>
+<p>In the view file <code>app/views/products/_form.html.erb</code>, replace</p>
 <div class="code"><div class="highlight"><pre>    &lt;%= f.number_field :work_id %&gt;
 </pre></div></div>
 <p>With</p>
@@ -180,7 +177,7 @@ end
 <p><code>collection_select</code> is a Rails helper method.<span class="intersentencespace"></span> This method takes four arguments.<span class="intersentencespace"></span> It’s going to let us pass the value of work_id into the params when we hit ‘save’.<span class="intersentencespace"></span> It’ll get the ID from the dropdown list, which will be populated by Work.all (all the works).<span class="intersentencespace"></span> The next argument says that it’s the id that’ll be passed.<span class="intersentencespace"></span> And finally, the last argument tells Rails that it should display the name of the work to the user of the website.</p>
 <p>Go to the browser and see that there’s a drop down list now.<span class="intersentencespace"></span> Create a couple of products using the form.</p>
 <p>You’ll see that we can put any old thing into the ISBN field.<span class="intersentencespace"></span> Let’s use the gem we added earlier to check whether the ISBN is properly formed.</p>
-<p>In <code>app/views/products/edit.html.erb</code> add this code in just under the ISBN field div:</p>
+<p>In <code>app/views/products/_form.html.erb</code> add this code in just under the ISBN field div:</p>
 <div class="code"><div class="highlight"><pre><span class="cp">&lt;%</span> <span class="k">if</span> <span class="no">ISBN</span><span class="o">.</span><span class="n">valid?</span><span class="p">(</span><span class="vi">@product</span><span class="o">.</span><span class="n">isbn</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="x"></span>
 <span class="x">  &lt;p class = 'bg-success'&gt;Great -- the ISBN is valid!&lt;/p&gt;</span>
 <span class="cp">&lt;%</span> <span class="k">elsif</span> <span class="vi">@product</span><span class="o">.</span><span class="n">isbn</span><span class="o">.</span><span class="n">blank?</span> <span class="cp">%&gt;</span><span class="x"></span>
