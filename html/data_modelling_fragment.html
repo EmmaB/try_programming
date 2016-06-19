@@ -1,5 +1,5 @@
-<div id="cid8" data-tralics-id="cid8" class="chapter" data-number="2" data-chapter="data_modelling"><h1><a href="data_modelling_fragment.html#cid8" class="heading hyperref"><span class="number">Chapter 2 </span>Structuring our app</a></h1>
-</div><div id="cid9" data-tralics-id="cid9" class="section" data-number="2.1"><h2><a href="data_modelling_fragment.html#cid9" class="heading hyperref"><span class="number">2.1 </span>About the web application</a></h2>
+<div id="cid7" data-tralics-id="cid7" class="chapter" data-number="2" data-chapter="data_modelling"><h1><a href="data_modelling_fragment.html#cid7" class="heading hyperref"><span class="number">Chapter 2 </span>Structuring our app</a></h1>
+</div><div id="cid8" data-tralics-id="cid8" class="section" data-number="2.1"><h2><a href="data_modelling_fragment.html#cid8" class="heading hyperref"><span class="number">2.1 </span>About the web application</a></h2>
 <p>Today we are going to build a little web application, but first we have to think about exactly what that means - what do we need to do in order to make that happen?</p>
 <p>There are a few basic elements.</p>
 <p>Firstly, we need to have a page in an internet browser that will allow users to type information into forms, just as if they are writing an email in GMail or Yahoo!<span class="intersentencespace"></span> Mail.<span class="intersentencespace"></span> The pages need to be sent to the browser as HTML. Users need to be able to click on a button that will make the web browser send the data they have typed off to the application, which is on a remote server somewhere in the world waiting to be told what to do.</p>
@@ -16,7 +16,7 @@
 </li>
 <li>“Models”, which tell the Ruby on Rails system how to store and modify data in the database.<span class="intersentencespace"></span>
 </li></ul>
-</div><div id="cid10" data-tralics-id="cid10" class="section" data-number="2.2"><h2><a href="data_modelling_fragment.html#cid10" class="heading hyperref"><span class="number">2.2 </span>About the design</a></h2>
+</div><div id="cid9" data-tralics-id="cid9" class="section" data-number="2.2"><h2><a href="data_modelling_fragment.html#cid9" class="heading hyperref"><span class="number">2.2 </span>About the design</a></h2>
 <p>We are going to build a little system for managing publisher metadata.<span class="intersentencespace"></span> So what do we need to store information about?</p>
 <p>The world is full of “stuff”.<span class="intersentencespace"></span> Books, cats, football matches, emails, office buildings, submarines, string quartets, rock concerts.<span class="intersentencespace"></span> Some of them are actual physical things, some of them are abstract, but all of them can be thought of as some kind of object.</p>
 <p>Each of the above examples of stuff has a bunch of information associated with it.</p>
@@ -50,12 +50,12 @@
 <p>The second model will be called “Product”.<span class="intersentencespace"></span> We could call it “book”, but that wouldn’t be very helpful if we want to store information about apps, or maps, or marketing materials, or other non-book products, in our system.<span class="intersentencespace"></span> The word “book” can also mean “individual copy” which would be misleading.<span class="intersentencespace"></span> Our products will have a format, a price, an ISBN, a publication date and a page count.</p>
 <p>Let’s say that we have two products.<span class="intersentencespace"></span> The first is a paperback, published in June 2015.<span class="intersentencespace"></span> The second is a hardback, published in March 2015.</p>
 <p>Both these products will belong to a work, whose title is “War and Peace Revisited”.<span class="intersentencespace"></span> The work’s subject is “fiction”.<span class="intersentencespace"></span> The title and the subject from the work will be inherited by the products.<span class="intersentencespace"></span> We don’t need to repeat them.</p>
-<div class="aside" id="aside-normalisation" data-tralics-id="uid27" data-number="2.1"><div class="heading"><span class="number">Box 2.1.</span> 
+<div class="aside" id="aside-normalisation" data-tralics-id="uid29" data-number="2.1"><div class="heading"><span class="number">Box 2.1.</span> 
 
 <span class="description">Principle: Normalisation</span></div>
 <p class="noindent">We don’t store the same data more than once in a database.</p>
 
-</div></div><div id="cid11" data-tralics-id="cid11" class="section" data-number="2.3"><h2><a href="data_modelling_fragment.html#cid11" class="heading hyperref"><span class="number">2.3 </span>Create our first model</a></h2>
+</div></div><div id="cid10" data-tralics-id="cid10" class="section" data-number="2.3"><h2><a href="data_modelling_fragment.html#cid10" class="heading hyperref"><span class="number">2.3 </span>Create our first model</a></h2>
 <p>We’ll keep the server running so we can see our changes as they happen.<span class="intersentencespace"></span> So let’s open a new console window.<span class="intersentencespace"></span> At the bottom of the Nitrous page, click the + sign next to Console.<span class="intersentencespace"></span> Type the following to switch to your app’s folder:</p>
 <div class="code"><div class="highlight"><pre>  cd code/book_organiser
 </pre></div></div>
@@ -69,9 +69,9 @@
 </pre></div></div>
 <p>Rake is a tool you can use with Ruby projects to run tasks in the console.<span class="intersentencespace"></span> In this case, we’re using it to run all the database migrations that haven’t yet been run.</p>
 <p>Now you can have a look at your work so far.<span class="intersentencespace"></span> Go to the browser and type <code>/works</code> after the address in the URL.</p>
-</div><div id="cid12" data-tralics-id="cid12" class="section" data-number="2.4"><h2><a href="data_modelling_fragment.html#cid12" class="heading hyperref"><span class="number">2.4 </span>Make this our home page</a></h2>
+</div><div id="cid11" data-tralics-id="cid11" class="section" data-number="2.4"><h2><a href="data_modelling_fragment.html#cid11" class="heading hyperref"><span class="number">2.4 </span>Make this our home page</a></h2>
 <p>At the moment, “Welcome aboard” is occupying our important home page spot.<span class="intersentencespace"></span> Let’s change things so that our works page shows up when we go to our website’s root.</p>
-<div class="aside" id="aside-mvc" data-tralics-id="uid28" data-number="2.2"><div class="heading"><span class="number">Box 2.2.</span> 
+<div class="aside" id="aside-mvc" data-tralics-id="uid30" data-number="2.2"><div class="heading"><span class="number">Box 2.2.</span> 
 
 <span class="description">Model View Controller</span></div>
 <p class="noindent">Rails likes to keep everything in the right place.<span class="intersentencespace"></span> It helps developers enormously to know that if you open up someone’s Rails app you’re going to know where to go to find the html.erb view files, where to go to find the database migrations, where the business logic is, where the stylesheets and javascript files will be, and so on.<span class="intersentencespace"></span> The structural conventions that Rails uses saves developers time – and therefore money – every day.</p>

@@ -23,40 +23,38 @@ Until very recently this still left you with the problem of setting up your own 
 
 
 
-## Set up a Nitrous.io account and a new container
+## Set up a Cloud9 account
 
-* Go to https://www.nitrous.io/
-* Enter a username.
-* Now enter your email address.
-* Enter a password.
-* Hit "Sign up for free". If any of your details aren't up to scratch, have another go.
+* Go to https://c9.io/
+* Enter your email address
+* Enter your name
+* Enter a user name
+* Select Hobbyist and Hobby Projects
+* Check the box to show you're not a robot and click "Create Account"
 
-## Create a development box
 
-* On the New Container page, select Ruby on Rails, and hit Next.
-* Select Europe as your region
-* Select Starter (free) as your plan and hit Create.
-* Sadly you'll have to provide your phone number for a free plan. Enter it and hit Save, then enter your verification code once your SMS has arrived.
-* Leave the box labelled "Open the IDE when ready" checked, and wait whilst Nitrous sets up your new box.
-* Select Get Started once that's an option on the screen.
+## Create a workspace
 
-## Logging back in
+* On the page that loads, click "Create a new workspace"
+* Give your project a name, such as "metadata_manager" or something more inventive
+* Give your project a description, such as "Bibliographic data management app"
+* Leave Public selected
+* Click Ruby on Rails in the "select a template" area
+* Click "Create workspace"
+* After a while your IDE (interactive development environment) will load with a freshly-created Ruby on Rails app.
 
-If your login expires, you can log back in with your user name and password.
 
-Click on `Start` and then `IDE` (which stands for Interactive Development Environment).
-
-## A look around Nitrous
+## A look around C9
 
 At the top of the page, the screen is divided into two. On the left is a file system navigator -- just like you’d see in Finder on the Mac or Windows Explorer on a PC.
 
-On the right is the contents of whichever file is open on Nitrous.
+On the right is the contents of whichever file is open on Cloud 9.
 
 At the bottom of the page you have a console. It’s the same as what you’d find if you’ve ever opened the Terminal on your Mac, or the Command Prompt on Windows. You can enter commands here which the computer will obey. Using the command line is often a lot quicker and more reliable than using the graphical user interface of your machine.
 
-## Create a Ruby on Rails application  
+## Look at your new Ruby on Rails application  
 
-Oh my! We're ready to create your first Ruby on Rails application. But what does that mean?
+Oh my! We've created your first Ruby on Rails application. But what does that mean?
 
 \begin{aside}
 \label{aside:what_is_an_application}
@@ -71,51 +69,6 @@ So: a Rails application generates HTML pages on the fly. And what are a bunch of
 
 \end{aside}
 
-Let’s set up our new Rails app in the correct folder on Nitrous. This next command is the same as going to Finder and clicking on a folder. But you’re a programmer now, so you can use the command line. ‘cd’ stands for ‘change directory’. In the console, click near the $ dollar sign, which is known as the ‘command prompt’, and type:  
-```
-    cd code
-```
-The console command prompt changes to show that you’ve changed into the directory folder called ‘code’.
-
-You know when you install an app or a new software program that you've download onto your phone or computer?  You need to do the same for the database program that we'll be using. We'll be using PostgreSQL for our database. Nitrous has configured that for you already.
-
-We'll call our Rails app "Book Organiser". What we're aiming for is to build a website that will appear somewhere like `www.bookorganiser.com`. To create your new Rails app, run the following command:
-
-```
-    rails new book_organiser -d postgresql
-```
-
-That's our database program installed and running, and our Rails app created, and we've only typed three commands! Next, we need to connect your new Rails app to a PostgreSQL database.
-Switch to the directory containing your new app:
-```
-    cd book_organiser    
-```
-
-Next, find the file at `code/book_organiser/Gemfile`. Click on it, and its contents will appear in the right hand pane. We're going to run this code. Go back in the console, and run the following command:
-
-```
-  bundle install
-```
-
-Now, find the file at `code/book_organiser/config/database.yml`. Click on it, and its contents will appear in the right hand pane. We're going to run this code. Go back in the console, and run the following command:
-
-```
-  rake db:create db:migrate
-```
-
-OK! We've created a new Rails app, created a postgresql database and connected our app to our database. We’re ready to start up your new Rails app. Run the following command:
-
-```ruby
-  rails s -b 0.0.0.0
-```
-or
-```
-  ~/code/book_organiser/start-app
-```
-
-Later, you can stop the server with Control-c to return to the command prompt.
-
-Then on Nitrous’s navigation menu at the top of the page, click on `Preview > Port 3000`. You'll see a website declaring "Welcome aboard.
-You’re riding Ruby on Rails!"
+On Cloud 9's navigation menu at the top of the page, click on `Run project`. You'll see a server start up in the lower pane. Click on Preview Running Application at the top, and then a new pane will open. That is a browser window, and in it you'll see a website declaring "Welcome aboard. You’re riding Ruby on Rails!"
 
 You’ve done it! Your new Rails application is running.
