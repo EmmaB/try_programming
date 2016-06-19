@@ -14,70 +14,26 @@ Talk about the recent history of programming languages, and how nowadays there a
 \end{aside}
 
 
-## Set up a Nitrous.io account and a new container
+## Set up a Cloud9 account
 
-* Go to https://www.nitrous.io/
-* Enter a username.
-* Now enter your email address.
-* Enter a password.
-* Hit "Sign up for free". If any of your details aren't up to scratch, have another go.
-
-## Create a development box
-
-* On the New Container page, select Ruby on Rails, and hit Next.
-* Select Europe as your region
-* Select Starter (free) as your plan and hit Create.
-* Sadly you'll have to provide your phone number for a free plan. Enter it and hit Save, then enter your verification code once your SMS has arrived.
-* Leave the box labelled "Open the IDE when ready" checked, and wait whilst Nitrous sets up your new box.
-* Select Get Started once that's an option on the screen.
-
-### Set up PostgreSQL
-
-```
-    cd code
-```
+* Go to https://c9.io/
+* Enter your email address
+* Enter your name
+* Enter a user name
+* Select Hobbyist and Hobby Projects
+* Check the box to show you're not a robot and click "Create Account"
 
 
-### Create our app
+## Create a workspace
 
-\begin{aside}
-\label{aside:chapter1a}
-\heading{Coach notes}
-\noindent
+* On the page that loads, click "Create a new workspace"
+* Give your project a name, such as "metadata_manager" or something more inventive
+* Give your project a description, such as "Bibliographic data management app"
+* Leave Public selected
+* Click Ruby on Rails in the "select a template" area
+* Click "Create workspace"
+* After a while your IDE (interactive development environment) will load with a freshly-created Ruby on Rails app.
 
-Talk about what a Rails app is: a way to produce HTML files on the fly.
-
-\end{aside}
-
-
-
-```
-    rails new book_organiser -d postgresql
-```
-
-```
-    cd book_organiser    
-```
-
-```
-  bundle install
-```
-
-### Link the app to the database
-
-```
-  rake db:create db:migrate
-```
-
-### Look at our new app running in the browser
-
-```ruby
-  rails s -b 0.0.0.0
-```
-or
-```
-  ~/code/book_organiser/start-app
-```
 
 ## Chapter 2: Structuring our app
 
@@ -123,7 +79,7 @@ Talk some more about MVC, and particularly routing.
 \end{aside}
 
 
-Open the file `app/config/routes.rb` in Nitrous. Add the following in, on the second line of the file:
+Open the file `app/config/routes.rb` in Cloud 9. Add the following in, on the second line of the file:
 
 ```
   root 'works#index'

@@ -72,7 +72,7 @@ We don't store the same data more than once in a database.
 
 ## Create our first model
 
-We'll keep the server running so we can see our changes as they happen. So let's open a new console window. At the bottom of the Nitrous page, click the + sign next to Console. Type the following to switch to your app's folder:
+We'll keep the server running so we can see our changes as they happen. So let's open a new console window. At the bottom of the Cloud 9 page, click the green + sign. Type the following to switch to your app's folder:
 
 ```
   cd code/book_organiser
@@ -135,7 +135,7 @@ We used the Rails scaffold to create all the model, view, controller and routing
 \end{aside}
 
 
-Open the file `app/config/routes.rb` in Nitrous.
+Open the file `app/config/routes.rb` in Cloud 9.
 
 This is your application's routing file which holds entries in a special DSL (domain-specific language) that tells Rails how to connect incoming requests to controllers and actions. This file contains many sample routes on commented lines. Add the following in, on the second line of the file:
 
