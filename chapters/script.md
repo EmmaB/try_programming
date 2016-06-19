@@ -27,7 +27,7 @@ Talk about the recent history of programming languages, and how nowadays there a
 ## Create a workspace
 
 * On the page that loads, click "Create a new workspace"
-* Give your project a name, such as "metadata_manager" or something more inventive
+* Give your project the name "book_organiser"
 * Give your project a description, such as "Bibliographic data management app"
 * Leave Public selected
 * Click Ruby on Rails in the "select a template" area
@@ -48,7 +48,7 @@ Talk about MVC and object oriented programming.
 
 
 ```
-  cd code/book_organiser
+  cd book_organiser
 ```
 
 \begin{aside}

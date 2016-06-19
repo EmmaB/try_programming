@@ -72,13 +72,15 @@ We don't store the same data more than once in a database.
 
 ## Create our first model
 
-We'll keep the server running so we can see our changes as they happen. So let's open a new console window. At the bottom of the Cloud 9 page, click the green + sign. Type the following to switch to your app's folder:
+We'll keep the server running so we can see our changes as they happen. So let's open a new console window. At the bottom of the Cloud 9 page, click on the tab labelled `bash`:
+
+This is called the command prompt and will look something like this:
 
 ```
-  cd code/book_organiser
+   emmab:~/workspace $  
 ```
 
-Now we can run commands which our Rails app will understand. Type the following:
+Here we can run commands which our Rails app will understand. Type the following:
 
 ```
   rails generate scaffold work name:string description:text cover:string subject:string
