@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+        <!DOCTYPE html>
+
+        <html xmlns="http://www.w3.org/1999/xhtml">
+        <head>
+          <title>Chapter 5</title>
+          <link rel="stylesheet" href="styles/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="styles/softcover.css" type="text/css" />
+          <link rel="stylesheet" href="styles/epub.css" type="text/css" />
+          <link rel="stylesheet" href="styles/custom.css" type="text/css"/>
+          <link rel="stylesheet" href="styles/custom_epub.css" type="text/css"/>
+          <link rel="stylesheet" type="application/vnd.adobe-page-template+xml" href="styles/page-template.xpgt" />
+        </head>
+
+        <body>
+          <div id="cid16" class="chapter"><h1><a href="presentation_fragment.html#cid16" class="heading hyperref"><span class="number">Chapter 5 </span>Making it useful</a></h1>
+<p>Click on the Show link from the works page for one of your books.<span class="intersentencespace"></span> We’ve got some data in but we haven’t got it looking very compelling yet.<span class="intersentencespace"></span> Let’s amend this show page so that it makes our data look good.</p>
+<p>But where did this show page come from?</p>
+<div class="aside" id="aside-dry"><div class="heading"><span class="number">Box 5.1.</span> 
+
+<span class="description">Principle: Convention Over Configuration</span></div>
+<p class="noindent">Rails has opinions about the best way to do many things in a web application, and defaults to this set of conventions, rather than require that you specify every last thing.<span class="intersentencespace"></span> So when we used the Rails scaffold to create our works table, Rails also set up a bunch of files that most web developers would create, most of the time.</p>
+<p>Go to the <code>app/views/works</code> folder.<span class="intersentencespace"></span> In there you’ll see</p>
+<ul>
+<li>an Index ERB page
+</li>
+<li>a Show ERB page
+</li>
+<li>an Edit ERB page
+</li>
+<li>a New ERB page
+</li>
+<li>an ERB form.<span class="intersentencespace"></span>
+</li></ul>
+<p>Did you wonder why you were able to create a work without writing any code to define the form?<span class="intersentencespace"></span> Rails took an educated guess about what might be useful, and built it for you.<span class="intersentencespace"></span> Most of the time we like to see a summary listing of our data: that’s taken care of by the Index page.<span class="intersentencespace"></span> We tend to want to create new data – that’s the New page.<span class="intersentencespace"></span> When the data changes, that’s the Edit page.<span class="intersentencespace"></span> If we just want to read the data, we go to the Show page.<span class="intersentencespace"></span> Rails has also set things up so we can delete data too, which is another common action – we’ll see that in a bit.</p>
+<p>We refer to these common actions as CRUD: create, read, update and delete.</p>
+
+</div><p>Did you see that the ‘form’ file starts with an underscore?<span class="intersentencespace"></span> Files that start with an underscore are called ‘partials’.<span class="intersentencespace"></span> They contain snippets of code that you can easily reference from other files.<span class="intersentencespace"></span> It’s that DRY principle at work again – don’t repeat yourself.<span class="intersentencespace"></span> The same form is used on the New page and the Edit page so we can reuse the code from one partial, to avoid having to have two versions of the same code to maintain.</p>
+<p>Open <code>app/views/works/new.html.erb</code> to see what I mean.<span class="intersentencespace"></span> The file contains just three lines of code:</p>
+<div class="code"><div class="highlight"><pre><span class="x">   &lt;h1&gt;New work&lt;/h1&gt;</span>
+<span class="x">   </span><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="s1">'form'</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">   </span><span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s1">'Back'</span><span class="p">,</span> <span class="n">works_path</span> <span class="cp">%&gt;</span><span class="x"></span>
+</pre></div></div>
+<p>Type <code>/works/new</code> into your browser address bar to see the page that this code produces.</p>
+<p>Where did the navigation bar come from?<span class="intersentencespace"></span> It’s not in our three lines of code.<span class="intersentencespace"></span> Well, do you remember looking at <code>application.html.erb</code>?<span class="intersentencespace"></span> The ‘new’ page uses the code produced by that template.<span class="intersentencespace"></span> Yep: the nav bar comes from the <code>application.html.erb</code> template.<span class="intersentencespace"></span> And where it said <code>yield</code> in that file, Rails is inserting the contents of the <code>new.html.erb</code> file.<span class="intersentencespace"></span> And even better – where it says <code>render</code> on line 2, here, Rails knows to use the code from the partial called ‘form’.<span class="intersentencespace"></span> <code>render</code>, similar to <code>yield</code>, means ‘go and get some code from another file and pop it in here’.</p>
+<p>Re-using code like this keeps everything neat and tidy and less cluttered.</p>
+</div><div id="cid17" class="section"><h2><a href="presentation_fragment.html#cid17" class="heading hyperref"><span class="number">5.1 </span>The show page</a></h2>
+<p>Let’s look at the Show page.<span class="intersentencespace"></span> Click on <code>app/views/works/show.html.erb</code>.<span class="intersentencespace"></span> The first bit of Ruby that catches my eye is this line:</p>
+<div class="code"><div class="highlight"><pre>  <span class="o">&lt;%=</span> <span class="vi">@work</span><span class="o">.</span><span class="n">name</span> <span class="o">%&gt;</span>
+</pre></div></div>
+<p>We know it’s Ruby: we recognise the <code>&lt;%= %&gt;</code> opening and closing ERB tags.<span class="intersentencespace"></span> What’s the <code>@work.name</code>, though?</p>
+<p>Look in the browser to see if we can figure it out.<span class="intersentencespace"></span> Go to your /works index page and click on the Show link.<span class="intersentencespace"></span> At the top it says “Name:” and then the name of your work.<span class="intersentencespace"></span> So this embedded Ruby must be getting the name of the work, somehow.</p>
+<p>Working backwards, we can probably figure out that putting <code>.name</code> after <code>@work</code> returns some data.<span class="intersentencespace"></span> In this case, <code>.name</code> is a method.<span class="intersentencespace"></span> It’s one of the columns we set up in the database, and Rails knows that when we use one of the column names, we mean ‘get the data from that so-called column’.<span class="intersentencespace"></span> So if you look a bit further down the page, and see <code>@work.description</code>, you can be pretty confident that Rails knows to get whatever’s in the column called ‘description’.</p>
+<p>But for which work?<span class="intersentencespace"></span> There might be 50 in the database.<span class="intersentencespace"></span> So Rails uses the unique ID that’s included in the URL to look up the right one.<span class="intersentencespace"></span> Look up in the browser URL address bar.<span class="intersentencespace"></span> It says something like <code>https://metadata-manager-emmab.c9users.io/works/1</code>.<span class="intersentencespace"></span> Focus on the /works/1 bit for the moment.<span class="intersentencespace"></span> We can use another Rails convention: when the URL says [table name]/[number], in this case works/1, Rails knows to look in the works table for the record with ID 1.<span class="intersentencespace"></span> If the URL said /works/231, Rails would look up the record in the works table with ID 231.</p>
+<p>It’s not the view that figures all this out, though.<span class="intersentencespace"></span> The view gets given the @work instance variable from somewhere else: the controller.<span class="intersentencespace"></span> Here’s the code that the controller uses to get the data from the database:</p>
+<div class="code"><div class="highlight"><pre>  <span class="vi">@work</span> <span class="o">=</span> <span class="no">Work</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
+</pre></div></div>
+<p>This is a Ruby query.<span class="intersentencespace"></span> It says:</p>
+<p><code>@work =</code>
+create an instance variable called @work, and make it represent a particular works record.<span class="intersentencespace"></span> To find out which work record it is…</p>
+<p><code>Work</code>
+…go to the works table…</p>
+<p><code>.find</code>
+…and find…</p>
+<p><code>(params[:id])</code>
+…the work whose ID is the one just sent from the webpage.</p>
+<p>So if the params are /works/314, then we know the value of <code>params[:id]</code> is 314.</p>
+<p>We can see the contents of params if we look on the console.<span class="intersentencespace"></span> Open the console window that has the server running in it.<span class="intersentencespace"></span> Scroll to the bottom, and then in your browser click on ‘Show’ again.<span class="intersentencespace"></span> In the console it will say something like:</p>
+<div class="code"><div class="highlight"><pre>  Started GET "/works/1" for 146.200.145.192 at 2015-01-17 18:51:23 +0000
+  Processing by WorksController#show as HTML
+  Parameters: {"id"=&gt;"1"}
+  Work Load (0.3ms)  SELECT  "works".* FROM "works"  WHERE "works"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered works/show.html.erb within layouts/application (1.8ms)
+  Completed 200 OK in 53ms (Views: 51.1ms | ActiveRecord: 0.3ms)
+</pre></div></div>
+<p>This is all very useful information:</p>
+<div class="code"><div class="highlight"><pre>  Started GET "/works/1" for 146.200.145.192 at 2015-01-17 18:51:23 +0000
+</pre></div></div>
+<p>Tells us that the browser sent a GET request for a work of ID 1.<span class="intersentencespace"></span> </p><div class="code"><div class="highlight"><pre>  Processing by WorksController#show as HTML
+</pre></div></div>
+<p>tells us that this request got routed to the correct controller.<span class="intersentencespace"></span></p>
+<p class="noindent"></p><div class="code"><div class="highlight"><pre>  Parameters: {"id"=&gt;"1"}
+</pre></div></div>
+<p>tells us that the params passed along with this request are <code>{"id"=&gt;"1"}</code>
+</p><div class="code"><div class="highlight"><pre>  Work Load (0.3ms)  SELECT  "works".* FROM "works"  WHERE "works"."id" = $1 LIMIT 1  [["id", 1]]
+</pre></div></div>
+<p>is the actual SQL query that runs to get the right data from the database.<span class="intersentencespace"></span> </p><div class="code"><div class="highlight"><pre>  Rendered works/show.html.erb within layouts/application (1.8ms)
+</pre></div></div>
+<p>tells us that after the request was completed, the controller routed us back to the show page.<span class="intersentencespace"></span> </p><div class="code"><div class="highlight"><pre>  Completed 200 OK in 53ms (Views: 51.1ms | ActiveRecord: 0.3ms)
+</pre></div></div>
+<p>tells us that all of this took less than half a second.</p>
+<p>The params (which is short for ‘parameters’) are passed from the view to the controller as a “hash”.<span class="intersentencespace"></span> Ruby hashes are one of the things that programmers love the most about the language because they’re useful and flexible.<span class="intersentencespace"></span> They contain data in key-value pairs, in any order, like this:</p>
+<pre class="verbatim">person = {:name =&gt; "Emma", :age =&gt; "40", :hobby =&gt; "piano"}</pre>
+<p>You can find out much more about hashes on the internet.<span class="intersentencespace"></span> For now, you’ve seen that you can get the value of data in a hash if you say the name of the hash and then put the key of the data you want, in square brackets.</p>
+<p>So in this example, doing <code>person[:name]</code> would return “Emma”.<span class="intersentencespace"></span> <code>person[:hobby]</code> would return – yep, you guessed it – “piano”.<span class="intersentencespace"></span> How would you get my age?<span class="intersentencespace"></span> <code>person[:age]</code>.<span class="intersentencespace"></span> (Let’s look at Ruby arithmetic, later on, to knock some years off.)</p>
+<p>In our real example, doing <code>params[:id]</code> would return: 1.</p>
+</div><div id="cid18" class="section"><h2><a href="presentation_fragment.html#cid18" class="heading hyperref"><span class="number">5.2 </span>Creating an AI</a></h2>
+<p>Now we know how to get data from the database, and channel it through the right routes to get to the webpage view, let’s try to make some of that data look pretty.</p>
+<p>In <code>app/views/works/show.html.erb</code>, paste in this code, replacing everything that’s in there already:</p>
+<div class="code"><div class="highlight"><pre><span class="x">&lt;p id="notice"&gt;</span><span class="cp">&lt;%=</span> <span class="n">notice</span> <span class="cp">%&gt;</span><span class="x">&lt;/p&gt;</span>
+
+<span class="x">&lt;div class="row"&gt;</span>
+<span class="x">  &lt;div class="col-sm-4"&gt;</span>
+<span class="x">    </span><span class="cp">&lt;%=</span> <span class="n">image_tag</span><span class="p">(</span><span class="vi">@work</span><span class="o">.</span><span class="n">cover_url</span><span class="p">,</span> <span class="ss">:width</span> <span class="o">=&gt;</span> <span class="mi">300</span><span class="p">)</span> <span class="k">if</span> <span class="vi">@work</span><span class="o">.</span><span class="n">cover</span><span class="o">.</span><span class="n">present?</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">  &lt;/div&gt;</span>
+
+<span class="x">  &lt;div class="col-sm-8"&gt;</span>
+<span class="x">    &lt;h1&gt;</span>
+<span class="x">      </span><span class="cp">&lt;%=</span> <span class="vi">@work</span><span class="o">.</span><span class="n">name</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">    &lt;/h1&gt;</span>
+<span class="x">      &lt;strong&gt;  </span>
+<span class="x">      </span><span class="cp">&lt;%=</span> <span class="vi">@work</span><span class="o">.</span><span class="n">subject</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">      &amp;bull;  </span>
+<span class="x">    &lt;/strong&gt;</span>
+<span class="x">    </span><span class="cp">&lt;%=</span> <span class="n">simple_format</span> <span class="vi">@work</span><span class="o">.</span><span class="n">description</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">  &lt;/div&gt;</span>
+<span class="x">&lt;/div&gt;</span>
+
+
+
+<span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s1">'Edit'</span><span class="p">,</span> <span class="n">edit_work_path</span><span class="p">(</span><span class="vi">@work</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="x"> |</span>
+<span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s1">'Back'</span><span class="p">,</span> <span class="n">works_path</span> <span class="cp">%&gt;</span><span class="x"></span>
+</pre></div></div>
+<p>That new code uses <code>@work.cover_url</code>, <code>@work.name</code>, <code>@work.subject</code>, and <code>@work.description</code>.<span class="intersentencespace"></span> It’s also arranged the page into two columns, using the Twitter Bootstrap styling we included.<span class="intersentencespace"></span> Bootstrap uses a grid layout of 12 columns, so if we set up one div of 4 columns and one of 8 columns, we know it’ll fit nicely on the page.</p>
+<p>The page is looking pretty nice so far.<span class="intersentencespace"></span> However, we’ve only got the work level data.<span class="intersentencespace"></span> We’re really going to need to see the actual products’ information if anyone’s going to be able to use this to place orders.<span class="intersentencespace"></span> Let’s add a products table.</p>
+</div><div id="cid19" class="section"><h2><a href="presentation_fragment.html#cid19" class="heading hyperref"><span class="number">5.3 </span>Adding products to our works</a></h2>
+<p>Open a new console window and run the following:</p>
+<div class="code"><div class="highlight"><pre>  rails generate scaffold Product isbn:string pub_date:date format:string price:decimal pages:integer work_id:integer
+</pre></div></div>
+<p>then
+</p><div class="code"><div class="highlight"><pre>  rake db:migrate
+</pre></div></div>
+<p>Now we have to relate the products to their parent work, and vice versa.<span class="intersentencespace"></span> A work has many products, and a product belongs to a work.<span class="intersentencespace"></span> First we’ll go to the work model and add in the association.<span class="intersentencespace"></span> Go to <code>app/models/work.rb</code>:</p>
+<div class="code"><div class="highlight"><pre>class Work &lt; ActiveRecord::Base
+  mount_uploader :cover, CoverUploader
+end
+</pre></div></div>
+<p>Add the following in before the <code>end</code>.</p>
+<div class="code"><div class="highlight"><pre>  has_many :products, :inverse_of =&gt; :work, :dependent =&gt; :destroy
+</pre></div></div>
+<p>And we add the reciprocal line in to the Product model:</p>
+<p>Go to <code>app/models/product.rb</code>.</p>
+<div class="code"><div class="highlight"><pre>class Product &lt; ActiveRecord::Base
+end
+</pre></div></div>
+<p>Add the following in before the <code>end</code>.</p>
+<div class="code"><div class="highlight"><pre>  belongs_to :work, :inverse_of =&gt; :products
+</pre></div></div>
+<p>Now let’s add our new products listing to the navigation menu: find the following:</p>
+<div class="code"><div class="highlight"><pre>    &lt;div class="collapse navbar-collapse"&gt;
+      &lt;ul class="nav navbar-nav"&gt;
+        &lt;li&gt;&lt;a href="/works"&gt;Works&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+</pre></div></div>
+<p>and add in this line:</p>
+<div class="code"><div class="highlight"><pre>  &lt;li&gt;&lt;a href="/products"&gt;Products&lt;/a&gt;&lt;/li&gt;
+</pre></div></div>
+<p>so it reads:
+</p><div class="code"><div class="highlight"><pre>    &lt;div class="collapse navbar-collapse"&gt;
+      &lt;ul class="nav navbar-nav"&gt;
+        &lt;li&gt;&lt;a href="/works"&gt;Works&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="/products"&gt;Products&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+</pre></div></div>
+<p>Add <code>class = ’table’</code> to the products table.<span class="intersentencespace"></span> Go to <code>app/views/products/index.html.erb</code> and change line 3 to</p>
+<div class="code"><div class="highlight"><pre>&lt;table class = 'table'&gt;
+</pre></div></div>
+<p>Click New product.<span class="intersentencespace"></span> You can see the correct fields, but we can make it easier to fill them it accurately.</p>
+<p>In the view file <code>app/views/products/_form.html.erb</code>, replace</p>
+<div class="code"><div class="highlight"><pre>    &lt;%= f.number_field :work_id %&gt;
+</pre></div></div>
+<p>With</p>
+<div class="code"><div class="highlight"><pre>    &lt;%= f.collection_select :work_id, Work.all, :id, :name %&gt;
+</pre></div></div>
+<p><code>collection_select</code> is a Rails helper method.<span class="intersentencespace"></span> This method takes four arguments.<span class="intersentencespace"></span> It’s going to let us pass the value of work_id into the params when we hit ‘save’.<span class="intersentencespace"></span> It’ll get the ID from the dropdown list, which will be populated by Work.all (all the works).<span class="intersentencespace"></span> The next argument says that it’s the id that’ll be passed.<span class="intersentencespace"></span> And finally, the last argument tells Rails that it should display the name of the work to the user of the website.</p>
+<p>Go to the browser and see that there’s a drop down list now.<span class="intersentencespace"></span> Create a couple of products using the form.</p>
+<p>You’ll see that we can put any old thing into the ISBN field.<span class="intersentencespace"></span> Let’s use the gem we added earlier to check whether the ISBN is properly formed.</p>
+<p>In <code>app/views/products/_form.html.erb</code> add this code in just under the ISBN field div:</p>
+<div class="code"><div class="highlight"><pre><span class="cp">&lt;%</span> <span class="k">if</span> <span class="no">ISBN</span><span class="o">.</span><span class="n">valid?</span><span class="p">(</span><span class="vi">@product</span><span class="o">.</span><span class="n">isbn</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">  &lt;p class = 'bg-success'&gt;Great -- the ISBN is valid!&lt;/p&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">elsif</span> <span class="vi">@product</span><span class="o">.</span><span class="n">isbn</span><span class="o">.</span><span class="n">blank?</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">  &lt;p class = 'bg-info'&gt;Don't forget to add an ISBN!&lt;/p&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">else</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">  &lt;p class = 'bg-danger'&gt; Oh no -- the ISBN is not valid!&lt;/p&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span><span class="x"></span>
+</pre></div></div>
+<p>The <code>ISBN</code> method comes as part of the <code>isbn</code> gem that we included earlier.<span class="intersentencespace"></span> It’s quite readable, which is one of the principles of Ruby.<span class="intersentencespace"></span> Method names should be easy to read and understand.<span class="intersentencespace"></span> You can practically say out loud in English what’s going on:</p>
+<p>“If the ISBN is valid – the product’s ISBN – then say great, and put some green on the screen to signify that all’s well.<span class="intersentencespace"></span> Otherwise, if the product’s ISBN is blank, put up an information message to remind the user to add an ISBN. If the ISBN is neither valid nor missing, then it must be invalid, so report the problem to the user.”<span class="intersentencespace"></span> In fact the Ruby is much easier to read than that sentence in English.</p>
+<p>Now, let’s make the products appear on the work show page.<span class="intersentencespace"></span> Go to <code>application/views/works/show.html.erb</code>.<span class="intersentencespace"></span> After the description field, paste this in:</p>
+<div class="code"><div class="highlight"><pre><span class="x">  </span><span class="cp">&lt;%</span> <span class="vi">@work</span><span class="o">.</span><span class="n">products</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">product</span><span class="o">|</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">    &lt;p&gt;</span>
+<span class="x">      </span><span class="cp">&lt;%=</span> <span class="n">product</span><span class="o">.</span><span class="n">format</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">      &amp;bull;  </span>
+<span class="x">      </span><span class="cp">&lt;%=</span> <span class="n">product</span><span class="o">.</span><span class="n">isbn</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">      &amp;bull;  </span>
+<span class="x">      </span><span class="cp">&lt;%=</span> <span class="n">product</span><span class="o">.</span><span class="n">pages</span> <span class="cp">%&gt;</span><span class="x"> pages</span>
+<span class="x">      &amp;bull;  </span>
+<span class="x">      £</span><span class="cp">&lt;%=</span> <span class="n">product</span><span class="o">.</span><span class="n">price</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">      &amp;bull;  </span>
+<span class="x">      Published </span><span class="cp">&lt;%=</span> <span class="n">product</span><span class="o">.</span><span class="n">pub_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">'%d %B %y'</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">    &lt;/p&gt;</span>
+<span class="x">  </span><span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span><span class="x"></span>
+</pre></div></div>
+<p>That block of code is going to run for each of the child products of the parent work.<span class="intersentencespace"></span> We don’t have to have a piece of code for each product – the code gets reused.</p>
+</div><div id="cid20" class="section"><h2><a href="presentation_fragment.html#cid20" class="heading hyperref"><span class="number">5.4 </span>Other forms of the same data: APIs</a></h2>
+<p>Replace the index action in the works controller with this:</p>
+<div class="code"><div class="highlight"><pre>  <span class="k">def</span> <span class="nf">index</span>
+    <span class="vi">@works</span> <span class="o">=</span> <span class="no">Work</span><span class="o">.</span><span class="n">all</span>
+    <span class="n">respond_to</span> <span class="k">do</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span>
+      <span class="nb">format</span><span class="o">.</span><span class="n">html</span>
+      <span class="nb">format</span><span class="o">.</span><span class="n">xml</span> <span class="p">{</span> <span class="n">render</span> <span class="ss">:xml</span> <span class="o">=&gt;</span> <span class="vi">@works</span><span class="o">.</span><span class="n">to_xml</span> <span class="p">}</span>
+      <span class="nb">format</span><span class="o">.</span><span class="n">json</span> <span class="p">{</span> <span class="n">render</span> <span class="ss">:json</span> <span class="o">=&gt;</span> <span class="vi">@works</span><span class="o">.</span><span class="n">to_json</span> <span class="p">}</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+</pre></div></div>
+<p>Now go to the works listing page, and in the address bar of the browser, add <code>.xml</code> after the number.<span class="intersentencespace"></span> You’ll see something like this:</p>
+<div class="code"><div class="highlight"><pre><span class="nt">&lt;works</span> <span class="na">type=</span><span class="s">"array"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;work&gt;</span>
+    <span class="nt">&lt;id</span> <span class="na">type=</span><span class="s">"integer"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/id&gt;</span>
+    <span class="nt">&lt;name&gt;</span>War and Peace<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;description&gt;</span>
+      War and Peace (Pre-reform Russian: Война и миръ, Voyna i mir) is a novel by the Russian author Leo Tolstoy, first published in 1869. The work is epic in scale and is regarded as one of the most important works of world literature.[1][2][3] It is considered as Tolstoy's finest literary achievement, along with his other major prose work, Anna Karenina (1873–1877). War and Peace delineates in graphic detail events surrounding the French invasion of Russia, and the impact of the Napoleonic era on Tsarist society, as seen through the eyes of five Russian aristocratic families. Portions of an earlier version of the novel, then known as The Year 1805,[4] were serialized in the magazine The Russian Messenger between 1865 and 1867. The novel was first published in its entirety in 1869.[5] Newsweek in 2009 ranked it first in its list of the Top 100 Books.[6] In 2003, the novel was listed at number 20 on the BBC's survey The Big Read.[7] Tolstoy himself, somewhat enigmatically, said of War and Peace that it was "not a novel, even less is it a poem, and still less a historical chronicle". Large sections of the work, especially in the later chapters, are philosophical discussion rather than narrative.[8] He went on to elaborate that the best Russian literature does not conform to standard norms and hence hesitated to call War and Peace a novel. (Instead, Tolstoy regarded Anna Karenina as his first true novel.)
+    <span class="nt">&lt;/description&gt;</span>
+    <span class="nt">&lt;cover&gt;</span>
+      <span class="nt">&lt;url&gt;</span>/uploads/work/cover/1/9781909679436.jpg<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;/cover&gt;</span>
+    <span class="nt">&lt;subject&gt;</span>Fiction<span class="nt">&lt;/subject&gt;</span>
+    <span class="nt">&lt;created-at</span> <span class="na">type=</span><span class="s">"dateTime"</span><span class="nt">&gt;</span>2015-01-17T14:14:45Z<span class="nt">&lt;/created-at&gt;</span>
+    <span class="nt">&lt;updated-at</span> <span class="na">type=</span><span class="s">"dateTime"</span><span class="nt">&gt;</span>2015-01-17T14:46:07Z<span class="nt">&lt;/updated-at&gt;</span>
+  <span class="nt">&lt;/work&gt;</span>
+<span class="nt">&lt;/works&gt;</span>
+</pre></div></div>
+<p>Do the same but now appending <code>.json</code>.<span class="intersentencespace"></span> You’ll see something like this:</p>
+<div class="code"><div class="highlight"><pre>[{"id":1,"name":"War and Peace","description":"War and Peace (Pre-reform Russian: Война и миръ, Voyna i mir) is a novel by the Russian author Leo Tolstoy, first published in 1869. The work is epic in scale and is regarded as one of the most important works of world literature.[1][2][3] It is considered as Tolstoy's finest literary achievement, along with his other major prose work, Anna Karenina (1873–1877).\r\n\r\nWar and Peace delineates in graphic detail events surrounding the French invasion of Russia, and the impact of the Napoleonic era on Tsarist society, as seen through the eyes of five Russian aristocratic families. Portions of an earlier version of the novel, then known as The Year 1805,[4] were serialized in the magazine The Russian Messenger between 1865 and 1867. The novel was first published in its entirety in 1869.[5] Newsweek in 2009 ranked it first in its list of the Top 100 Books.[6] In 2003, the novel was listed at number 20 on the BBC's survey The Big Read.[7]\r\n\r\nTolstoy himself, somewhat enigmatically, said of War and Peace that it was \"not a novel, even less is it a poem, and still less a historical chronicle\". Large sections of the work, especially in the later chapters, are philosophical discussion rather than narrative.[8] He went on to elaborate that the best Russian literature does not conform to standard norms and hence hesitated to call War and Peace a novel. (Instead, Tolstoy regarded Anna Karenina as his first true novel.)","cover":{"url":"/uploads/work/cover/1/9781909679436.jpg"},"subject":"Fiction","created_at":"2015-01-17T14:14:45.138Z","updated_at":"2015-01-17T14:46:07.203Z"},{"id":2,"name":"","description":"","cover":{"url":null},"subject":"","created_at":"2015-01-17T16:58:50.020Z","updated_at":"2015-01-17T16:58:50.020Z"}]
+</pre></div></div>
+<p>This is a JSON API. If this was live, other websites would be able to ping it and use its data.<span class="intersentencespace"></span> APIs are hugely powerful because they release data in a lightweight format for apps to search, ingest and discover.<span class="intersentencespace"></span> <a href="http://publishingperspectives.com/2011/04/publishing-importance-of-api/">Here’s</a> a good article on them, and <a href="http://toc.oreilly.com/2013/02/a-publishers-job-is-to-provide-a-good-api-for-books.html">another</a>.</p>
+</div>
+        </body>
+        </html>

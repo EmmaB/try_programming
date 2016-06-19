@@ -13,13 +13,12 @@
         </head>
 
         <body>
-          <div id="cid15" class="chapter"><h1><a href="uploads_fragment.html#cid15" class="heading hyperref"><span class="number">Chapter 4 </span>Adding more features</a></h1>
-</div><div id="cid16" class="section"><h2><a href="uploads_fragment.html#cid16" class="heading hyperref"><span class="number">4.1 </span>Adding uploads</a></h2>
+          <div id="cid14" class="chapter"><h1><a href="uploads_fragment.html#cid14" class="heading hyperref"><span class="number">Chapter 4 </span>Adding more features</a></h1>
+</div><div id="cid15" class="section"><h2><a href="uploads_fragment.html#cid15" class="heading hyperref"><span class="number">4.1 </span>Adding uploads</a></h2>
 <p>You can judge a book by it’s cover – and we’ll need to be able to manage the covers of our books.<span class="intersentencespace"></span> We’re going to use a bundle of pre-written code called a “gem” to let us upload files to our Rails app.</p>
 <p>Open the file called <code>Gemfile</code> in the project directory and at the bottom add</p>
 <div class="code"><div class="highlight"><pre>   gem 'carrierwave'
    gem 'isbn'
-   gem 'haml'
 </pre></div></div>
 <p>and save the file.</p>
 <div class="aside" id="aside-open_source"><div class="heading"><span class="number">Box 4.1.</span> 
@@ -27,7 +26,7 @@
 <span class="description">Why is the carrierwave and the isbn code free?</span></div>
 <p class="noindent">Rails is an open source library of code, known as a “gem”.<span class="intersentencespace"></span> There are many different gems, created by developers around the world, made freely available as part of the open source software movement.<span class="intersentencespace"></span> There’s a website called <a href="https://rubygems.org/">rubygems.org</a> which acts as a reference for all the gems published.<span class="intersentencespace"></span> You can usually see the gem’s source code on code repository service <a href="http://github.com">github.com</a>.</p>
 <p>The Ruby community encourages its members to open-source and contribute to as much high-quality gems as they can, so that everyone can benefit from code that has had many different developers working on it.</p>
-<p>We’ve included three gems here.<span class="intersentencespace"></span> The first is for uploading files.<span class="intersentencespace"></span> The second is an ISBN validations testing library, and the third is an alternative templating language to ERB. We’ll look at them all in turn.</p>
+<p>We’ve included two gems here.<span class="intersentencespace"></span> The first is for uploading files.<span class="intersentencespace"></span> The second is an ISBN validations testing library.<span class="intersentencespace"></span> We’ll look at them in turn.</p>
 
 </div><p>In the console run:</p>
 <div class="code"><div class="highlight"><pre>bundle
@@ -63,12 +62,6 @@
 <div class="code"><div class="highlight"><pre>&lt;%= image_tag(@work.cover_url, :width =&gt; 300) if @work.cover.present? %&gt;
 </pre></div></div>
 <p>Now refresh your browser to see what has changed.</p>
-</div><div id="cid17" class="section"><h2><a href="uploads_fragment.html#cid17" class="heading hyperref"><span class="number">4.2 </span>Haml</a></h2>
-<p>We included the Haml gem earlier.<span class="intersentencespace"></span> Haml (HTML Abstraction Markup Language) is a layer on top of HTML that’s designed to express the structure of documents in a non-repetitive, elegant, and easy way by using indentation rather than closing tags and allowing Ruby to be embedded with ease (<a href="https://rubygems.org/gems/haml">see Rubygems for more</a> and the <a href="http://haml.info/">Haml homepage</a>).<span class="intersentencespace"></span> Haml is a good example of a time when a developer thought hmm, things could be easier, and wrote a library of code, then made it available to everyone else for free at which point Haml took on a life of its own, and is used widely.<span class="intersentencespace"></span> (The chap who wrote Haml was only about 20 at the time.)</p>
-<p>Let’s see how Haml helps.<span class="intersentencespace"></span> Go to http://htmltohaml.com and paste the whole contents of <code>app/views/works/_form.html.erb</code> in.<span class="intersentencespace"></span> The Haml translation will appear on the right.<span class="intersentencespace"></span> It’s much shorter and more readable.</p>
-<p>Copy the Haml version on the right, then go to <code>app/views/works/_form.html.erb</code> and paste it all in.<span class="intersentencespace"></span> Then rename the file to be <code>_form.html.haml</code>.</p>
-<p>Restart the server by going to the console where the server is running and hitting CTRL-C, then up-arrow to get the last command, which was <code>rails server</code>, then hitting enter.<span class="intersentencespace"></span> You’ll see that nothing has changed on the browser page, but our code is easier to read and more elegant.</p>
-<p>A lot of programming is about making life easier.</p>
 </div>
         </body>
         </html>
