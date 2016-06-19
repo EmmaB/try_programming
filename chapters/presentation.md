@@ -347,11 +347,3 @@ Do the same but now appending `.json`. You'll see something like this:
 ```
 
 This is a JSON API. If this was live, other websites would be able to ping it and use its data. APIs are hugely powerful because they release data in a lightweight format for apps to search, ingest and discover. [Here's](http://publishingperspectives.com/2011/04/publishing-importance-of-api/) a good article on them, and [another](http://toc.oreilly.com/2013/02/a-publishers-job-is-to-provide-a-good-api-for-books.html).
-
-Go to `https://www.hurl.it/` and paste the full URL of your works.json page in, e.g.
-
-```
-http://supersonic-ghost-95-183846.euw1-2.nitrousbox.com/works.json
-```
-
-The page will show that your API has parsed successfully.

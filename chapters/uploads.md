@@ -10,21 +10,20 @@ Open the file called `Gemfile` in the project directory and at the bottom add
 ```
    gem 'carrierwave'
    gem 'isbn'
-   gem 'haml'
 ```
 
-and save the file. 
+and save the file.
 
 \begin{aside}
 \label{aside:open_source}
 \heading{Why is the carrierwave and the isbn code free?}
-\noindent 
+\noindent
 
-Rails is an open source library of code, known as a "gem". There are many different gems, created by developers around the world, made freely available as part of the open source software movement. There's a website called [rubygems.org](https://rubygems.org/) which acts as a reference for all the gems published. You can usually see the gem's source code on code repository service [github.com](http://github.com). 
+Rails is an open source library of code, known as a "gem". There are many different gems, created by developers around the world, made freely available as part of the open source software movement. There's a website called [rubygems.org](https://rubygems.org/) which acts as a reference for all the gems published. You can usually see the gem's source code on code repository service [github.com](http://github.com).
 
 The Ruby community encourages its members to open-source and contribute to as much high-quality gems as they can, so that everyone can benefit from code that has had many different developers working on it.
 
-We've included three gems here. The first is for uploading files. The second is an ISBN validations testing library, and the third is an alternative templating language to ERB. We'll look at them all in turn. 
+We've included two gems here. The first is for uploading files. The second is an ISBN validations testing library. We'll look at them  in turn.
 
 \end{aside}
 
@@ -96,16 +95,3 @@ to
 ```
 
 Now refresh your browser to see what has changed.
-
-## Haml
-
-We included the Haml gem earlier. Haml (HTML Abstraction Markup Language) is a layer on top of HTML that's designed to express the structure of documents in a non-repetitive, elegant, and easy way by using indentation rather than closing tags and allowing Ruby to be embedded with ease ([see Rubygems for more](https://rubygems.org/gems/haml) and the [Haml homepage](http://haml.info/)). Haml is a good example of a time when a developer thought hmm, things could be easier, and wrote a library of code, then made it available to everyone else for free at which point Haml took on a life of its own, and is used widely. (The chap who wrote Haml was only about 20 at the time.) 
-
-Let's see how Haml helps. Go to http://htmltohaml.com and paste the whole contents of `app/views/works/_form.html.erb` in. The Haml translation will appear on the right. It's much shorter and more readable. 
-
-Copy the Haml version on the right, then go to `app/views/works/_form.html.erb` and paste it all in. Then rename the file to be `_form.html.haml`. 
-
-Restart the server by going to the console where the server is running and hitting CTRL-C, then up-arrow to get the last command, which was `rails server`, then hitting enter. You'll see that nothing has changed on the browser page, but our code is easier to read and more elegant. 
-
-A lot of programming is about making life easier. 
-

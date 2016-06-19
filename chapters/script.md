@@ -203,8 +203,6 @@ Open the file called `Gemfile` in the project directory and at the bottom add
 ```
    gem 'carrierwave'
    gem 'isbn'
-   gem 'haml'
-
 ```
 
 and save the file.
@@ -274,13 +272,9 @@ Now refresh your browser to see what has changed.
 \heading{Coach notes}
 \noindent
 
-Talk about Haml.
 
 \end{aside}
 
-Go to http://htmltohaml.com and paste the whole contents of `app/views/works/_form.html.erb` in.
-
-Copy the Haml version on the right, then go to `app/views/works/_form.html.erb` and paste it all in. Then rename the file to be `_form.html.haml`.
 
 Restart the server by going to the console where the server is running and hitting CTRL-C, then up-arrow to get the last command, which was `rails server`, then hitting enter. You'll see that nothing has changed on the browser page, but our code is easier to read and more elegant.
 
