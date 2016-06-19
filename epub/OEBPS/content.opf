@@ -2,13 +2,13 @@
 <package unique-identifier="BookID" version="3.0" xmlns="http://www.idpf.org/2007/opf">
   <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/"
       xmlns:opf="http://www.idpf.org/2007/opf">
-      <dc:title>Try Programming for Publishers</dc:title>
+      <dc:title>Coding for Publishers</dc:title>
       <dc:language>en</dc:language>
-      <dc:rights>Copyright (c) 2015 From the makers of Bibliocloud</dc:rights>
+      <dc:rights>Copyright (c) 2016 From the makers of Bibliocloud</dc:rights>
       <dc:creator>From the makers of Bibliocloud</dc:creator>
       <dc:publisher>Softcover</dc:publisher>
-      <dc:identifier id="BookID">urn:uuid:1993a013-a784-4e54-aa92-a4d31ecd1000</dc:identifier>
-      <meta property="dcterms:modified">2015-09-13T22:49:34Z</meta>
+      <dc:identifier id="BookID">urn:uuid:1993a013-a784-4e54-aa92-a4d31ecd1001</dc:identifier>
+      <meta property="dcterms:modified">2016-06-19T14:34:24Z</meta>
       <meta name="cover" content="img-cover-jpg"/>
   </metadata>
   <manifest>

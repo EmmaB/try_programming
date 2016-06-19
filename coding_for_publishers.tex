@@ -1,0 +1,32 @@
+\documentclass[14pt]{extbook} % Edit this line to change the documentclass.
+% Add custom preamble content below.
+% Example commands for using the Polyglossia package with French are
+% included for reference.
+% You may also have to edit config/lang.yml to sync up the HTML/EPUB/MOBI.
+% \usepackage{polyglossia}
+% \setdefaultlanguage{french}
+% \DeclareTextCommandDefault{\nobreakspace}{\leavevmode\nobreak\ }
+
+\usepackage{latex_styles/softcover}
+\VerbatimFootnotes % Allows verbatim text in footnotes
+\title{Coding for Publishers}
+\subtitle{Publishing Scotland Workshop}
+\author{From the makers of Bibliocloud}
+\date{}
+
+\begin{document}
+
+\includepdf{images/cover.pdf}
+\frontmatter
+\maketitle
+\tableofcontents
+\include{generated_polytex/preface}
+\mainmatter
+\include{generated_polytex/getting_started}
+\include{generated_polytex/data_modelling}
+\include{generated_polytex/styling}
+\include{generated_polytex/uploads}
+\include{generated_polytex/presentation}
+\include{generated_polytex/exercises}
+\include{generated_polytex/script}
+\end{document}
