@@ -1,10 +1,9 @@
 
-# Structuring our app
+# Structure our app
 
 ## About the web application
 
-
-Today we are going to build a little web application, but first we have to think about exactly what that means - what do we need to do in order to make that happen?
+Today we are going to build a web application, but first we have to think about exactly what that means - what do we need to do in order to make that happen?
 
 There are a few basic elements.
 
@@ -23,9 +22,9 @@ There are quite a few different things that have to be done in there, and the Ru
 * A database, for storing and retrieving information.
 * “Models”, which tell the Ruby on Rails system how to store and modify data in the database.
 
-##About the design
+## About the design
 
-We are going to build a little system for managing publisher metadata. So what do we need to store information about?
+We are going to build a system for managing publisher metadata. So what do we need to store information about?
 
 The world is full of “stuff”. Books, cats, football matches, emails, office buildings, submarines, string quartets, rock concerts. Some of them are actual physical things, some of them are abstract, but all of them can be thought of as some kind of object.
 
@@ -72,7 +71,7 @@ We don't store the same data more than once in a database.
 
 ## Create our first model
 
-We'll keep the server running so we can see our changes as they happen. So let's open a new console window. At the bottom of the Cloud 9 page, click on the tab labelled `bash`:
+We'll keep the server running so we can see our changes as they happen. So let's open a new console window. At the bottom of the Cloud Nine page, click on the tab whose label starts with `bash`:
 
 This is called the command prompt and will look something like this:
 
@@ -137,7 +136,7 @@ We used the Rails scaffold to create all the model, view, controller and routing
 \end{aside}
 
 
-Open the file `app/config/routes.rb` in Cloud 9.
+Open the file `app/config/routes.rb` in Cloud Nine.
 
 This is your application's routing file which holds entries in a special DSL (domain-specific language) that tells Rails how to connect incoming requests to controllers and actions. This file contains many sample routes on commented lines. Add the following in, on the second line of the file:
 

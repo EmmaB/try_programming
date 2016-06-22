@@ -1,6 +1,6 @@
-# Making it look good
+# Make it look good
 
-## Adding some styling
+## Add some styling
 
 Your new `works` page is a bit ugly, to be honest, so let's add some styling. There is a free, widely-used design resource called Twitter Bootstrap. We’ll use that to add some styling to our app by amending our application's template.
 
@@ -50,7 +50,7 @@ add
 
 ```
 
-Next, look for 
+Next, look for
 
 ```erb
   <%= yield %>

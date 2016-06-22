@@ -13,9 +13,9 @@
         </head>
 
         <body>
-          <div id="cid7" class="chapter"><h1><a href="data_modelling_fragment.html#cid7" class="heading hyperref"><span class="number">Chapter 2 </span>Structuring our app</a></h1>
+          <div id="cid7" class="chapter"><h1><a href="data_modelling_fragment.html#cid7" class="heading hyperref"><span class="number">Chapter 2 </span>Structure our app</a></h1>
 </div><div id="cid8" class="section"><h2><a href="data_modelling_fragment.html#cid8" class="heading hyperref"><span class="number">2.1 </span>About the web application</a></h2>
-<p>Today we are going to build a little web application, but first we have to think about exactly what that means - what do we need to do in order to make that happen?</p>
+<p>Today we are going to build a web application, but first we have to think about exactly what that means - what do we need to do in order to make that happen?</p>
 <p>There are a few basic elements.</p>
 <p>Firstly, we need to have a page in an internet browser that will allow users to type information into forms, just as if they are writing an email in GMail or Yahoo!<span class="intersentencespace"></span> Mail.<span class="intersentencespace"></span> The pages need to be sent to the browser as HTML. Users need to be able to click on a button that will make the web browser send the data they have typed off to the application, which is on a remote server somewhere in the world waiting to be told what to do.</p>
 <p>Then the application needs to work out what to do with the information.<span class="intersentencespace"></span> Maybe you are adding new data, maybe you are deleting data that you no longer need, and maybe you are changing data.</p>
@@ -32,7 +32,7 @@
 <li>“Models”, which tell the Ruby on Rails system how to store and modify data in the database.<span class="intersentencespace"></span>
 </li></ul>
 </div><div id="cid9" class="section"><h2><a href="data_modelling_fragment.html#cid9" class="heading hyperref"><span class="number">2.2 </span>About the design</a></h2>
-<p>We are going to build a little system for managing publisher metadata.<span class="intersentencespace"></span> So what do we need to store information about?</p>
+<p>We are going to build a system for managing publisher metadata.<span class="intersentencespace"></span> So what do we need to store information about?</p>
 <p>The world is full of “stuff”.<span class="intersentencespace"></span> Books, cats, football matches, emails, office buildings, submarines, string quartets, rock concerts.<span class="intersentencespace"></span> Some of them are actual physical things, some of them are abstract, but all of them can be thought of as some kind of object.</p>
 <p>Each of the above examples of stuff has a bunch of information associated with it.</p>
 <ul>
@@ -71,7 +71,7 @@
 <p class="noindent">We don’t store the same data more than once in a database.</p>
 
 </div></div><div id="cid10" class="section"><h2><a href="data_modelling_fragment.html#cid10" class="heading hyperref"><span class="number">2.3 </span>Create our first model</a></h2>
-<p>We’ll keep the server running so we can see our changes as they happen.<span class="intersentencespace"></span> So let’s open a new console window.<span class="intersentencespace"></span> At the bottom of the Cloud 9 page, click on the tab labelled <code>bash</code>:</p>
+<p>We’ll keep the server running so we can see our changes as they happen.<span class="intersentencespace"></span> So let’s open a new console window.<span class="intersentencespace"></span> At the bottom of the Cloud Nine page, click on the tab whose label starts with <code>bash</code>:</p>
 <p>This is called the command prompt and will look something like this:</p>
 <div class="code"><div class="highlight"><pre>   emmab:~/workspace $  
 </pre></div></div>
@@ -114,7 +114,7 @@
 <p>(adapted from the <a href="http://guides.rubyonrails.org/">Rails Guides</a>).</p>
 <p>We used the Rails scaffold to create all the model, view, controller and routing files at the same time as the database table.<span class="intersentencespace"></span> You can create them one by one, as well.</p>
 
-</div><p>Open the file <code>app/config/routes.rb</code> in Cloud 9.</p>
+</div><p>Open the file <code>app/config/routes.rb</code> in Cloud Nine.</p>
 <p>This is your application’s routing file which holds entries in a special DSL (domain-specific language) that tells Rails how to connect incoming requests to controllers and actions.<span class="intersentencespace"></span> This file contains many sample routes on commented lines.<span class="intersentencespace"></span> Add the following in, on the second line of the file:</p>
 <div class="code"><div class="highlight"><pre>  root 'works#index'
 </pre></div></div>

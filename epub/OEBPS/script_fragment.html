@@ -13,76 +13,53 @@
         </head>
 
         <body>
-          <div id="cid24" class="chapter"><h1><a href="script_fragment.html#cid24" class="heading hyperref"><span class="number">Chapter 7 </span>Code, instructions and coach notes</a></h1>
+          <div id="cid22" class="chapter"><h1><a href="script_fragment.html#cid22" class="heading hyperref"><span class="number">Chapter 7 </span>Code, instructions and coach notes</a></h1>
 <p>This chapter contains only the instructions and the code that we’ll be using on the course, and some brief coaching notes.<span class="intersentencespace"></span> The content is the same as in the previous chapters, summarised here for convenience during the course.</p>
-</div><div id="cid25" class="section"><h2><a href="script_fragment.html#cid25" class="heading hyperref"><span class="number">7.1 </span>Chapter 1: Getting started</a></h2>
+</div><div id="cid23" class="section"><h2><a href="script_fragment.html#cid23" class="heading hyperref"><span class="number">7.1 </span>Chapter 1: Getting started</a></h2>
 <div class="aside" id="aside-chapter1"><div class="heading"><span class="number">Box 7.1.</span> 
 
 <span class="description">Coach notes</span></div>
 <p class="noindent">Talk about the recent history of programming languages, and how nowadays there are tools to get started in programming without too much fuss.</p>
 
-</div></div><div id="cid26" class="section"><h2><a href="script_fragment.html#cid26" class="heading hyperref"><span class="number">7.2 </span>Set up a Nitrous.io account and a new container</a></h2>
+</div></div><div id="cid24" class="section"><h2><a href="script_fragment.html#cid24" class="heading hyperref"><span class="number">7.2 </span>Set up a Cloud9 account</a></h2>
 <ul>
-<li>Go to https://www.nitrous.io/
+<li>Go to https://c9.io/
 </li>
-<li>Enter a username.<span class="intersentencespace"></span>
+<li>Enter your email address
 </li>
-<li>Now enter your email address.<span class="intersentencespace"></span>
+<li>Enter your name
 </li>
-<li>Enter a password.<span class="intersentencespace"></span>
+<li>Enter a user name
 </li>
-<li>Hit “Sign up for free”.<span class="intersentencespace"></span> If any of your details aren’t up to scratch, have another go.<span class="intersentencespace"></span>
+<li>Select Hobbyist and Hobby Projects
+</li>
+<li>Check the box to show you’re not a robot and click “Create Account”
 </li></ul>
-</div><div id="cid27" class="section"><h2><a href="script_fragment.html#cid27" class="heading hyperref"><span class="number">7.3 </span>Create a development box</a></h2>
+</div><div id="cid25" class="section"><h2><a href="script_fragment.html#cid25" class="heading hyperref"><span class="number">7.3 </span>Create a workspace</a></h2>
 <ul>
-<li>On the New Container page, select Ruby on Rails, and hit Next.<span class="intersentencespace"></span>
+<li>On the page that loads, click “Create a new workspace”
 </li>
-<li>Select Europe as your region
+<li>Give your project the name “book_organiser”
 </li>
-<li>Select Starter (free) as your plan and hit Create.<span class="intersentencespace"></span>
+<li>Give your project a description, such as “Bibliographic data management app”
 </li>
-<li>Sadly you’ll have to provide your phone number for a free plan.<span class="intersentencespace"></span> Enter it and hit Save, then enter your verification code once your SMS has arrived.<span class="intersentencespace"></span>
+<li>Leave Public selected
 </li>
-<li>Leave the box labelled “Open the IDE when ready” checked, and wait whilst Nitrous sets up your new box.<span class="intersentencespace"></span>
+<li>Click Ruby on Rails in the “select a template” area
 </li>
-<li>Select Get Started once that’s an option on the screen.<span class="intersentencespace"></span>
+<li>Click “Create workspace”
+</li>
+<li>After a while your IDE (interactive development environment) will load with a freshly-created Ruby on Rails app.<span class="intersentencespace"></span>
 </li></ul>
-<div id="uid64" class="subsection"><h3><a href="script_fragment.html#uid64" class="heading hyperref"><span class="number">7.3.1 </span>Set up PostgreSQL</a></h3>
-<div class="code"><div class="highlight"><pre>    cd code
-</pre></div></div>
-</div>
-<div id="uid65" class="subsection"><h3><a href="script_fragment.html#uid65" class="heading hyperref"><span class="number">7.3.2 </span>Create our app</a></h3>
-<div class="aside" id="aside-chapter1a"><div class="heading"><span class="number">Box 7.2.</span> 
-
-<span class="description">Coach notes</span></div>
-<p class="noindent">Talk about what a Rails app is: a way to produce HTML files on the fly.</p>
-
-</div><div class="code"><div class="highlight"><pre>    rails new book_organiser -d postgresql
-</pre></div></div>
-<div class="code"><div class="highlight"><pre>    cd book_organiser    
-</pre></div></div>
-<div class="code"><div class="highlight"><pre>  bundle install
-</pre></div></div>
-</div>
-<div id="uid67" class="subsection"><h3><a href="script_fragment.html#uid67" class="heading hyperref"><span class="number">7.3.3 </span>Link the app to the database</a></h3>
-<div class="code"><div class="highlight"><pre>  rake db:create db:migrate
-</pre></div></div>
-</div>
-<div id="uid68" class="subsection"><h3><a href="script_fragment.html#uid68" class="heading hyperref"><span class="number">7.3.4 </span>Look at our new app running in the browser</a></h3>
-<div class="code"><div class="highlight"><pre>  <span class="n">rails</span> <span class="n">s</span> <span class="o">-</span><span class="n">b</span> <span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span>
-</pre></div></div>
-<p>or
-</p><div class="code"><div class="highlight"><pre>  ~/code/book_organiser/start-app
-</pre></div></div>
-</div></div><div id="cid28" class="section"><h2><a href="script_fragment.html#cid28" class="heading hyperref"><span class="number">7.4 </span>Chapter 2: Structuring our app</a></h2>
-<div class="aside" id="aside-chapter2"><div class="heading"><span class="number">Box 7.3.</span> 
+</div><div id="cid26" class="section"><h2><a href="script_fragment.html#cid26" class="heading hyperref"><span class="number">7.4 </span>Chapter 2: Structuring our app</a></h2>
+<div class="aside" id="aside-chapter2"><div class="heading"><span class="number">Box 7.2.</span> 
 
 <span class="description">Coach notes</span></div>
 <p class="noindent">Talk about MVC and object oriented programming.</p>
 
-</div><div class="code"><div class="highlight"><pre>  cd code/book_organiser
+</div><div class="code"><div class="highlight"><pre>  cd book_organiser
 </pre></div></div>
-<div class="aside" id="aside-chapter2a"><div class="heading"><span class="number">Box 7.4.</span> 
+<div class="aside" id="aside-chapter2a"><div class="heading"><span class="number">Box 7.3.</span> 
 
 <span class="description">Coach notes</span></div>
 <p class="noindent">Talk about Rails scaffolding, and data types.</p>
@@ -91,16 +68,16 @@
 </pre></div></div>
 <div class="code"><div class="highlight"><pre>  rake db:migrate
 </pre></div></div>
-<div class="aside" id="aside-chapter2b"><div class="heading"><span class="number">Box 7.5.</span> 
+<div class="aside" id="aside-chapter2b"><div class="heading"><span class="number">Box 7.4.</span> 
 
 <span class="description">Coach notes</span></div>
 <p class="noindent">Talk some more about MVC, and particularly routing.</p>
 
-</div><p>Open the file <code>app/config/routes.rb</code> in Nitrous.<span class="intersentencespace"></span> Add the following in, on the second line of the file:</p>
+</div><p>Open the file <code>app/config/routes.rb</code> in Cloud Nine.<span class="intersentencespace"></span> Add the following in, on the second line of the file:</p>
 <div class="code"><div class="highlight"><pre>  root 'works#index'
 </pre></div></div>
-</div><div id="cid29" class="section"><h2><a href="script_fragment.html#cid29" class="heading hyperref"><span class="number">7.5 </span>Chapter 3: Making it look good</a></h2>
-<div class="aside" id="aside-chapter3"><div class="heading"><span class="number">Box 7.6.</span> 
+</div><div id="cid27" class="section"><h2><a href="script_fragment.html#cid27" class="heading hyperref"><span class="number">7.5 </span>Chapter 3: Making it look good</a></h2>
+<div class="aside" id="aside-chapter3"><div class="heading"><span class="number">Box 7.5.</span> 
 
 <span class="description">Coach notes</span></div>
 <p class="noindent">Talk about ERB.</p>
@@ -118,7 +95,7 @@
 </pre></div></div>
 </div>
 <div id="uid74" class="subsection"><h3><a href="script_fragment.html#uid74" class="heading hyperref"><span class="number">7.5.2 </span>Keep things DRY</a></h3>
-<div class="aside" id="aside-chapter3a"><div class="heading"><span class="number">Box 7.7.</span> 
+<div class="aside" id="aside-chapter3a"><div class="heading"><span class="number">Box 7.6.</span> 
 
 <span class="description">Coach notes</span></div>
 <p class="noindent">Talk about the DRY principle.</p>
@@ -165,9 +142,9 @@
 </pre></div></div>
 <p>### Add a work</p>
 <p>Let’s add a bit of data.<span class="intersentencespace"></span> Click on <code>New Work</code> and use your shiny new website’s form to add a new work to your system.<span class="intersentencespace"></span> Use Amazon to grab a cover image and a description.<span class="intersentencespace"></span> Type in the subject, but leave the cover field blank for now.<span class="intersentencespace"></span> Click on ‘Create Work’ when you’re done.</p>
-</div></div><div id="cid30" class="section"><h2><a href="script_fragment.html#cid30" class="heading hyperref"><span class="number">7.6 </span>Chapter 4: Adding more features</a></h2>
+</div></div><div id="cid28" class="section"><h2><a href="script_fragment.html#cid28" class="heading hyperref"><span class="number">7.6 </span>Chapter 4: Adding more features</a></h2>
 <div id="uid76" class="subsection"><h3><a href="script_fragment.html#uid76" class="heading hyperref"><span class="number">7.6.1 </span>Adding gems</a></h3>
-<div class="aside" id="aside-chapter4a"><div class="heading"><span class="number">Box 7.8.</span> 
+<div class="aside" id="aside-chapter4a"><div class="heading"><span class="number">Box 7.7.</span> 
 
 <span class="description">Coach notes</span></div>
 <p class="noindent">Talk about the open source movement and gems.</p>
@@ -175,7 +152,6 @@
 </div><p>Open the file called <code>Gemfile</code> in the project directory and at the bottom add</p>
 <div class="code"><div class="highlight"><pre>   gem 'carrierwave'
    gem 'isbn'
-   gem 'haml'
 </pre></div></div>
 <p>and save the file.</p>
 <p>In the console run:</p>
@@ -209,17 +185,14 @@
 <p>Now refresh your browser to see what has changed.</p>
 </div>
 <div id="uid79" class="subsection"><h3><a href="script_fragment.html#uid79" class="heading hyperref"><span class="number">7.6.3 </span>Improving the code</a></h3>
-<div class="aside" id="aside-chapter4c"><div class="heading"><span class="number">Box 7.9.</span> 
+<div class="aside" id="aside-chapter4c"><div class="heading"><span class="number">Box 7.8.</span> 
 
 <span class="description">Coach notes</span></div>
-<p class="noindent">Talk about Haml.</p>
 
-</div><p>Go to http://htmltohaml.com and paste the whole contents of <code>app/views/works/_form.html.erb</code> in.</p>
-<p>Copy the Haml version on the right, then go to <code>app/views/works/_form.html.erb</code> and paste it all in.<span class="intersentencespace"></span> Then rename the file to be <code>_form.html.haml</code>.</p>
-<p>Restart the server by going to the console where the server is running and hitting CTRL-C, then up-arrow to get the last command, which was <code>rails server</code>, then hitting enter.<span class="intersentencespace"></span> You’ll see that nothing has changed on the browser page, but our code is easier to read and more elegant.</p>
-</div></div><div id="cid31" class="section"><h2><a href="script_fragment.html#cid31" class="heading hyperref"><span class="number">7.7 </span>Chapter 5: Making it useful</a></h2>
+</div><p class="noindent">Restart the server by going to the console where the server is running and hitting CTRL-C, then up-arrow to get the last command, which was <code>rails server</code>, then hitting enter.<span class="intersentencespace"></span> You’ll see that nothing has changed on the browser page, but our code is easier to read and more elegant.</p>
+</div></div><div id="cid29" class="section"><h2><a href="script_fragment.html#cid29" class="heading hyperref"><span class="number">7.7 </span>Chapter 5: Making it useful</a></h2>
 <div id="uid81" class="subsection"><h3><a href="script_fragment.html#uid81" class="heading hyperref"><span class="number">7.7.1 </span>Convention over configuration</a></h3>
-<div class="aside" id="aside-chapter5"><div class="heading"><span class="number">Box 7.10.</span> 
+<div class="aside" id="aside-chapter5"><div class="heading"><span class="number">Box 7.9.</span> 
 
 <span class="description">Coach notes</span></div>
 <p class="noindent">Talk about convention over configuration.</p>
@@ -228,11 +201,11 @@
 <div class="code"><div class="highlight"><pre><span class="x">&lt;p id="notice"&gt;</span><span class="cp">&lt;%=</span> <span class="n">notice</span> <span class="cp">%&gt;</span><span class="x">&lt;/p&gt;</span>
 
 <span class="x">&lt;div class="row"&gt;</span>
-<span class="x">  &lt;div class="col-sm-4"&gt;</span>
+<span class="x">  &lt;div class="col-sm-5"&gt;</span>
 <span class="x">    </span><span class="cp">&lt;%=</span> <span class="n">image_tag</span><span class="p">(</span><span class="vi">@work</span><span class="o">.</span><span class="n">cover_url</span><span class="p">,</span> <span class="ss">:width</span> <span class="o">=&gt;</span> <span class="mi">300</span><span class="p">)</span> <span class="k">if</span> <span class="vi">@work</span><span class="o">.</span><span class="n">cover</span><span class="o">.</span><span class="n">present?</span> <span class="cp">%&gt;</span><span class="x"></span>
 <span class="x">  &lt;/div&gt;</span>
 
-<span class="x">  &lt;div class="col-sm-8"&gt;</span>
+<span class="x">  &lt;div class="col-sm-7"&gt;</span>
 <span class="x">    &lt;h1&gt;</span>
 <span class="x">      </span><span class="cp">&lt;%=</span> <span class="vi">@work</span><span class="o">.</span><span class="n">name</span> <span class="cp">%&gt;</span><span class="x"></span>
 <span class="x">    &lt;/h1&gt;</span>
@@ -248,7 +221,7 @@
 </pre></div></div>
 </div>
 <div id="uid83" class="subsection"><h3><a href="script_fragment.html#uid83" class="heading hyperref"><span class="number">7.7.2 </span>Queries</a></h3>
-<div class="aside" id="aside-chapter5a"><div class="heading"><span class="number">Box 7.11.</span> 
+<div class="aside" id="aside-chapter5a"><div class="heading"><span class="number">Box 7.10.</span> 
 
 <span class="description">Coach notes</span></div>
 <p class="noindent">Talk about how methods and ActiveRecord queries work</p>
@@ -261,7 +234,7 @@
 <p>then
 </p><div class="code"><div class="highlight"><pre>  rake db:migrate
 </pre></div></div>
-<div class="aside" id="aside-chapter5b"><div class="heading"><span class="number">Box 7.12.</span> 
+<div class="aside" id="aside-chapter5b"><div class="heading"><span class="number">Box 7.11.</span> 
 
 <span class="description">Coach notes</span></div>
 <p class="noindent">Talk about associations.</p>
@@ -306,7 +279,7 @@ end
 <p>Click New product.<span class="intersentencespace"></span> You can see the correct fields, but we can make it easier to fill them it accurately.</p>
 </div>
 <div id="uid87" class="subsection"><h3><a href="script_fragment.html#uid87" class="heading hyperref"><span class="number">7.7.4 </span>Using form helpers</a></h3>
-<div class="aside" id="aside-chapter5c"><div class="heading"><span class="number">Box 7.13.</span> 
+<div class="aside" id="aside-chapter5c"><div class="heading"><span class="number">Box 7.12.</span> 
 
 <span class="description">Coach notes</span></div>
 <p class="noindent">Talk about form helpers and the other sorts of Rails methods that save time.</p>
@@ -320,7 +293,7 @@ end
 <p>Go to the browser and see that there’s a drop down list now.<span class="intersentencespace"></span> Create a couple of products using the form.</p>
 </div>
 <div id="uid89" class="subsection"><h3><a href="script_fragment.html#uid89" class="heading hyperref"><span class="number">7.7.5 </span>Conditional statements</a></h3>
-<div class="aside" id="aside-chapter5e"><div class="heading"><span class="number">Box 7.14.</span> 
+<div class="aside" id="aside-chapter5e"><div class="heading"><span class="number">Box 7.13.</span> 
 
 <span class="description">Coach notes</span></div>
 <p class="noindent">Talk about using the ISBN gem, conditional statements, the notion of validations and how Ruby is human-readable.</p>
@@ -336,7 +309,7 @@ end
 </pre></div></div>
 </div>
 <div id="uid91" class="subsection"><h3><a href="script_fragment.html#uid91" class="heading hyperref"><span class="number">7.7.6 </span>Code blocks</a></h3>
-<div class="aside" id="aside-chapter5d"><div class="heading"><span class="number">Box 7.15.</span> 
+<div class="aside" id="aside-chapter5d"><div class="heading"><span class="number">Box 7.14.</span> 
 
 <span class="description">Coach notes</span></div>
 <p class="noindent">Talk about blocks.</p>
@@ -358,7 +331,7 @@ end
 </pre></div></div>
 </div>
 <div id="uid93" class="subsection"><h3><a href="script_fragment.html#uid93" class="heading hyperref"><span class="number">7.7.7 </span>APIs</a></h3>
-<div class="aside" id="aside-chapter5d"><div class="heading"><span class="number">Box 7.16.</span> 
+<div class="aside" id="aside-chapter5d"><div class="heading"><span class="number">Box 7.15.</span> 
 
 <span class="description">Coach notes</span></div>
 <p class="noindent">Talk about APIs.</p>

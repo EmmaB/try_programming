@@ -37,12 +37,12 @@
   <body>
     
     <div id="book">
-      <div id="cid12" data-tralics-id="cid12" class="chapter" data-number="3" data-chapter="styling"><h1><a href="styling.html#cid12" class="heading hyperref"><span class="number">Chapter 3 </span>Making it look good</a></h1>
+      <div id="cid12" data-tralics-id="cid12" class="chapter" data-number="3" data-chapter="styling"><h1><a href="styling.html#cid12" class="heading hyperref"><span class="number">Chapter 3 </span>Make it look good</a></h1>
 </div>
-<div id="cid13" data-tralics-id="cid13" class="section" data-number="3.1"><h2><a href="styling.html#cid13" class="heading hyperref"><span class="number">3.1 </span>Adding some styling</a></h2>
+<div id="cid13" data-tralics-id="cid13" class="section" data-number="3.1"><h2><a href="styling.html#cid13" class="heading hyperref"><span class="number">3.1 </span>Add some styling</a></h2>
 <p>Your new <code>works</code> page is a bit ugly, to be honest, so let’s add some styling.<span class="intersentencespace"></span> There is a free, widely-used design resource called Twitter Bootstrap.<span class="intersentencespace"></span> We’ll use that to add some styling to our app by amending our application’s template.</p>
 <p>Open <code>app/views/layouts/application.html.erb</code> in your text editor.</p>
-<div class="aside" id="aside-erb" data-tralics-id="uid38" data-number="3.1"><div class="heading"><span class="number">Box 3.1.</span> 
+<div class="aside" id="aside-erb" data-tralics-id="uid39" data-number="3.1"><div class="heading"><span class="number">Box 3.1.</span> 
 
 <span class="description">Why is that file named like that?</span></div>
 <p class="noindent">ERB stands for Embedded Ruby.<span class="intersentencespace"></span> You can take a normal HTML file – which would be called application.html, in this case – and if you rename it to application.html.erb, you can embed snippets of Ruby code into it.<span class="intersentencespace"></span> The code snippets get run when the page is loaded in the browser.</p>
@@ -74,7 +74,7 @@
 <span class="x">  </span><span class="cp">&lt;%=</span> <span class="k">yield</span> <span class="cp">%&gt;</span><span class="x"></span>
 <span class="x">&lt;/div&gt;</span>
 </pre></div></div>
-<div class="aside" id="aside-dry" data-tralics-id="uid39" data-number="3.2"><div class="heading"><span class="number">Box 3.2.</span> 
+<div class="aside" id="aside-dry" data-tralics-id="uid40" data-number="3.2"><div class="heading"><span class="number">Box 3.2.</span> 
 
 <span class="description">Principle: Don’t Repeat Yourself (DRY)</span></div>
 <p class="noindent"><code>yield</code> identifies a section where content from the view should be inserted.<span class="intersentencespace"></span> This means we don’t have to put all the header code and the nav bar code on every page.<span class="intersentencespace"></span> The things that will appear on every page can be coded once, and we can just insert the unique code for the different pages.<span class="intersentencespace"></span> This means our code is DRY.</p>

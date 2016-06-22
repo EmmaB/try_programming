@@ -37,29 +37,31 @@
   <body>
     
     <div id="book">
-      <div id="cid14" data-tralics-id="cid14" class="chapter" data-number="4" data-chapter="uploads"><h1><a href="uploads.html#cid14" class="heading hyperref"><span class="number">Chapter 4 </span>Adding more features</a></h1>
+      <div id="cid14" data-tralics-id="cid14" class="chapter" data-number="4" data-chapter="uploads"><h1><a href="uploads.html#cid14" class="heading hyperref"><span class="number">Chapter 4 </span>Add more features</a></h1>
 </div>
-<div id="cid15" data-tralics-id="cid15" class="section" data-number="4.1"><h2><a href="uploads.html#cid15" class="heading hyperref"><span class="number">4.1 </span>Adding uploads</a></h2>
+<div id="cid15" data-tralics-id="cid15" class="section" data-number="4.1"><h2><a href="uploads.html#cid15" class="heading hyperref"><span class="number">4.1 </span>Add uploads</a></h2>
 <p>You can judge a book by it’s cover – and we’ll need to be able to manage the covers of our books.<span class="intersentencespace"></span> We’re going to use a bundle of pre-written code called a “gem” to let us upload files to our Rails app.</p>
 <p>Open the file called <code>Gemfile</code> in the project directory and at the bottom add</p>
 <div class="code"><div class="highlight"><pre>   gem 'carrierwave'
    gem 'isbn'
 </pre></div></div>
 <p>and save the file.</p>
-<div class="aside" id="aside-open_source" data-tralics-id="uid40" data-number="4.1"><div class="heading"><span class="number">Box 4.1.</span> 
+<div class="aside" id="aside-open_source" data-tralics-id="uid41" data-number="4.1"><div class="heading"><span class="number">Box 4.1.</span> 
 
 <span class="description">Why is the carrierwave and the isbn code free?</span></div>
 <p class="noindent">Rails is an open source library of code, known as a “gem”.<span class="intersentencespace"></span> There are many different gems, created by developers around the world, made freely available as part of the open source software movement.<span class="intersentencespace"></span> There’s a website called <a href="https://rubygems.org/" target="_blank">rubygems.org</a> which acts as a reference for all the gems published.<span class="intersentencespace"></span> You can usually see the gem’s source code on code repository service <a href="http://github.com" target="_blank">github.com</a>.</p>
 <p>The Ruby community encourages its members to open-source and contribute to as much high-quality gems as they can, so that everyone can benefit from code that has had many different developers working on it.</p>
 <p>We’ve included two gems here.<span class="intersentencespace"></span> The first is for uploading files.<span class="intersentencespace"></span> The second is an ISBN validations testing library.<span class="intersentencespace"></span> We’ll look at them in turn.</p>
 
-</div><p>In the console run:</p>
+</div><p>In the terminal at the bottom of the page, where your cursor says something like <code>emmab:<span class="inline_math">\( \sim  \)</span>/workspace $</code>, type:</p>
 <div class="code"><div class="highlight"><pre>bundle
 </pre></div></div>
-<p>Now we can generate the code for handling uploads.<span class="intersentencespace"></span> In the terminal run:</p>
+<p>and press enter.</p>
+<p>Now we can generate the code for handling uploads.<span class="intersentencespace"></span> In the terminal type:</p>
 <div class="code"><div class="highlight"><pre>rails generate uploader Cover
 </pre></div></div>
-<p>At this point you need to restart the Rails server process in the console.<span class="intersentencespace"></span> Hit CTRL-C in the terminal to quit the server.<span class="intersentencespace"></span> Once it has stopped, you can press the up arrow to get to the last command entered, then hit enter to start the server again.<span class="intersentencespace"></span> This is so the app can load the new code.</p>
+<p>and press enter.</p>
+<p>At this point you need to restart the Rails server process in the console.<span class="intersentencespace"></span> Hit CTRL-C in the terminal to quit the server.<span class="intersentencespace"></span> Once it has stopped, click <code>Run project</code> again.<span class="intersentencespace"></span> This is so the app can load the new code.</p>
 <p>Open <code>app/models/work.rb</code> and under the line</p>
 <div class="code"><div class="highlight"><pre>class Work &lt; ActiveRecord::Base
 </pre></div></div>

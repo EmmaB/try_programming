@@ -1,7 +1,7 @@
-<div id="cid16" data-tralics-id="cid16" class="chapter" data-number="5" data-chapter="presentation"><h1><a href="presentation_fragment.html#cid16" class="heading hyperref"><span class="number">Chapter 5 </span>Making it useful</a></h1>
+<div id="cid16" data-tralics-id="cid16" class="chapter" data-number="5" data-chapter="presentation"><h1><a href="presentation_fragment.html#cid16" class="heading hyperref"><span class="number">Chapter 5 </span>Make it useful</a></h1>
 <p>Click on the Show link from the works page for one of your books.<span class="intersentencespace"></span> We’ve got some data in but we haven’t got it looking very compelling yet.<span class="intersentencespace"></span> Let’s amend this show page so that it makes our data look good.</p>
 <p>But where did this show page come from?</p>
-<div class="aside" id="aside-dry" data-tralics-id="uid41" data-number="5.1"><div class="heading"><span class="number">Box 5.1.</span> 
+<div class="aside" id="aside-dry" data-tralics-id="uid42" data-number="5.1"><div class="heading"><span class="number">Box 5.1.</span> 
 
 <span class="description">Principle: Convention Over Configuration</span></div>
 <p class="noindent">Rails has opinions about the best way to do many things in a web application, and defaults to this set of conventions, rather than require that you specify every last thing.<span class="intersentencespace"></span> So when we used the Rails scaffold to create our works table, Rails also set up a bunch of files that most web developers would create, most of the time.</p>
@@ -36,7 +36,7 @@
 <p>We know it’s Ruby: we recognise the <code>&lt;%= %&gt;</code> opening and closing ERB tags.<span class="intersentencespace"></span> What’s the <code>@work.name</code>, though?</p>
 <p>Look in the browser to see if we can figure it out.<span class="intersentencespace"></span> Go to your /works index page and click on the Show link.<span class="intersentencespace"></span> At the top it says “Name:” and then the name of your work.<span class="intersentencespace"></span> So this embedded Ruby must be getting the name of the work, somehow.</p>
 <p>Working backwards, we can probably figure out that putting <code>.name</code> after <code>@work</code> returns some data.<span class="intersentencespace"></span> In this case, <code>.name</code> is a method.<span class="intersentencespace"></span> It’s one of the columns we set up in the database, and Rails knows that when we use one of the column names, we mean ‘get the data from that so-called column’.<span class="intersentencespace"></span> So if you look a bit further down the page, and see <code>@work.description</code>, you can be pretty confident that Rails knows to get whatever’s in the column called ‘description’.</p>
-<p>But for which work?<span class="intersentencespace"></span> There might be 50 in the database.<span class="intersentencespace"></span> So Rails uses the unique ID that’s included in the URL to look up the right one.<span class="intersentencespace"></span> Look up in the browser URL address bar.<span class="intersentencespace"></span> It says something like <code>https://metadata-manager-emmab.c9users.io/works/1</code>.<span class="intersentencespace"></span> Focus on the /works/1 bit for the moment.<span class="intersentencespace"></span> We can use another Rails convention: when the URL says [table name]/[number], in this case works/1, Rails knows to look in the works table for the record with ID 1.<span class="intersentencespace"></span> If the URL said /works/231, Rails would look up the record in the works table with ID 231.</p>
+<p>But for which work?<span class="intersentencespace"></span> There might be 50 in the database.<span class="intersentencespace"></span> So Rails uses the unique ID that’s included in the URL to look up the right one.<span class="intersentencespace"></span> Look up in the browser URL address bar.<span class="intersentencespace"></span> It says something like <code>https://book_organiser-emmab.c9users.io/works/1</code>.<span class="intersentencespace"></span> Focus on the /works/1 bit for the moment.<span class="intersentencespace"></span> We can use another Rails convention: when the URL says [table name]/[number], in this case works/1, Rails knows to look in the works table for the record with ID 1.<span class="intersentencespace"></span> If the URL said /works/231, Rails would look up the record in the works table with ID 231.</p>
 <p>It’s not the view that figures all this out, though.<span class="intersentencespace"></span> The view gets given the @work instance variable from somewhere else: the controller.<span class="intersentencespace"></span> Here’s the code that the controller uses to get the data from the database:</p>
 <div class="code"><div class="highlight"><pre>  <span class="vi">@work</span> <span class="o">=</span> <span class="no">Work</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
 </pre></div></div>
@@ -75,7 +75,7 @@ create an instance variable called @work, and make it represent a particular wor
 </pre></div></div>
 <p>tells us that all of this took less than half a second.</p>
 <p>The params (which is short for ‘parameters’) are passed from the view to the controller as a “hash”.<span class="intersentencespace"></span> Ruby hashes are one of the things that programmers love the most about the language because they’re useful and flexible.<span class="intersentencespace"></span> They contain data in key-value pairs, in any order, like this:</p>
-<pre class="verbatim">person = {:name =&gt; "Emma", :age =&gt; "40", :hobby =&gt; "piano"}</pre>
+<pre class="verbatim">person = {:name =&gt; "Emma", :age =&gt; "41", :hobby =&gt; "piano"}</pre>
 <p>You can find out much more about hashes on the internet.<span class="intersentencespace"></span> For now, you’ve seen that you can get the value of data in a hash if you say the name of the hash and then put the key of the data you want, in square brackets.</p>
 <p>So in this example, doing <code>person[:name]</code> would return “Emma”.<span class="intersentencespace"></span> <code>person[:hobby]</code> would return – yep, you guessed it – “piano”.<span class="intersentencespace"></span> How would you get my age?<span class="intersentencespace"></span> <code>person[:age]</code>.<span class="intersentencespace"></span> (Let’s look at Ruby arithmetic, later on, to knock some years off.)</p>
 <p>In our real example, doing <code>params[:id]</code> would return: 1.</p>
@@ -85,11 +85,11 @@ create an instance variable called @work, and make it represent a particular wor
 <div class="code"><div class="highlight"><pre><span class="x">&lt;p id="notice"&gt;</span><span class="cp">&lt;%=</span> <span class="n">notice</span> <span class="cp">%&gt;</span><span class="x">&lt;/p&gt;</span>
 
 <span class="x">&lt;div class="row"&gt;</span>
-<span class="x">  &lt;div class="col-sm-4"&gt;</span>
+<span class="x">  &lt;div class="col-sm-5"&gt;</span>
 <span class="x">    </span><span class="cp">&lt;%=</span> <span class="n">image_tag</span><span class="p">(</span><span class="vi">@work</span><span class="o">.</span><span class="n">cover_url</span><span class="p">,</span> <span class="ss">:width</span> <span class="o">=&gt;</span> <span class="mi">300</span><span class="p">)</span> <span class="k">if</span> <span class="vi">@work</span><span class="o">.</span><span class="n">cover</span><span class="o">.</span><span class="n">present?</span> <span class="cp">%&gt;</span><span class="x"></span>
 <span class="x">  &lt;/div&gt;</span>
 
-<span class="x">  &lt;div class="col-sm-8"&gt;</span>
+<span class="x">  &lt;div class="col-sm-7"&gt;</span>
 <span class="x">    &lt;h1&gt;</span>
 <span class="x">      </span><span class="cp">&lt;%=</span> <span class="vi">@work</span><span class="o">.</span><span class="n">name</span> <span class="cp">%&gt;</span><span class="x"></span>
 <span class="x">    &lt;/h1&gt;</span>
@@ -109,7 +109,7 @@ create an instance variable called @work, and make it represent a particular wor
 <p>That new code uses <code>@work.cover_url</code>, <code>@work.name</code>, <code>@work.subject</code>, and <code>@work.description</code>.<span class="intersentencespace"></span> It’s also arranged the page into two columns, using the Twitter Bootstrap styling we included.<span class="intersentencespace"></span> Bootstrap uses a grid layout of 12 columns, so if we set up one div of 4 columns and one of 8 columns, we know it’ll fit nicely on the page.</p>
 <p>The page is looking pretty nice so far.<span class="intersentencespace"></span> However, we’ve only got the work level data.<span class="intersentencespace"></span> We’re really going to need to see the actual products’ information if anyone’s going to be able to use this to place orders.<span class="intersentencespace"></span> Let’s add a products table.</p>
 </div><div id="cid19" data-tralics-id="cid19" class="section" data-number="5.3"><h2><a href="presentation_fragment.html#cid19" class="heading hyperref"><span class="number">5.3 </span>Adding products to our works</a></h2>
-<p>Open a new console window and run the following:</p>
+<p>In the terminal, run the following:</p>
 <div class="code"><div class="highlight"><pre>  rails generate scaffold Product isbn:string pub_date:date format:string price:decimal pages:integer work_id:integer
 </pre></div></div>
 <p>then

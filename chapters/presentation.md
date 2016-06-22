@@ -1,4 +1,4 @@
-# Making it useful
+# Make it useful
 
 
 
@@ -57,7 +57,7 @@ Look in the browser to see if we can figure it out. Go to your /works index page
 
 Working backwards, we can probably figure out that putting `.name` after `@work` returns some data. In this case, `.name` is a method. It's one of the columns we set up in the database, and Rails knows that when we use one of the column names, we mean 'get the data from that so-called column'. So if you look a bit further down the page, and see `@work.description`, you can be pretty confident that Rails knows to get whatever's in the column called 'description'.
 
-But for which work? There might be 50 in the database. So Rails uses the unique ID that's included in the URL to look up the right one. Look up in the browser URL address bar. It says something like `https://metadata-manager-emmab.c9users.io/works/1`. Focus on the /works/1 bit for the moment. We can use another Rails convention: when the URL says [table name]/[number], in this case works/1, Rails knows to look in the works table for the record with ID 1. If the URL said /works/231, Rails would look up the record in the works table with ID 231.
+But for which work? There might be 50 in the database. So Rails uses the unique ID that's included in the URL to look up the right one. Look up in the browser URL address bar. It says something like `https://book_organiser-emmab.c9users.io/works/1`. Focus on the /works/1 bit for the moment. We can use another Rails convention: when the URL says [table name]/[number], in this case works/1, Rails knows to look in the works table for the record with ID 1. If the URL said /works/231, Rails would look up the record in the works table with ID 231.
 
 It's not the view that figures all this out, though. The view gets given the @work instance variable from somewhere else: the controller. Here's the code that the controller uses to get the data from the database:
 
@@ -124,7 +124,7 @@ tells us that all of this took less than half a second.
 
 The params (which is short for 'parameters') are passed from the view to the controller as a "hash". Ruby hashes are one of the things that programmers love the most about the language because they're useful and flexible. They contain data in key-value pairs, in any order, like this:
 
-    person = {:name => "Emma", :age => "40", :hobby => "piano"}
+    person = {:name => "Emma", :age => "41", :hobby => "piano"}
 
 You can find out much more about hashes on the internet. For now, you've seen that you can get the value of data in a hash if you say the name of the hash and then put the key of the data you want, in square brackets.
 
@@ -143,11 +143,11 @@ In `app/views/works/show.html.erb`, paste in this code, replacing everything tha
 <p id="notice"><%= notice %></p>
 
 <div class="row">
-  <div class="col-sm-4">
+  <div class="col-sm-5">
     <%= image_tag(@work.cover_url, :width => 300) if @work.cover.present? %>
   </div>
 
-  <div class="col-sm-8">
+  <div class="col-sm-7">
     <h1>
       <%= @work.name %>
     </h1>
@@ -171,7 +171,7 @@ The page is looking pretty nice so far. However, we've only got the work level d
 
 ## Adding products to our works
 
-Open a new console window and run the following:
+In the terminal, run the following:
 
 ```
   rails generate scaffold Product isbn:string pub_date:date format:string price:decimal pages:integer work_id:integer

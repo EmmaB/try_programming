@@ -79,7 +79,7 @@ Talk some more about MVC, and particularly routing.
 \end{aside}
 
 
-Open the file `app/config/routes.rb` in Cloud 9. Add the following in, on the second line of the file:
+Open the file `app/config/routes.rb` in Cloud Nine. Add the following in, on the second line of the file:
 
 ```
   root 'works#index'
@@ -297,11 +297,11 @@ In `app/views/works/show.html.erb`, paste in this code, replacing everything tha
 <p id="notice"><%= notice %></p>
 
 <div class="row">
-  <div class="col-sm-4">
+  <div class="col-sm-5">
     <%= image_tag(@work.cover_url, :width => 300) if @work.cover.present? %>
   </div>
 
-  <div class="col-sm-8">
+  <div class="col-sm-7">
     <h1>
       <%= @work.name %>
     </h1>

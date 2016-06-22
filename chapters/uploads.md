@@ -1,6 +1,6 @@
-# Adding more features
+# Add more features
 
-## Adding  uploads
+## Add  uploads
 
 
 You can judge a book by it's cover -- and we'll need to be able to manage the covers of our books. We're going to use a bundle of pre-written code called a "gem" to let us upload files to our Rails app.
@@ -28,19 +28,21 @@ We've included two gems here. The first is for uploading files. The second is an
 \end{aside}
 
 
-In the console run:
+In the terminal at the bottom of the page, where your cursor says something like `emmab:~/workspace $`, type:
 
 ```
 bundle
 ```
+and press enter.
 
-Now we can generate the code for handling uploads. In the terminal run:
+Now we can generate the code for handling uploads. In the terminal type:
 
 ```
 rails generate uploader Cover
 ```
+and press enter.
 
-At this point you need to restart the Rails server process in the console. Hit CTRL-C in the terminal to quit the server. Once it has stopped, you can press the up arrow to get to the last command entered, then hit enter to start the server again. This is so the app can load the new code.
+At this point you need to restart the Rails server process in the console. Hit CTRL-C in the terminal to quit the server. Once it has stopped, click `Run project` again. This is so the app can load the new code.
 
 Open `app/models/work.rb` and under the line
 

@@ -1,4 +1,4 @@
-# Getting started
+# Get started
 \label{cha:a_chapter}
 
 
@@ -18,37 +18,38 @@ So the trend over the past decade has been to make it easier and easier to solve
 
 When the application has been written, it used to be the case that you then had to buy or rent a “server” that is connected to the internet, and then install and maintain all of the required software and security configuration. However another major change has been a recent profusion in companies, such as Amazon and Google, offering rental of their own computers for running code and managing applications. Other companies, such as Netflix, run their businesses entirely on rented servers. Furthermore, yet other companies provide management layers on top of these services that hide their complexity from you, making it even easier to run your own application, and because they have a huge customer base of very similar systems, they can do so extremely cheaply.
 
-Until very recently this still left you with the problem of setting up your own computer to develop your application, and this has often been a rather trying business. In the past year or two, other companies have developed “hosted” systems that allow you to develop your code on their servers, so you don’t even need to have a sophisticated and complex development environment on your own desktop or laptop computers. Today we will be using a service called “Nitrous” to develop our code.
+Until very recently this still left you with the problem of setting up your own computer to develop your application, and this has often been a rather trying business. In the past year or two, other companies have developed “hosted” systems that allow you to develop your code on their servers, so you don’t even need to have a sophisticated and complex development environment on your own desktop or laptop computers. Today we will be using a service called Cloud Nine to develop our code.
 
 
 
 
-## Set up a Cloud9 account
+## Set up a Cloud Nine account
 
 * Go to https://c9.io/
-* Enter your email address
-* Enter your name
-* Enter a user name
-* Select Hobbyist and Hobby Projects
+* Enter your email address and click "Get started"
+* Enter your name and click "Next"
+* Enter a user name and click "Next"
+* Select Hobbyist and Hobby Projects and click "Next"
+* Click "Next" to confirm your Cloud Nine details
 * Check the box to show you're not a robot and click "Create Account"
 
 
 ## Create a workspace
 
-* On the page that loads, click "Create a new workspace"
-* Give your project a name, such as "metadata_manager" or something more inventive
-* Give your project a description, such as "Bibliographic data management app"
+* On the page that loads, click the grey square labelled "Create a new workspace"
+* Give your workspace the name "book_organiser"
+* Give your workspace a description, such as "Bibliographic data management app"
 * Leave Public selected
-* Click Ruby on Rails in the "select a template" area
+* Click Ruby on Rails in the "Choose a template" area
 * Click "Create workspace"
 * After a while your IDE (interactive development environment) will load with a freshly-created Ruby on Rails app.
 
 
-## A look around C9
+## A look around Cloud Nine
 
 At the top of the page, the screen is divided into two. On the left is a file system navigator -- just like you’d see in Finder on the Mac or Windows Explorer on a PC.
 
-On the right is the contents of whichever file is open on Cloud 9.
+On the right is the contents of whichever file is open on Cloud Nine.
 
 At the bottom of the page you have a console. It’s the same as what you’d find if you’ve ever opened the Terminal on your Mac, or the Command Prompt on Windows. You can enter commands here which the computer will obey. Using the command line is often a lot quicker and more reliable than using the graphical user interface of your machine.
 
@@ -69,6 +70,6 @@ So: a Rails application generates HTML pages on the fly. And what are a bunch of
 
 \end{aside}
 
-On Cloud 9's navigation menu at the top of the page, click on `Run project`. You'll see a server start up in the lower pane. Click on Preview Running Application at the top, and then a new pane will open. That is a browser window, and in it you'll see a website declaring "Welcome aboard. You’re riding Ruby on Rails!"
+On Cloud Nine's navigation menu at the top of the page, click on `Run project`. You'll see a server start up in the lower pane. Click on `Preview > Preview Running Application` at the top, and then a new pane will open. That is a browser window, and in it you'll see a website declaring "Welcome aboard. You’re riding Ruby on Rails!"
 
 You’ve done it! Your new Rails application is running.
